@@ -1,34 +1,43 @@
-# Why the LawDiver API is awesome for builders
+# Why the LawDiver Caselaw API
 
-If you are shipping legal research features, cite hygiene, or grounded legal AI, most “caselaw APIs” fall into one of three traps: thin scrapes, silent citation rewriting, or search that ignores how lawyers actually scope authority. LawDiver’s API is designed to avoid those traps.
+If you are shipping legal research features, cite hygiene, or grounded legal AI, most “caselaw APIs” fall into one of three traps: thin scrapes, silent citation rewriting, or search that ignores how lawyers actually scope authority. LawDiver’s [public API](https://lawdiver.com/products/api) is designed to avoid those traps — the same retrieval and citation stack that powers [CaseDiver](https://lawdiver.com/casediver), exposed as versioned REST.
 
-## 1. Same verified corpus as the product
+Long-form narrative: [The caselaw API legal AI builders have been waiting for](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders). Field reference: [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
 
-Every search, cite check, and PDF comes from the corpus that powers CaseDiver on [lawdiver.com](https://lawdiver.com) — **10M+** federal and state opinions, structured metadata, and a large citation graph. Your integration and the public site stay aligned.
+---
 
-## 2. Cite checking that refuses to lie
+## Why builders choose LawDiver
+
+### Same verified corpus as the product
+
+Every search, cite check, and PDF comes from the corpus that powers lawdiver.com — **~10 million** federal and state opinions, structured metadata, and a large citation graph (tens of millions of resolved opinion-to-opinion edges). Your integration and the public site stay aligned. Harvest is continuous across 200+ court sites and government sources — not a quarterly dump.
+
+**Public records, not a commercial feed.** There is no Westlaw or Lexis license underneath, and no clause that forbids your product from competing with ours. That is why an API like this can exist for legal AI builders at all.
+
+### Cite checking that refuses to lie
 
 Silent auto-correction is dangerous: rewriting a brief’s citation to a case the author never read is worse than flagging ambiguity.
 
-LawDiver returns explicit verdicts:
+LawDiver asks the determinate question — does this cite name a real case **in a corpus we hold**, what is the correct Bluebook form, and is it still good law? — and returns explicit verdicts:
 
 | Verdict | Meaning |
 | --- | --- |
-| `valid` | Resolves cleanly; `correctedCitation` carries proper Bluebook form |
-| `name_mismatch` | Reporter cite is real, but names/year/court as written do not match — classic hallucination shape |
+| `valid` | Exact reporter-key match **and** name/year/court as written agree; `correctedCitation` carries proper Bluebook form |
+| `name_mismatch` | Reporter cite is real, but names/year/court as written do not match — **classic hallucination shape** |
 | `likely_valid` | Candidates only; **no automatic pick** |
-| `not_found` | Nothing matched — may include `corpusCaveat` while the corpus is still loading |
-| `error` | This row failed to check (reported, not omitted) |
+| `not_found` | Nothing matched — may include `corpusCaveat` (not proof of fabrication) |
+| `unverified` | No source can honestly answer (e.g. some statute probes) |
+| `error` | This row failed to check (reported, not omitted; not billed) |
 
-Present candidates to a human (or an explicit product policy). Do not treat `not_found` alone as proof of fabrication.
+Present candidates to a human (or an explicit product policy). Confidence reaches **1.0 only** for reporter-key matches — no fuzzy 0.97 standing in for certainty.
 
-## 3. Jurisdiction-first search
+### Legal search with engine-level control
 
-`POST /search` **requires** a jurisdiction object. That matches practice: Florida counsel rarely wants an unscoped national crawl. Eight scopes cover state-only, state+federal, circuits, districts, Supreme Court, and “everything” when you truly need it. Call `GET /jurisdictions` instead of hard-coding codes.
+`POST /search` **requires** jurisdiction — Florida counsel rarely wants an unscoped national crawl. Eight scopes cover state-only, state+federal, circuits, districts, Supreme Court, and “everything” when you truly need it. Call `GET /jurisdictions` instead of hard-coding codes.
 
-## 4. One call for agent loops
+Four engines + a router that plans (citation, name, keyword/boolean with `/s` `/p` `w/n`, semantic, hybrid, or `auto`). Pinning is honest: drop an engine for want of input rather than return a mysterious empty set.
 
-Turn on:
+### One call for agent loops
 
 ```json
 {
@@ -42,17 +51,17 @@ Turn on:
 }
 ```
 
-A tool-using model gets summary/holdings (when analyzed), opinion excerpts or full short opinions, and negative-treatment evidence — without a second retrieval round-trip. Keep `limit` small when opinion text is on.
+A tool-using model gets summary/holdings (when analyzed), opinion excerpts or full short opinions, and negative-treatment evidence — without a second retrieval round-trip. Search is billed **per case returned**; empty sets are free. Keep `limit` small when opinion text is on.
 
-## 5. Document-scale cite check
+### Document-scale cite check
 
-Upload a PDF/DOCX brief (`multipart/form-data`), receive a job id, poll until complete, download a report PDF with tallies, Bluebook forms, and first-page exhibits. Jobs are account-scoped — another account’s job id returns `not_found`.
+Upload a PDF/DOCX brief (`multipart/form-data`), receive a job id, poll until complete, download a report PDF with tallies, Bluebook forms, and first-page exhibits. Short forms bind to earlier full cites. Jobs are account-scoped — another account’s job id returns `not_found`.
 
-## 6. Did-you-mean is a feature, not an error
+### Did-you-mean is a feature, not an error
 
 Ambiguous retrieve queries return **HTTP 200** with `status: "did_you_mean"` and up to three candidates. Your error handler should not swallow them. Answer on the **same** endpoint by resubmitting with `caseId`.
 
-## 7. Production-minded HTTP
+### Production-minded HTTP
 
 - Bearer auth (or `X-API-Key`)
 - Stable `error.code` values
@@ -60,31 +69,41 @@ Ambiguous retrieve queries return **HTTP 200** with `status: "did_you_mean"` and
 - `Idempotency-Key` on search, cite-check-cite, and retrieve
 - Rate-limit headers + `Retry-After`
 - Usage ledger even while pricing is free
+- Additive-only public shapes — fields get added, never renamed out from under you
 
-## 8. Free to build against during rollout
+### Free to build against during rollout
 
-You can integrate, load-test carefully within limits, and measure volume via `GET /usage` without designing around per-action charges yet. When pricing changes, the discovery document and official docs state the policy — history is not rewritten.
+Integrate and measure volume via `GET /usage` without designing around per-action charges yet. The unauthenticated discovery document at `https://lawdiver.com/api/v1` shows endpoints and pricing **before** you create a key. When pricing changes, discovery and official docs state the policy — history is not rewritten.
 
-## 9. Fits modern stacks
-
-- **TypeScript / Node** backends and Next.js API routes
-- **Python** research notebooks, Django/FastAPI services, data pipelines
-- **Any language** via cURL-equivalent HTTP
-- Complements LawDiver **MCP** for agent environments
+---
 
 ## When to choose LawDiver over rolling your own
 
 | Build yourself | Use LawDiver API |
 | --- | --- |
 | Maintain opinion ingest + PDF rendering | Call `/cases/:id/pdf` |
-| Parse Bluebook edge cases | `/citecheck/cite` |
+| Parse Bluebook edge cases + short forms | `/citecheck/cite` + `/citecheck/document` |
 | Track negative treatment | `goodLaw` + `/good-law` |
 | Scope search like a practitioner | jurisdiction object + `/jurisdictions` |
-| Cite-check whole briefs | `/citecheck/document` |
+| Detect hallucinated cites (real reporter, wrong caption) | `name_mismatch` verdict |
+| Boolean + semantic + fusion retrieval | `POST /search` with `auto` / `hybrid` / pin |
+
+---
+
+## Fits modern stacks
+
+- **TypeScript / Node** backends and Next.js API routes (primary examples in this repo)
+- **Python** research notebooks, Django/FastAPI services, data pipelines
+- **Any language** via plain REST / cURL
+- Complements LawDiver **MCP** — same key, same usage meter
+
+---
 
 ## Next
 
+- [About LawDiver & the API](./about-lawdiver.md)
 - [Getting started](./getting-started.md)
 - [Endpoints](./endpoints.md)
 - [Recipes](./recipes.md)
-- Official docs: [https://lawdiver.com/docs/api](https://lawdiver.com/docs/api)
+- Product: [lawdiver.com/products/api](https://lawdiver.com/products/api)
+- Docs: [lawdiver.com/docs/api](https://lawdiver.com/docs/api)

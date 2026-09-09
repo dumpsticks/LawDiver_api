@@ -1,60 +1,60 @@
 # LawDiver Caselaw API — Examples & Integration Guide
 
-> **Build legal research, cite-checking, and caselaw retrieval into your own apps** using the same verified U.S. caselaw corpus that powers [LawDiver](https://lawdiver.com) — **10M+ federal and state opinions**, good-law signals, Bluebook citations, and opinion PDFs.
+> **The caselaw API legal AI builders have been waiting for.** Full boolean and semantic legal search, case retrieval, and a cite checker that resolves and scores citations — over **~10 million** U.S. federal and state opinions kept current around the clock. Same verified corpus as [CaseDiver](https://lawdiver.com/casediver). **No Westlaw contract required.** Free during rollout.
 
-**Official API docs:** [https://lawdiver.com/docs/api](https://lawdiver.com/docs/api)  
-**Base URL:** `https://lawdiver.com/api/v1`  
-**Auth:** Bearer API key (`lt_live_…`)  
-**Status:** Free during rollout · Plain REST · JSON (PDF where noted)
+This repository is the official **examples pack** for the [LawDiver API](https://lawdiver.com/products/api): thin TypeScript and Python clients, cURL recipes, and docs so you can search cases, retrieve opinions, and cite-check briefs from your own apps and agents.
 
----
-
-## Languages in this repository
-
-| Language | Role | Folder |
-| --- | --- | --- |
-| **TypeScript / Node.js** | **Primary** — matches the official LawDiver quickstart and recipes | [`typescript/`](./typescript/) |
-| **Python 3** | **Also included** — same endpoints, idiomatic `httpx` client | [`python/`](./python/) |
-| **cURL / shell** | Language-agnostic recipes for any stack | [`curl/`](./curl/) |
-| **PowerShell** | Windows-native HTTP recipes | [`curl/powershell.md`](./curl/powershell.md) |
-
-The LawDiver API is **language-agnostic REST**. You do not need an SDK — any HTTP client works. This repo ships thin clients and copy-paste examples so you can integrate quickly in TypeScript or Python.
+| | |
+| --- | --- |
+| **Product** | [lawdiver.com/products/api](https://lawdiver.com/products/api) |
+| **API docs** | [lawdiver.com/docs/api](https://lawdiver.com/docs/api) |
+| **Why it exists** | [Caselaw API for legal AI builders](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders) |
+| **Base URL** | `https://lawdiver.com/api/v1` |
+| **Auth** | Bearer API key (`lt_live_…`) |
+| **Status** | Free during rollout · Plain REST · JSON (PDF where noted) |
 
 ```bash
-# Discover the surface (no key required)
+# Discover endpoints and pricing policy — no key required
 curl https://lawdiver.com/api/v1
 ```
 
----
-
-## Why the LawDiver API is awesome
-
-- **Same corpus as the product** — Case search, cite check, and PDF retrieval run over the verified caselaw that powers CaseDiver on lawdiver.com, not a thin scrape.
-- **Built for real legal workflows** — Citation validation with Bluebook forms, good-law / negative treatment, parallel reporters, and did-you-mean — not just keyword search.
-- **Agent-ready search** — One `POST /search` can return analysis cards, opinion excerpts, and good-law reports so LLM tools can reason without a second hop.
-- **Document cite check** — Upload a brief (PDF/DOCX), get a job, poll, download a report PDF with verdicts and exhibit pages.
-- **Honest uncertainty** — `likely_valid`, `corpusCaveat`, and `did_you_mean` refuse silent auto-corrections that would invent authority.
-- **Plain REST** — Bearer auth, JSON envelopes, `requestId` on every response, idempotency keys on the hot paths, rate-limit headers you can actually use.
-- **Free during rollout** — Usage is ledgered so you can see volume now; pricing policy is published on the discovery document when it changes.
-- **MCP + web** — Same platform also offers CaseDiver (free public search), CiteDiver, StatDiver, and an MCP server for agent tooling.
+**About / advantages (read this first):** [docs/about-lawdiver.md](./docs/about-lawdiver.md) · [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md)
 
 ---
 
-## What LawDiver is (the app)
+## What this repository is
 
-[**LawDiver**](https://lawdiver.com) is a U.S. legal research and workflow platform.
+LawDiver’s API is **language-agnostic REST**. You do not need an SDK — any HTTP client works. This repo ships:
 
-### CaseDiver — free caselaw search for everyone
+- A **TypeScript / Node** client and runnable examples (primary — matches the official quickstart)
+- A **Python 3** client and matching examples (`httpx`)
+- **cURL / shell** recipes for any stack
+- Deep guides under [`docs/`](./docs/) (auth, endpoints, errors, agent recipes)
 
-[CaseDiver](https://lawdiver.com/casediver) lets citizens, self-represented litigants, students, journalists, and lawyers search **more than 10 million** federal and state court opinions, read full text, and download official PDFs — **no subscription and no login** for core search. Coverage includes the U.S. Supreme Court, federal courts of appeals, federal district courts, and appellate / supreme courts of all fifty states. The citation graph holds tens of millions of resolved opinion-to-opinion edges; high courts land in a daily feed.
+Clone it, set a key, run an example, then copy the pattern into your product.
 
-Search modes include citation, case name, boolean/keyword (with connectors like `AND`, `OR`, `/s`, `w/5`), semantic (issue descriptions), and hybrid. Jurisdiction scoping mirrors what practitioners actually cite (for example one state plus related federal).
+| Language | Role | Folder |
+| --- | --- | --- |
+| **TypeScript / Node.js** | **Primary** | [`typescript/`](./typescript/) |
+| **Python 3** | Also included | [`python/`](./python/) |
+| **cURL / shell** | Language-agnostic | [`curl/`](./curl/) |
+| **PowerShell** | Windows-native HTTP recipes | [`curl/powershell.md`](./curl/powershell.md) |
 
-### CiteDiver, StatDiver, MCP, and the API
+---
 
-Beyond free search, LawDiver offers **CiteDiver** (citation workflows), **StatDiver**, a **caselaw API** (this repo), **MCP** for tool-using agents, and bulk/data products. The API is the programmatic surface over the same verified corpus — ideal for law-firm tools, legaltech products, research assistants, compliance pipelines, and AI agents that must ground answers in real opinions.
+## Why the LawDiver API
 
-> LawDiver is offered to users located in the United States. It is **not legal advice**. Westlaw and Lexis are trademarks of their respective owners; LawDiver is not affiliated with either.
+- **Same corpus as the product** — Case search, cite check, and PDF retrieval over the verified caselaw that powers CaseDiver — not a thin scrape. Public records + LawDiver’s citator graph; no commercial research-platform feed underneath.
+- **Legal search that behaves like research** — Four engines + a router: citation, case name, boolean/keyword (with `/s`, `/p`, `w/n`), semantic, hybrid, or `auto`. Jurisdiction is required; filters run inside every engine.
+- **Cite check built for legal AI** — Resolves against a held corpus; returns Bluebook form and good-law. **`name_mismatch`** catches the classic hallucination (real reporter cite, wrong caption). **`likely_valid`** never silently “fixes” a cite.
+- **Whole-brief cite check** — Upload PDF/DOCX → async job → report PDF with verdicts and exhibit pages; short forms bind correctly.
+- **Agent-ready search** — One `POST /search` can return analysis cards, opinion excerpts, and good-law reports so LLM tools reason without a second hop.
+- **Honest defaults** — Bad law is flagged, not hidden; unpublished opinions are excluded by default; `unknown` treatment is never sold as a clean bill of health.
+- **Production REST** — Bearer auth, `requestId` on every response, idempotency keys on hot paths, rate-limit headers, usage ledger.
+- **Free during rollout** — Usage is ledgered so you see volume now; discover pricing at `GET /api/v1` before you sign anything.
+- **Same key via MCP** — MCP connectors share the API key and usage meter with REST.
+
+Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 
 ---
 
@@ -195,7 +195,7 @@ See [`curl/examples.sh`](./curl/examples.sh) for the full cookbook.
 ```
 LawDiver_api/
 ├── README.md                 ← you are here (overview + SEO guide)
-├── docs/                     ← deep guides (auth, endpoints, errors, recipes)
+├── docs/                     ← deep guides (about, auth, endpoints, recipes)
 ├── typescript/               ← TypeScript client + runnable examples
 ├── python/                   ← Python client + runnable examples
 ├── curl/                     ← shell recipes
@@ -204,9 +204,9 @@ LawDiver_api/
 
 | Doc | Contents |
 | --- | --- |
+| [docs/about-lawdiver.md](./docs/about-lawdiver.md) | **About the API** — features, advantages, corpus, agent loop (SEO) |
+| [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md) | Builder value props vs scrape / incumbents |
 | [docs/getting-started.md](./docs/getting-started.md) | Signup, keys, first successful call, env vars |
-| [docs/about-lawdiver.md](./docs/about-lawdiver.md) | Product overview for SEO / product pages |
-| [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md) | Value proposition for builders |
 | [docs/authentication.md](./docs/authentication.md) | Headers, key hygiene, revocation |
 | [docs/endpoints.md](./docs/endpoints.md) | Endpoint catalog with request/response notes |
 | [docs/error-handling.md](./docs/error-handling.md) | Stable error codes, did-you-mean, retries |
@@ -256,7 +256,7 @@ Canonical policy always wins: [API docs](https://lawdiver.com/docs/api) and `GET
 
 ## SEO / product keywords
 
-LawDiver caselaw API · free Westlaw alternative API · U.S. court opinions API · case citation checker API · Bluebook citation validation · good law citator API · legal research API for developers · TypeScript caselaw client · Python legal research SDK examples · brief cite check PDF · federal and state opinion search API · MCP legal tools · CaseDiver API integration
+LawDiver caselaw API · caselaw API for legal AI · boolean and semantic legal search · free Westlaw alternative API · U.S. court opinions API · case citation checker API · Bluebook citation validation · good law citator API · legal research API for developers and agents · TypeScript caselaw client · Python legal research SDK examples · brief cite check PDF · federal and state opinion search API · hallucination detection for legal citations · MCP legal tools · CaseDiver API integration
 
 ---
 
@@ -269,8 +269,9 @@ Examples in this repository are community-oriented integration samples. They are
 ## Links
 
 - [LawDiver home](https://lawdiver.com)
+- [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
+- [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)
 - [CaseDiver](https://lawdiver.com/casediver)
 - [Search connectors](https://lawdiver.com/docs/search-connectors)
 - [API keys](https://lawdiver.com/account/api-keys)
-- [MCP](https://lawdiver.com) (product nav)
