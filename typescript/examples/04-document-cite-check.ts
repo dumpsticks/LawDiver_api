@@ -39,6 +39,14 @@ if (job.otherAuthoritiesFound) {
   console.log(`other authorities (not verified): ${job.otherAuthoritiesFound}`);
 }
 
+for (const item of job.citations ?? []) {
+  const label = item.citationAsSent ?? item.citationAsWritten ?? "(unknown)";
+  console.log(
+    `  [input ${item.inputIndex}] ${label} → ${item.verdict}` +
+      (item.lookupStatus ? ` (${item.lookupStatus})` : ""),
+  );
+}
+
 if (report) {
   const out = `cite-report-${job.jobId}.pdf`;
   await writeFile(out, Buffer.from(report));

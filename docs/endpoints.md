@@ -3,7 +3,7 @@
 Canonical field-level reference: [https://lawdiver.com/docs/api](https://lawdiver.com/docs/api)  
 Base: `https://lawdiver.com/api/v1`
 
-Every JSON response includes `requestId`. Most also include `usage`. PDFs carry usage in `X-LawTools-*` headers instead.
+Every JSON response includes `requestId`. Most also include `usage`. PDFs carry usage in headers — prefer `X-LawDiver-*` (`X-LawTools-*` is still emitted for older clients).
 
 ---
 
@@ -11,7 +11,7 @@ Every JSON response includes `requestId`. Most also include `usage`. PDFs carry 
 
 ### `GET /`
 
-No API key. Returns the public surface and current pricing policy.
+No API key. Returns the public surface and current pricing policy (reserved price labels are strings: search `3`, cite `3`, page `1`, retrieval `3`).
 
 ```bash
 curl https://lawdiver.com/api/v1
@@ -41,6 +41,8 @@ Searches the caselaw corpus. **Jurisdiction is required.**
 | `include.opinionText` | no | Full or excerpted opinion text |
 | `include.goodLawReport` | no | Expand negative-treatment evidence (**on by default**) |
 | `opinionTextMaxChars` | no | Default 10000, clamp 500–50000 |
+
+**Result highlights:** each hit may include `bluebookCitation`, `parallelCitations`, and `opinionType` in addition to `citation` / `caseName` / `goodLaw`.
 
 **Jurisdiction `type` values**
 
@@ -80,7 +82,23 @@ Send exactly one of:
 
 Beyond 50, use the document endpoint.
 
-**Verdicts:** `valid` · `name_mismatch` · `likely_valid` · `not_found` · `error`
+**Sync behavior:** soft ~15s lookup budget after an exact-only first pass (overall wall ~20s). Timed-out rows return verdict `error` with `lookupStatus: deadline_exceeded` and are **not billed**. Blank or overlong elements become per-row `error` verdicts — they do **not** fail the whole request.
+
+**Result rows are keyed by `inputIndex`.** Subsequent-history compounds and semicolon string cites can expand to multiple rows that share the same `inputIndex` (`unitIndex` distinguishes units). `results.length` may exceed the input count — match on `inputIndex`, not array position. `citationAsSent` echoes the exact input; `citationAsWritten` may also be present.
+
+**Verdicts** (there is no cite verdict `not_found`):
+
+| Verdict | Meaning |
+| --- | --- |
+| `valid` | Resolves cleanly; `correctedCitation` carries Bluebook form |
+| `name_mismatch` | Real reporter cite, wrong caption/year/court as written |
+| `page_mismatch` | Pin/internal page rather than first page; corrected form supplied |
+| `likely_valid` | Candidates only; **no automatic pick** |
+| `implausible` | Strong fabrication signal (e.g. impossible volume) |
+| `not_in_corpus` | Searched a held range, no match — not proof of fabrication |
+| `not_covered` | Range not held / unparseable — absence is evidence of nothing |
+| `unverified` | Cannot confirm or deny |
+| `error` | Row failed (including soft timeout); reported, not omitted; not billed |
 
 Supports `Idempotency-Key`.
 
@@ -122,6 +140,8 @@ Body:
 - `caseId` (optional) — answer a prior did-you-mean (opinion id)
 
 **Statuses (all HTTP 200):** `ok` · `did_you_mean` · `not_found`
+
+Retrieve `not_found` is **not** a cite-check verdict. Do not merge the two taxonomies.
 
 Supports `Idempotency-Key`.
 
@@ -165,7 +185,18 @@ Status plus `negativeCitations`.
 
 Opinion PDF with processing/analysis appendix. `:id` must be an **opinion id**.
 
-Usage travels in headers (`X-Request-Id`, `X-LawTools-Operation`, `X-LawTools-Charge-Units`, …). Re-rendered each time — cache on your side. Does **not** honor `Idempotency-Key`.
+Usage travels in response headers (PDF cannot carry the JSON `usage` envelope). Prefer:
+
+```http
+X-Request-Id: req_…
+X-LawDiver-Operation: case_retrieval
+X-LawDiver-Charge-Units: 1
+X-LawDiver-Charge-Cents: 0
+```
+
+`X-LawTools-Operation`, `X-LawTools-Charge-Units`, and `X-LawTools-Charge-Cents` are still emitted for older clients.
+
+Re-rendered each time — cache on your side. Does **not** honor `Idempotency-Key`.
 
 ---
 
@@ -174,6 +205,12 @@ Usage travels in headers (`X-Request-Id`, `X-LawTools-Operation`, `X-LawTools-Ch
 ### `GET /usage?days=30`
 
 `days` 1–365, default 30. Returns consumer info, `byOperation`, and `yourPricing` (limits + reserved price labels). While free, costs may be zero.
+
+---
+
+## MCP (same key)
+
+Hosted Model Context Protocol server: [https://lawdiver.com/mcp](https://lawdiver.com/mcp) (Streamable HTTP). Tool catalog: [https://lawdiver.com/mcp/toolspec.json](https://lawdiver.com/mcp/toolspec.json). Same API key and usage meter as REST — no MCP implementation is required in the HTTP clients in this repo.
 
 ---
 

@@ -18,19 +18,19 @@ The API is **plain REST**. TypeScript and Python folders in this repo are conven
 4. Create a key. Copy it immediately — it is shown **once**. Only a SHA-256 hash is stored server-side.
 5. If you lose it, revoke and create a new key. Revocation takes effect on the next request.
 
-Keys look like: `lt_live_xxxxxxxxxxxxxxxxxxxx`.
+Keys look like: `ld_live_xxxxxxxxxxxxxxxxxxxx`.
 
 ## 2. Store the key safely
 
 ```bash
 # Linux / macOS
-export LAWDIVER_API_KEY=lt_live_xxxxxxxxxxxxxxxxxxxx
+export LAWDIVER_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 
 # Windows PowerShell
-$env:LAWDIVER_API_KEY = "lt_live_xxxxxxxxxxxxxxxxxxxx"
+$env:LAWDIVER_API_KEY = "ld_live_xxxxxxxxxxxxxxxxxxxx"
 ```
 
-Or copy `.env.example` → `.env` in this repository root and fill in the value. Sample clients also accept `LAWTOOLS_API_KEY` (the name used in the official docs).
+Or copy `.env.example` → `.env` in this repository root and fill in the value. Prefer `LAWDIVER_API_KEY`; sample clients also accept the optional legacy alias `LAWTOOLS_API_KEY`.
 
 **Rules**
 

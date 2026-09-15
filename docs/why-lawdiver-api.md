@@ -24,10 +24,15 @@ LawDiver asks the determinate question — does this cite name a real case **in 
 | --- | --- |
 | `valid` | Exact reporter-key match **and** name/year/court as written agree; `correctedCitation` carries proper Bluebook form |
 | `name_mismatch` | Reporter cite is real, but names/year/court as written do not match — **classic hallucination shape** |
+| `page_mismatch` | Pin/internal page rather than first page; corrected first-page form supplied |
 | `likely_valid` | Candidates only; **no automatic pick** |
-| `not_found` | Nothing matched — may include `corpusCaveat` (not proof of fabrication) |
-| `unverified` | No source can honestly answer (e.g. some statute probes) |
-| `error` | This row failed to check (reported, not omitted; not billed) |
+| `implausible` | Strong fabrication signal (e.g. impossible reporter volume) |
+| `not_in_corpus` | Searched a held range, no match — may include `corpusCaveat` (not proof of fabrication) |
+| `not_covered` | Range not held / unparseable — absence is evidence of nothing |
+| `unverified` | No source can honestly confirm or deny |
+| `error` | This row failed to check, including soft timeout (`lookupStatus: deadline_exceeded`); reported, not omitted; not billed |
+
+There is no cite verdict `not_found` — that code is only HTTP 404 or retrieve `status: "not_found"`.
 
 Present candidates to a human (or an explicit product policy). Confidence reaches **1.0 only** for reporter-key matches — no fuzzy 0.97 standing in for certainty.
 
@@ -95,7 +100,7 @@ Integrate and measure volume via `GET /usage` without designing around per-actio
 - **TypeScript / Node** backends and Next.js API routes (primary examples in this repo)
 - **Python** research notebooks, Django/FastAPI services, data pipelines
 - **Any language** via plain REST / cURL
-- Complements LawDiver **MCP** — same key, same usage meter
+- Complements LawDiver **MCP** at [lawdiver.com/mcp](https://lawdiver.com/mcp) (toolspec: [`/mcp/toolspec.json`](https://lawdiver.com/mcp/toolspec.json)) — same key, same usage meter
 
 ---
 

@@ -77,6 +77,11 @@ export interface SearchResult {
   caseId: string;
   caseName: string;
   citation: string | null;
+  /** Preferred Bluebook form when known. */
+  bluebookCitation?: string | null;
+  /** Other locators on file for the same decision. */
+  parallelCitations?: string[];
+  opinionType?: string;
   court?: string;
   courtAbbreviation?: string;
   jurisdiction?: string;
@@ -110,21 +115,77 @@ export interface SearchResponse {
   requestId: string;
 }
 
+/**
+ * Cite-check verdict taxonomy (sync + document jobs).
+ * There is no cite verdict `not_found` — that code is only HTTP 404 or retrieve `status: "not_found"`.
+ */
 export type CiteVerdict =
   | "valid"
   | "name_mismatch"
+  | "page_mismatch"
   | "likely_valid"
-  | "not_found"
+  | "implausible"
+  | "not_in_corpus"
+  | "not_covered"
+  | "unverified"
   | "error";
 
+export type CiteLookupStatus =
+  | "completed"
+  | "deadline_exceeded"
+  | "skipped_budget"
+  | "failed";
+
+export interface CiteCheckCandidate {
+  caseId?: string;
+  caseName?: string;
+  bluebookCitation?: string;
+  citation?: string;
+  parallelCitations?: string[];
+  knownCitations?: Array<{
+    cite: string;
+    kind?: string;
+    preferred?: boolean;
+    matched?: boolean;
+  }>;
+  court?: string;
+  year?: number;
+  published?: boolean;
+  citedByCount?: number;
+  goodLaw?: GoodLawSummary;
+  matchedBy?: string;
+  confidence?: number;
+  retrievalUrl?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * One cite-check result row.
+ *
+ * Compounds / subsequent-history phrases can expand to multiple rows that share
+ * the same `inputIndex` (with `unitIndex` distinguishing units). Always match on
+ * `inputIndex`, not array position — `results.length` may exceed the input count.
+ */
 export interface CiteCheckItem {
-  citationAsWritten: string;
+  /** Index into the original `citations` / `citation` input (0-based). */
+  inputIndex: number;
+  /** Unit within an expanded compound (0 = primary). */
+  unitIndex?: number;
+  /** e.g. primary / subsequent history role when expanded. */
+  role?: string;
+  /** Exact input string echoed back. */
+  citationAsSent: string;
+  /** As-written form (may match citationAsSent). Still returned by the API. */
+  citationAsWritten?: string;
   verdict: CiteVerdict;
+  /** Soft-lookup outcome; soft timeouts are never silent absences. */
+  lookupStatus?: CiteLookupStatus;
   correctedCitation?: string | null;
   explanation?: string;
   corpusCaveat?: string | null;
+  coverage?: Record<string, unknown> | null;
   reporterKeys?: string[];
-  candidates?: Array<Record<string, unknown>>;
+  candidates?: CiteCheckCandidate[];
 }
 
 export interface CiteCheckResponse {
@@ -186,6 +247,7 @@ export interface RetrieveDidYouMean {
   requestId: string;
 }
 
+/** Retrieve miss — not a cite-check verdict. Always HTTP 200. */
 export interface RetrieveNotFound {
   status: "not_found";
   corpusCaveat?: string | null;

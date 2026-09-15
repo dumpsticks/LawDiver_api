@@ -14,13 +14,13 @@ Base URL: `https://lawdiver.com/api/v1`
 Preferred (Bearer — what gateways and HTTP clients already understand):
 
 ```http
-Authorization: Bearer lt_live_xxxxxxxxxxxxxxxxxxxx
+Authorization: Bearer ld_live_xxxxxxxxxxxxxxxxxxxx
 ```
 
 Also accepted:
 
 ```http
-X-API-Key: lt_live_xxxxxxxxxxxxxxxxxxxx
+X-API-Key: ld_live_xxxxxxxxxxxxxxxxxxxx
 ```
 
 JSON bodies also need:
@@ -43,8 +43,8 @@ Except multipart document upload (`POST /citecheck/document`), where the client 
 
 | Variable | Purpose |
 | --- | --- |
-| `LAWDIVER_API_KEY` | Preferred for samples in this repository |
-| `LAWTOOLS_API_KEY` | Alias matching official LawDiver docs |
+| `LAWDIVER_API_KEY` | Preferred env var for this repository and new integrations |
+| `LAWTOOLS_API_KEY` | Optional legacy alias still accepted by sample clients |
 | `LAWDIVER_API_BASE` | Optional override (default `https://lawdiver.com/api/v1`) |
 
 Sample clients check `LAWDIVER_API_KEY` first, then `LAWTOOLS_API_KEY`.
@@ -74,16 +74,21 @@ On `POST /search`, `POST /citecheck/cite`, and `POST /cases/retrieve`:
 Idempotency-Key: my-request-2026-08-13-001
 ```
 
-Replaying the same key for the same account returns the stored response with `replayed: true` without re-running work. Keys bind to the **first response**, not the body — never reuse a key for a different query.
+Same key + same body → stored response with `replayed: true` (no re-run). Same key + different body → `idempotency_conflict` (HTTP 409). Generate a fresh key for each distinct request. The first call must have sent the key — you cannot attach one after the fact.
 
 ## Rate-limit headers
 
-Authenticated responses may include:
+Authenticated responses may include both legacy and IETF-style headers:
 
 ```http
 X-RateLimit-Limit: 60
 X-RateLimit-Remaining: 57
-Retry-After: 12
+X-RateLimit-Reset: 1726260000   # unix seconds when the window resets
+RateLimit-Limit: 60
+RateLimit-Remaining: 57
+RateLimit-Reset: 12             # seconds until reset
+RateLimit-Policy: 60;w=60
+Retry-After: 12                 # only on 429
 ```
 
 `Retry-After` appears on `429`. Confirm your ceiling via `GET /usage` → `yourPricing.rateLimitPerMinute`.

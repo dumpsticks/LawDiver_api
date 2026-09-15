@@ -4,7 +4,7 @@
 # Docs: https://lawdiver.com/docs/api
 #
 # Usage:
-#   export LAWDIVER_API_KEY=lt_live_xxxxxxxxxxxxxxxxxxxx
+#   export LAWDIVER_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 #   bash curl/examples.sh
 #   bash curl/examples.sh search
 #   bash curl/examples.sh cite

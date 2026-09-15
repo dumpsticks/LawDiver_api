@@ -49,13 +49,19 @@ See: `05-agent-search` examples.
 { "citations": ["570 U.S. 744", "999 F.3d 1"] }
 ```
 
-UI guidance:
+UI guidance (match rows on `inputIndex`, not array index — compounds can expand):
 
 - `valid` → show `correctedCitation`
 - `name_mismatch` → warn: real reporter, wrong caption (hallucination shape)
+- `page_mismatch` → show corrected first-page form; review pin
 - `likely_valid` → show candidates; require human pick
-- `not_found` → show `corpusCaveat` if present; do not auto-label “fake”
-- `error` → show failure for that row (do not omit)
+- `implausible` → strong fabrication signal
+- `not_in_corpus` → show `corpusCaveat` / `coverage` if present; do not auto-label “fake”
+- `not_covered` → range not held / unparseable; absence proves nothing
+- `unverified` → cannot confirm or deny
+- `error` → show failure for that row (including `lookupStatus: deadline_exceeded`); do not omit; not billed
+
+There is no cite verdict `not_found` (that is HTTP 404 or retrieve `status` only).
 
 ---
 
@@ -92,10 +98,13 @@ See: `03-retrieve` examples.
 ```text
 key = "search-" + uuid()
 attempt POST /search with Idempotency-Key: key
-on timeout → retry with SAME key (do not change body)
+on timeout → retry with SAME key and SAME body
+  → stored response + replayed: true
+same key + different body → 409 idempotency_conflict
+  → generate a new key for the new request (does not return the old answer)
 ```
 
-Never reuse the key for a different query.
+Never reuse a key across different queries/bodies.
 
 ---
 

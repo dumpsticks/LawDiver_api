@@ -29,6 +29,11 @@ print(f"counts: {job.get('counts')}")
 if job.get("otherAuthoritiesFound"):
     print(f"other authorities (not verified): {job['otherAuthoritiesFound']}")
 
+for item in job.get("citations") or []:
+    label = item.get("citationAsSent") or item.get("citationAsWritten") or "(unknown)"
+    status = f" ({item['lookupStatus']})" if item.get("lookupStatus") else ""
+    print(f"  [input {item.get('inputIndex', '?')}] {label} → {item.get('verdict')}{status}")
+
 report = result.get("report")
 if report:
     out = Path(f"cite-report-{job['jobId']}.pdf")

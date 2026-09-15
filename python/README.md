@@ -9,7 +9,7 @@ Requires **Python 3.10+**.
 ```bash
 # from repo root
 cp .env.example .env
-# paste LAWDIVER_API_KEY=lt_live_...
+# paste LAWDIVER_API_KEY=ld_live_...
 
 cd python
 python -m venv .venv

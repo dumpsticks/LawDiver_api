@@ -5,7 +5,7 @@ Language-agnostic HTTP against `https://lawdiver.com/api/v1`.
 On Windows, use [Git Bash](https://git-scm.com/), WSL, or translate the calls to PowerShell `Invoke-RestMethod`.
 
 ```bash
-export LAWDIVER_API_KEY=lt_live_xxxxxxxxxxxxxxxxxxxx
+export LAWDIVER_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 bash curl/examples.sh          # discovery + usage + search + cite + retrieve
 bash curl/examples.sh search
 bash curl/examples.sh cite

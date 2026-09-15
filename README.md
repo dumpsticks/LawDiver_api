@@ -10,7 +10,7 @@ This repository is the official **examples pack** for the [LawDiver API](https:/
 | **API docs** | [lawdiver.com/docs/api](https://lawdiver.com/docs/api) |
 | **Why it exists** | [Caselaw API for legal AI builders](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders) |
 | **Base URL** | `https://lawdiver.com/api/v1` |
-| **Auth** | Bearer API key (`lt_live_…`) |
+| **Auth** | Bearer API key (`ld_live_…`) |
 | **Status** | Free during rollout · Plain REST · JSON (PDF where noted) |
 
 ```bash
@@ -52,7 +52,7 @@ Clone it, set a key, run an example, then copy the pattern into your product.
 - **Honest defaults** — Bad law is flagged, not hidden; unpublished opinions are excluded by default; `unknown` treatment is never sold as a clean bill of health.
 - **Production REST** — Bearer auth, `requestId` on every response, idempotency keys on hot paths, rate-limit headers, usage ledger.
 - **Free during rollout** — Usage is ledgered so you see volume now; discover pricing at `GET /api/v1` before you sign anything.
-- **Same key via MCP** — MCP connectors share the API key and usage meter with REST.
+- **Same key via MCP** — hosted MCP at [lawdiver.com/mcp](https://lawdiver.com/mcp); tool catalog at [`/mcp/toolspec.json`](https://lawdiver.com/mcp/toolspec.json).
 
 Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 
@@ -87,19 +87,19 @@ Full field-level reference: [docs/endpoints.md](./docs/endpoints.md) · Canonica
 4. Store it as an environment variable on your **server**:
 
 ```bash
-# recommended for this repo
-export LAWDIVER_API_KEY=lt_live_xxxxxxxxxxxxxxxxxxxx
+# preferred
+export LAWDIVER_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 
-# official docs also use:
-export LAWTOOLS_API_KEY=lt_live_xxxxxxxxxxxxxxxxxxxx
+# optional legacy alias (sample clients still accept it)
+# export LAWTOOLS_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 ```
 
 5. Send it on every authenticated request:
 
 ```http
-Authorization: Bearer lt_live_xxxxxxxxxxxxxxxxxxxx
+Authorization: Bearer ld_live_xxxxxxxxxxxxxxxxxxxx
 # or
-X-API-Key: lt_live_xxxxxxxxxxxxxxxxxxxx
+X-API-Key: ld_live_xxxxxxxxxxxxxxxxxxxx
 ```
 
 **Never** put a key in browser JavaScript, a mobile app bundle, or a public repo. Call LawDiver from your backend and proxy results to the client. If a key is lost, revoke it and issue a new one — revocation applies on the next request.
@@ -224,7 +224,7 @@ LawDiver_api/
 6. **Idempotency-Key** is honored on `POST /search`, `POST /citecheck/cite`, and `POST /cases/retrieve` for safe retries after timeouts.
 7. **Document cite check is async** — upload → poll job → download report PDF.
 8. **PDFs are re-rendered** (good-law changes) — cache bytes yourself when you need safe retry; they do not use idempotency keys.
-9. **Rate limits** arrive as `X-RateLimit-*`; on `429`, honor `Retry-After`.
+9. **Rate limits** arrive as `X-RateLimit-*` and `RateLimit-*`; on `429`, honor `Retry-After`.
 10. **Branch on `error.code`**, not message text — codes are stable.
 
 ---

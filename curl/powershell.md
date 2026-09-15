@@ -3,7 +3,7 @@
 Set your key (session-scoped):
 
 ```powershell
-$env:LAWDIVER_API_KEY = "lt_live_xxxxxxxxxxxxxxxxxxxx"
+$env:LAWDIVER_API_KEY = "ld_live_xxxxxxxxxxxxxxxxxxxx"
 $Base = "https://lawdiver.com/api/v1"
 $Headers = @{ Authorization = "Bearer $env:LAWDIVER_API_KEY" }
 ```

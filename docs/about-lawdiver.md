@@ -39,7 +39,7 @@ It is a versioned REST API, authenticated with an API key, billed per unit of wo
 | **Case retrieval** | Full opinion text and structured metadata — holdings, citations, court, dates — plus PDF with processing material appended |
 | **Cite check** | Verify whether a citation exists and is still good law, including treatment, subsequent history, and reversal flags; batch up to 50 cites or upload a whole brief |
 | **Citation graph** | Good-law detail and paginated cited-by for any case |
-| **Same key via MCP** | MCP connectors use the same API key and the same usage meter as REST |
+| **Same key via MCP** | Hosted MCP at [lawdiver.com/mcp](https://lawdiver.com/mcp); tool catalog [`/mcp/toolspec.json`](https://lawdiver.com/mcp/toolspec.json) — same API key and usage meter as REST |
 
 Canonical field-level docs: [endpoints.md](./endpoints.md) · [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
 
