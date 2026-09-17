@@ -5,7 +5,10 @@ Set your key (session-scoped):
 ```powershell
 $env:LAWDIVER_API_KEY = "ld_live_xxxxxxxxxxxxxxxxxxxx"
 $Base = "https://lawdiver.com/api/v1"
-$Headers = @{ Authorization = "Bearer $env:LAWDIVER_API_KEY" }
+$Headers = @{
+  Authorization = "Bearer $env:LAWDIVER_API_KEY"
+  "User-Agent" = "LawDiver-API-Examples/1.0 (+https://github.com/dumpsticks/LawDiver_api; powershell)"
+}
 ```
 
 ## Discovery (no key)

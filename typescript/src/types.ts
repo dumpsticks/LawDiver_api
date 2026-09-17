@@ -51,6 +51,7 @@ export interface UsageBlock {
   costMillicents?: number;
   costCents?: number;
   breakdown?: Record<string, number>;
+  replayed?: boolean;
 }
 
 export interface ApiErrorBody {
@@ -71,6 +72,20 @@ export interface GoodLawSummary {
   basis?: string;
   computedAt?: string;
   negativeCitations?: unknown[];
+}
+
+export type MatchedBy =
+  | "reporter_key"
+  | "case_name"
+  | "volume_page_near"
+  | "docket_number"
+  | string;
+
+export interface KnownCitation {
+  cite: string;
+  kind?: string;
+  preferred?: boolean;
+  matched?: boolean;
 }
 
 export interface SearchResult {
@@ -130,11 +145,49 @@ export type CiteVerdict =
   | "unverified"
   | "error";
 
+/** All cite-check verdicts — useful for exhaustive switches / tests. */
+export const CITE_VERDICTS: readonly CiteVerdict[] = [
+  "valid",
+  "name_mismatch",
+  "page_mismatch",
+  "likely_valid",
+  "implausible",
+  "not_in_corpus",
+  "not_covered",
+  "unverified",
+  "error",
+] as const;
+
 export type CiteLookupStatus =
   | "completed"
   | "deadline_exceeded"
   | "skipped_budget"
   | "failed";
+
+/**
+ * Structured coverage for graded negatives (`implausible`, `not_in_corpus`, `not_covered`).
+ * Shape varies by reporter family; unknown keys are allowed.
+ */
+export interface CiteCoverage {
+  reporter?: string;
+  series?: string;
+  volume?: number | string;
+  page?: number | string;
+  held?: boolean;
+  reason?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Per-field comparison when as-written caption/year/court diverge (`name_mismatch` and kin).
+ */
+export interface CiteFieldMatch {
+  field?: string;
+  asWritten?: string | null;
+  expected?: string | null;
+  matched?: boolean;
+  [key: string]: unknown;
+}
 
 export interface CiteCheckCandidate {
   caseId?: string;
@@ -142,20 +195,16 @@ export interface CiteCheckCandidate {
   bluebookCitation?: string;
   citation?: string;
   parallelCitations?: string[];
-  knownCitations?: Array<{
-    cite: string;
-    kind?: string;
-    preferred?: boolean;
-    matched?: boolean;
-  }>;
+  knownCitations?: KnownCitation[];
   court?: string;
   year?: number;
   published?: boolean;
   citedByCount?: number;
   goodLaw?: GoodLawSummary;
-  matchedBy?: string;
+  matchedBy?: MatchedBy;
   confidence?: number;
   retrievalUrl?: string;
+  pdfUrl?: string;
   [key: string]: unknown;
 }
 
@@ -183,7 +232,9 @@ export interface CiteCheckItem {
   correctedCitation?: string | null;
   explanation?: string;
   corpusCaveat?: string | null;
-  coverage?: Record<string, unknown> | null;
+  coverage?: CiteCoverage | null;
+  /** Field-level match detail when caption/year/court diverge from the resolved case. */
+  fieldMatches?: CiteFieldMatch[] | Record<string, CiteFieldMatch | boolean | string | null> | null;
   reporterKeys?: string[];
   candidates?: CiteCheckCandidate[];
 }
@@ -224,6 +275,17 @@ export interface DocumentJobStatus {
   requestId?: string;
 }
 
+export interface RetrieveCandidate {
+  caseId: string;
+  caseName: string;
+  bluebookCitation?: string;
+  citation?: string;
+  year?: number;
+  confidence?: number;
+  matchedBy?: MatchedBy;
+  pdfUrl?: string;
+}
+
 export interface RetrieveOk {
   status: "ok";
   case: Record<string, unknown> & { pdfUrl?: string; caseId?: string };
@@ -234,15 +296,7 @@ export interface RetrieveOk {
 export interface RetrieveDidYouMean {
   status: "did_you_mean";
   message?: string;
-  candidates: Array<{
-    caseId: string;
-    caseName: string;
-    bluebookCitation?: string;
-    year?: number;
-    confidence?: number;
-    matchedBy?: string;
-    pdfUrl?: string;
-  }>;
+  candidates: RetrieveCandidate[];
   usage: UsageBlock;
   requestId: string;
 }
@@ -256,6 +310,98 @@ export interface RetrieveNotFound {
 }
 
 export type RetrieveResponse = RetrieveOk | RetrieveDidYouMean | RetrieveNotFound;
+
+export interface ResolveCitationResponse {
+  verdict?: CiteVerdict | string;
+  correctedCitation?: string | null;
+  explanation?: string;
+  candidates: CiteCheckCandidate[];
+  usage: UsageBlock;
+  requestId: string;
+}
+
+export interface CaseMetadata {
+  caseId?: string;
+  caseName?: string;
+  citation?: string | null;
+  bluebookCitation?: string | null;
+  parallelCitations?: string[];
+  court?: string;
+  year?: number;
+  dateFiled?: string;
+  published?: boolean;
+  citedByCount?: number;
+  goodLaw?: GoodLawSummary;
+  [key: string]: unknown;
+}
+
+export interface CaseMetadataResponse extends CaseMetadata {
+  usage?: UsageBlock;
+  requestId: string;
+}
+
+export interface CaseBatchResponse {
+  cases: CaseMetadata[];
+  notFound: string[];
+  usage: UsageBlock;
+  requestId: string;
+}
+
+export interface GoodLawResponse extends GoodLawSummary {
+  caseId?: string;
+  usage?: UsageBlock;
+  requestId: string;
+}
+
+export interface CitedByItem {
+  caseId: string;
+  caseName?: string;
+  citation?: string | null;
+  bluebookCitation?: string | null;
+  court?: string;
+  year?: number;
+  [key: string]: unknown;
+}
+
+export interface CitedByResponse {
+  caseId?: string;
+  results?: CitedByItem[];
+  citingCases?: CitedByItem[];
+  total?: number;
+  limit?: number;
+  offset?: number;
+  usage: UsageBlock;
+  requestId: string;
+  [key: string]: unknown;
+}
+
+export interface JurisdictionsResponse {
+  types?: JurisdictionType[] | Array<{ type: JurisdictionType; [key: string]: unknown }>;
+  states?: string[];
+  circuits?: string[];
+  examples?: unknown[];
+  usage?: UsageBlock | null;
+  requestId: string;
+  [key: string]: unknown;
+}
+
+export interface DiscoveryEndpoint {
+  method: string;
+  path: string;
+  description?: string;
+}
+
+export interface DiscoveryResponse {
+  api?: string;
+  version?: string;
+  documentation?: string;
+  authentication?: Record<string, unknown>;
+  endpoints?: DiscoveryEndpoint[];
+  pricing?: Record<string, unknown>;
+  usage?: UsageBlock | null;
+  requestId: string;
+  [key: string]: unknown;
+}
 
 export interface UsageResponse {
   consumer: { name?: string; email?: string; status?: string };

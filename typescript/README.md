@@ -1,8 +1,10 @@
 # LawDiver API — TypeScript / Node.js examples
 
-**Primary language in this repository.** The official LawDiver docs also use TypeScript for the quickstart and recipes.
+**Primary language in this repository.** Official docs also use TypeScript for the quickstart.
 
 Requires **Node.js 18+** (native `fetch`, `FormData`, `Blob`).
+
+This folder is an **examples client** (`private: true` in `package.json`). It is **not** published to npm — clone this repo or copy `src/` into your app.
 
 ## Setup
 
@@ -25,6 +27,12 @@ npm run example:document   # needs path to a PDF/DOCX as argv
 npm run example:agent
 npm run example:usage
 npm run example:good-law
+```
+
+## Tests
+
+```bash
+npm test   # tsc build + node:test (mocked HTTP; no API key)
 ```
 
 ## Use the client in your app
@@ -51,6 +59,7 @@ npm run build
 
 | Path | Purpose |
 | --- | --- |
-| `src/client.ts` | Thin REST client |
-| `src/types.ts` | Request/response types |
+| `src/client.ts` | Thin REST client (sets `User-Agent`) |
+| `src/types.ts` | Request/response types (full cite-check taxonomy) |
 | `examples/*.ts` | Runnable demos |
+| `test/*.ts` | Unit tests |

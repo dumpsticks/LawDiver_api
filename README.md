@@ -2,7 +2,9 @@
 
 > **The caselaw API legal AI builders have been waiting for.** Full boolean and semantic legal search, case retrieval, and a cite checker that resolves and scores citations — over **~10 million** U.S. federal and state opinions kept current around the clock. Same verified corpus as [CaseDiver](https://lawdiver.com/casediver). **No Westlaw contract required.** Free during rollout.
 
-This repository is the official **examples pack** for the [LawDiver API](https://lawdiver.com/products/api): thin TypeScript and Python clients, cURL recipes, and docs so you can search cases, retrieve opinions, and cite-check briefs from your own apps and agents.
+This repository is the official **examples pack** for the [LawDiver API](https://lawdiver.com/products/api): thin TypeScript and Python clients you **clone and copy**, cURL recipes, and docs so you can search cases, retrieve opinions, and cite-check briefs from your own apps and agents.
+
+**Not a published SDK.** `@lawdiver/api-examples` is not on npm and `lawdiver` is not on PyPI — install by cloning this repo (or copying `typescript/src` / `python/lawdiver` into your project). The API itself is language-agnostic REST; these clients are worked examples with typed surfaces, not a package registry product.
 
 | | |
 | --- | --- |
@@ -26,12 +28,12 @@ curl https://lawdiver.com/api/v1
 
 LawDiver’s API is **language-agnostic REST**. You do not need an SDK — any HTTP client works. This repo ships:
 
-- A **TypeScript / Node** client and runnable examples (primary — matches the official quickstart)
-- A **Python 3** client and matching examples (`httpx`)
+- A **TypeScript / Node** examples client and runnable demos (primary — matches the official quickstart)
+- A **Python 3** examples client and matching demos (`httpx`)
 - **cURL / shell** recipes for any stack
 - Deep guides under [`docs/`](./docs/) (auth, endpoints, errors, agent recipes)
 
-Clone it, set a key, run an example, then copy the pattern into your product.
+Clone it, set a key, run an example, then copy the pattern into your product. Prefer a real `User-Agent` on hand-rolled clients — see [docs/authentication.md](./docs/authentication.md).
 
 | Language | Role | Folder |
 | --- | --- | --- |
@@ -196,9 +198,10 @@ See [`curl/examples.sh`](./curl/examples.sh) for the full cookbook.
 LawDiver_api/
 ├── README.md                 ← you are here (overview + SEO guide)
 ├── docs/                     ← deep guides (about, auth, endpoints, recipes)
-├── typescript/               ← TypeScript client + runnable examples
-├── python/                   ← Python client + runnable examples
+├── typescript/               ← TypeScript examples client + runnable demos
+├── python/                   ← Python examples client + runnable demos
 ├── curl/                     ← shell recipes
+├── .github/workflows/        ← CI (build + unit tests)
 └── .env.example              ← key template (copy to .env)
 ```
 

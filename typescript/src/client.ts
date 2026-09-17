@@ -2,9 +2,16 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import type {
   ApiErrorBody,
+  CaseBatchResponse,
+  CaseMetadataResponse,
   CiteCheckResponse,
+  CitedByResponse,
+  DiscoveryResponse,
   DocumentJobStart,
   DocumentJobStatus,
+  GoodLawResponse,
+  JurisdictionsResponse,
+  ResolveCitationResponse,
   RetrieveResponse,
   SearchRequest,
   SearchResponse,
@@ -12,6 +19,8 @@ import type {
 } from "./types.js";
 
 const DEFAULT_BASE = "https://lawdiver.com/api/v1";
+/** Identify this examples client; missing User-Agent often fails Cloudflare bot checks (1010). */
+export const DEFAULT_USER_AGENT = "LawDiver-API-Examples/1.0 (+https://github.com/dumpsticks/LawDiver_api; typescript)";
 
 /** Load KEY=VALUE pairs from a .env file if present (no dependency). */
 function loadDotEnv(filePath: string): void {
@@ -73,6 +82,8 @@ export class LawDiverApiError extends Error {
 export interface LawDiverClientOptions {
   apiKey?: string;
   baseUrl?: string;
+  /** Override User-Agent (default identifies this examples client). */
+  userAgent?: string;
   /** Optional fetch implementation (tests / custom agents). */
   fetch?: typeof fetch;
 }
@@ -80,9 +91,12 @@ export interface LawDiverClientOptions {
 /**
  * Thin LawDiver API client — plain fetch, no SDK magic.
  * Docs: https://lawdiver.com/docs/api
+ *
+ * This package is an examples client (clone-and-copy), not a published npm SDK.
  */
 export class LawDiverClient {
   readonly baseUrl: string;
+  readonly userAgent: string;
   private readonly apiKey: string;
   private readonly fetchImpl: typeof fetch;
 
@@ -92,21 +106,32 @@ export class LawDiverClient {
       /\/$/,
       "",
     );
+    this.userAgent = options.userAgent ?? DEFAULT_USER_AGENT;
     this.fetchImpl = options.fetch ?? fetch;
   }
 
+  private authHeaders(extra: Record<string, string> = {}): Record<string, string> {
+    return {
+      Authorization: `Bearer ${this.apiKey}`,
+      "User-Agent": this.userAgent,
+      ...extra,
+    };
+  }
+
   /** Unauthenticated discovery document. */
-  async discovery(): Promise<unknown> {
-    const res = await this.fetchImpl(this.baseUrl);
-    return res.json();
+  async discovery(): Promise<DiscoveryResponse> {
+    const res = await this.fetchImpl(this.baseUrl, {
+      headers: { "User-Agent": this.userAgent },
+    });
+    return res.json() as Promise<DiscoveryResponse>;
   }
 
   async search(body: SearchRequest, idempotencyKey?: string): Promise<SearchResponse> {
     return this.request<SearchResponse>("POST", "/search", body, idempotencyKey);
   }
 
-  async jurisdictions(): Promise<unknown> {
-    return this.request<unknown>("GET", "/jurisdictions");
+  async jurisdictions(): Promise<JurisdictionsResponse> {
+    return this.request<JurisdictionsResponse>("GET", "/jurisdictions");
   }
 
   async citeCheck(
@@ -116,8 +141,8 @@ export class LawDiverClient {
     return this.request<CiteCheckResponse>("POST", "/citecheck/cite", input, idempotencyKey);
   }
 
-  async resolveCitation(query: string): Promise<unknown> {
-    return this.request<unknown>("POST", "/citations/resolve", { query });
+  async resolveCitation(query: string): Promise<ResolveCitationResponse> {
+    return this.request<ResolveCitationResponse>("POST", "/citations/resolve", { query });
   }
 
   async retrieve(
@@ -127,27 +152,27 @@ export class LawDiverClient {
     return this.request<RetrieveResponse>("POST", "/cases/retrieve", body, idempotencyKey);
   }
 
-  async caseMetadata(caseId: string): Promise<unknown> {
-    return this.request<unknown>("GET", `/cases/${encodeURIComponent(caseId)}`);
+  async caseMetadata(caseId: string): Promise<CaseMetadataResponse> {
+    return this.request<CaseMetadataResponse>("GET", `/cases/${encodeURIComponent(caseId)}`);
   }
 
-  async caseBatch(caseIds: string[]): Promise<unknown> {
-    return this.request<unknown>("POST", "/cases/batch", { caseIds });
+  async caseBatch(caseIds: string[]): Promise<CaseBatchResponse> {
+    return this.request<CaseBatchResponse>("POST", "/cases/batch", { caseIds });
   }
 
-  async goodLaw(caseId: string): Promise<unknown> {
-    return this.request<unknown>("GET", `/cases/${encodeURIComponent(caseId)}/good-law`);
+  async goodLaw(caseId: string): Promise<GoodLawResponse> {
+    return this.request<GoodLawResponse>("GET", `/cases/${encodeURIComponent(caseId)}/good-law`);
   }
 
   async citedBy(
     caseId: string,
     opts: { limit?: number; offset?: number } = {},
-  ): Promise<unknown> {
+  ): Promise<CitedByResponse> {
     const q = new URLSearchParams();
     if (opts.limit != null) q.set("limit", String(opts.limit));
     if (opts.offset != null) q.set("offset", String(opts.offset));
     const qs = q.toString();
-    return this.request<unknown>(
+    return this.request<CitedByResponse>(
       "GET",
       `/cases/${encodeURIComponent(caseId)}/cited-by${qs ? `?${qs}` : ""}`,
     );
@@ -156,7 +181,7 @@ export class LawDiverClient {
   /** Returns raw PDF bytes. */
   async casePdf(caseId: string): Promise<ArrayBuffer> {
     const res = await this.fetchImpl(`${this.baseUrl}/cases/${encodeURIComponent(caseId)}/pdf`, {
-      headers: { Authorization: `Bearer ${this.apiKey}` },
+      headers: this.authHeaders(),
     });
     if (!res.ok) {
       const json = (await res.json().catch(() => null)) as ApiErrorBody | null;
@@ -171,7 +196,7 @@ export class LawDiverClient {
     form.append("file", file, fileName);
     const res = await this.fetchImpl(`${this.baseUrl}/citecheck/document`, {
       method: "POST",
-      headers: { Authorization: `Bearer ${this.apiKey}` },
+      headers: this.authHeaders(),
       body: form,
     });
     const json = (await res.json()) as DocumentJobStart & ApiErrorBody;
@@ -189,7 +214,7 @@ export class LawDiverClient {
   async documentReport(jobId: string): Promise<ArrayBuffer> {
     const res = await this.fetchImpl(
       `${this.baseUrl}/citecheck/jobs/${encodeURIComponent(jobId)}/report`,
-      { headers: { Authorization: `Bearer ${this.apiKey}` } },
+      { headers: this.authHeaders() },
     );
     if (!res.ok) {
       const json = (await res.json().catch(() => null)) as ApiErrorBody | null;
@@ -236,9 +261,7 @@ export class LawDiverClient {
     body?: unknown,
     idempotencyKey?: string,
   ): Promise<T> {
-    const headers: Record<string, string> = {
-      Authorization: `Bearer ${this.apiKey}`,
-    };
+    const headers: Record<string, string> = this.authHeaders();
     if (body !== undefined) headers["Content-Type"] = "application/json";
     if (idempotencyKey) headers["Idempotency-Key"] = idempotencyKey;
 

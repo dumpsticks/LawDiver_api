@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "lawdiver"
 version = "1.0.0"
-description = "Python client examples for the LawDiver caselaw API"
+description = "Python client examples for the LawDiver caselaw API (clone-and-copy; not published to PyPI)"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -18,6 +18,8 @@ dependencies = [
 Homepage = "https://lawdiver.com"
 Documentation = "https://lawdiver.com/docs/api"
 Repository = "https://github.com/dumpsticks/LawDiver_api"
+
+# Intentionally not configured for PyPI upload — install via clone + `pip install -e .`
 
 [tool.setuptools.packages.find]
 include = ["lawdiver*"]

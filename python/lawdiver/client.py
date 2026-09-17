@@ -15,6 +15,10 @@ import httpx
 from dotenv import load_dotenv
 
 DEFAULT_BASE = "https://lawdiver.com/api/v1"
+# Identify this examples client; bare urllib with no User-Agent often fails Cloudflare (1010).
+DEFAULT_USER_AGENT = (
+    "LawDiver-API-Examples/1.0 (+https://github.com/dumpsticks/LawDiver_api; python)"
+)
 
 
 def _load_env() -> None:
@@ -51,19 +55,24 @@ class LawDiverApiError(Exception):
 
 
 class LawDiverClient:
-    """Thin REST client for LawDiver API v1."""
+    """Thin REST client for LawDiver API v1 (examples pack — clone-and-copy, not a PyPI SDK)."""
 
     def __init__(
         self,
         api_key: Optional[str] = None,
         base_url: Optional[str] = None,
         timeout: float = 60.0,
+        user_agent: Optional[str] = None,
     ) -> None:
         self.api_key = _resolve_api_key(api_key)
         self.base_url = (base_url or os.environ.get("LAWDIVER_API_BASE") or DEFAULT_BASE).rstrip("/")
+        self.user_agent = user_agent or DEFAULT_USER_AGENT
         self._client = httpx.Client(
             base_url=self.base_url,
-            headers={"Authorization": f"Bearer {self.api_key}"},
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "User-Agent": self.user_agent,
+            },
             timeout=timeout,
         )
 
@@ -78,8 +87,11 @@ class LawDiverClient:
 
     def discovery(self) -> Any:
         """Unauthenticated discovery document."""
-        # Discovery does not need a key; still fine to send one.
-        r = httpx.get(self.base_url, timeout=30.0)
+        r = httpx.get(
+            self.base_url,
+            headers={"User-Agent": self.user_agent},
+            timeout=30.0,
+        )
         r.raise_for_status()
         return r.json()
 

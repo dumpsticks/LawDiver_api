@@ -23,6 +23,8 @@ This repository is an **integration guide + sample clients**. Canonical API beha
 ## Local checks
 
 ```bash
-cd typescript && npm install && npm run build
-cd ../python && pip install -r requirements.txt && python -c "from lawdiver import LawDiverClient; print('ok')"
+cd typescript && npm install && npm run build && npm test
+cd ../python && pip install -r requirements.txt && python -m unittest discover -s tests -v
 ```
+
+CI runs the same checks on every push/PR (`.github/workflows/ci.yml`).

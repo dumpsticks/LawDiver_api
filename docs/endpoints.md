@@ -84,7 +84,8 @@ Beyond 50, use the document endpoint.
 
 **Sync behavior:** soft ~15s lookup budget after an exact-only first pass (overall wall ~20s). Timed-out rows return verdict `error` with `lookupStatus: deadline_exceeded` and are **not billed**. Blank or overlong elements become per-row `error` verdicts — they do **not** fail the whole request.
 
-**Result rows are keyed by `inputIndex`.** Subsequent-history compounds and semicolon string cites can expand to multiple rows that share the same `inputIndex` (`unitIndex` distinguishes units). `results.length` may exceed the input count — match on `inputIndex`, not array position. `citationAsSent` echoes the exact input; `citationAsWritten` may also be present.
+**Result rows are keyed by `inputIndex`.** Subsequent-history compounds and semicolon string cites can expand to multiple rows that share the same `inputIndex` (`unitIndex` distinguishes units). `results.length` may exceed the input count — match on `inputIndex`, not array position. `citationAsSent` echoes the exact input; `citationAsWritten` may also be present. Graded negatives may include structured `coverage`; caption/year/court divergence may include `fieldMatches`. Candidates carry `knownCitations` when available.
+
 
 **Verdicts** (there is no cite verdict `not_found`):
 

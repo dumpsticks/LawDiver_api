@@ -1,12 +1,13 @@
 {
   "name": "@lawdiver/api-examples",
   "version": "1.0.0",
-  "description": "TypeScript client and examples for the LawDiver caselaw API (https://lawdiver.com/docs/api)",
+  "description": "TypeScript examples client for the LawDiver caselaw API (clone-and-copy; not published to npm)",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --import tsx --test test/**/*.test.ts",
     "example:search": "tsx examples/01-search.ts",
     "example:cite-check": "tsx examples/02-cite-check.ts",
     "example:retrieve": "tsx examples/03-retrieve.ts",
@@ -16,6 +17,12 @@
     "example:good-law": "tsx examples/07-good-law-cited-by.ts",
     "examples": "npm run example:search && npm run example:cite-check && npm run example:retrieve && npm run example:usage"
   },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "private": true,
   "engines": {
     "node": ">=18"
   },

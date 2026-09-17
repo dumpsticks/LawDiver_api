@@ -31,6 +31,26 @@ Content-Type: application/json
 
 Except multipart document upload (`POST /citecheck/document`), where the client must set the multipart boundary (let `fetch` / `httpx` / `curl -F` do it — do not manually set `Content-Type: application/json`).
 
+## User-Agent (required at the edge)
+
+Cloudflare sits in front of `lawdiver.com`. Requests with **no `User-Agent`** (common with bare `urllib.request`, some generated snippets, and minimal scripts) are often rejected at the edge with **Cloudflare error 1010** before they reach the API — you will not see a LawDiver JSON `error.code`.
+
+Both sample clients in this repo send:
+
+```http
+User-Agent: LawDiver-API-Examples/1.0 (+https://github.com/dumpsticks/LawDiver_api; …)
+```
+
+`curl` and `httpx` already send a default User-Agent. If you roll your own HTTP client, set one explicitly:
+
+```bash
+curl -A "MyApp/1.0 (+https://example.com)" \
+  -H "Authorization: Bearer $LAWDIVER_API_KEY" \
+  https://lawdiver.com/api/v1/usage
+```
+
+Do **not** inject spoofed `CF-Connecting-IP` (or related) headers — those yield a bare Cloudflare 403 (error code 1000). See the official [API docs](https://lawdiver.com/docs/api) troubleshooting notes.
+
 ## Obtaining and rotating keys
 
 1. Sign up and verify email on [lawdiver.com](https://lawdiver.com).

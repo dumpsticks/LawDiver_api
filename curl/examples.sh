@@ -26,7 +26,7 @@ need_key() {
   fi
 }
 
-auth=(-H "Authorization: Bearer ${KEY}")
+auth=(-H "Authorization: Bearer ${KEY}" -A "LawDiver-API-Examples/1.0 (+https://github.com/dumpsticks/LawDiver_api; curl)")
 
 cmd_discovery() {
   echo "== GET / (discovery, no key) =="

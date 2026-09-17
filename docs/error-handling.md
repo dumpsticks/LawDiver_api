@@ -1,5 +1,9 @@
 # Errors, did-you-mean, retries, and rate limits
 
+## Edge / Cloudflare failures (before JSON errors)
+
+If you see a Cloudflare HTML page with **error 1010** instead of a LawDiver JSON body, the request never reached the API. The usual cause is a missing `User-Agent` (especially bare `urllib`). Set one — sample clients do. Spoofed `CF-Connecting-IP` yields error **1000**. Details: [authentication.md](./authentication.md).
+
 ## Stable error codes
 
 Branch on `error.code` (stable). Messages may be reworded.
