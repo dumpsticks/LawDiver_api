@@ -1,17 +1,17 @@
-# Testing the API
+﻿# Testing the API
 
-This section is LawDiver’s **public cite-check benchmark**: one combined suite of **5,300** citation strings, plus the graded answer key.
+This section is LawDiverâ€™s **public cite-check benchmark**: one combined suite of **5,300** citation strings, plus the graded answer key.
 
-Files live under [`docs/benchmarks/citecheck/`](./benchmarks/citecheck/). The main LawDiver application repo is private — **this is the public copy** of the test and answers.
+Files live under [`docs/benchmarks/citecheck/`](./benchmarks/citecheck/). The main LawDiver application repo is private â€” **this is the public copy** of the test and answers.
 
-**Product write-up:** [How Well Does Your Cite Checker Stack Up? LawDiver's 5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5200-citation-benchmark)
+**Product write-up:** [How Well Does Your Cite Checker Stack Up? LawDiver's 5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 
 ## What the test covers (one suite)
 
 The suite checks **both**:
 
-1. **Citation identity / existence** — perfect cites, Bluebook noise, mangles, close hallucinations, fabrications, statutes, specialty courts across U.S. jurisdictions.
-2. **Overruled / negative treatment** — 100 well-formed cites to overruled state and federal authorities mixed into the same shuffled list (family `overruled`). Pass only if the checker confirms the locator **and** surfaces GoodLaw negative/overruled treatment.
+1. **Citation identity / existence** â€” perfect cites, Bluebook noise, mangles, close hallucinations, fabrications, statutes, specialty courts across U.S. jurisdictions.
+2. **Overruled / negative treatment** â€” 100 well-formed cites to overruled state and federal authorities mixed into the same shuffled list (family `overruled`). Pass only if the checker confirms the locator **and** surfaces GoodLaw negative/overruled treatment.
 
 It is **not** two separate exams. Download and run the combined files below.
 
@@ -50,15 +50,15 @@ Folder overview: [benchmarks/citecheck/README.md](./benchmarks/citecheck/README.
   "negative": true,
   "unknown": false,
   "negativeTreatmentCount": 1,
-  "basis": "…"
+  "basis": "â€¦"
 }
 ```
 
 | Field | Meaning |
 | --- | --- |
-| `negative` | Warn the user — questioned or worse |
+| `negative` | Warn the user â€” questioned or worse |
 | `status` | e.g. `overruled`, other negative statuses, or unknown |
-| `unknown: true` | Not determined — **not** a clean bill of health |
+| `unknown: true` | Not determined â€” **not** a clean bill of health |
 
 For `overruled` rows in the answer key, a pass requires an Accept verdict **and** `goodLaw.negative === true` (or an overruled/negative status). Confirming without a treatment flag fails that row.
 
@@ -66,12 +66,12 @@ For `overruled` rows in the answer key, a pass requires an Accept verdict **and*
 
 | Band | Meaning |
 | --- | --- |
-| **Accept** | Verdict in the row’s Accept list (+ GoodLaw when required) |
-| **Partial** | Listed Partial — defensible for a limited checker |
+| **Accept** | Verdict in the rowâ€™s Accept list (+ GoodLaw when required) |
+| **Partial** | Listed Partial â€” defensible for a limited checker |
 | **Reject** | Affirmatively wrong |
 | **Stance** | `must_confirm` / `must_decline` / `open` class match |
 
-Full methodology: the [benchmark blog post](https://lawdiver.com/blog/citediver-5200-citation-benchmark).
+Full methodology: the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
 
 ## How to run against CiteDiver
 
@@ -91,4 +91,4 @@ curl -s https://lawdiver.com/api/v1/citecheck/cite \
 - [Endpoints](./endpoints.md)
 - [Recipes](./recipes.md)
 - [Getting started](./getting-started.md)
-- [CiteDiver](https://lawdiver.com/products/citediver) · [Caselaw API](https://lawdiver.com/products/api)
+- [CiteDiver](https://lawdiver.com/products/citediver) Â· [Caselaw API](https://lawdiver.com/products/api)
