@@ -77,7 +77,7 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Case PDF** | `GET /cases/:id/pdf` | Opinion PDF + processing/analysis appendix |
 | **Usage ledger** | `GET /usage` | Volume by operation + your rate limits |
 
-**Testing / benchmarks:** public 5,300-cite packs (inputs + answer keys) live in this repo — see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5200-citation-benchmark).
+**Testing / benchmarks:** public combined 5,300-cite suite (inputs + answer key) — see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5200-citation-benchmark).
 
 Full field-level reference: [docs/endpoints.md](./docs/endpoints.md) · Canonical source: [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
 
@@ -216,7 +216,7 @@ LawDiver_api/
 | [docs/authentication.md](./docs/authentication.md) | Headers, key hygiene, revocation |
 | [docs/endpoints.md](./docs/endpoints.md) | Endpoint catalog with request/response notes |
 | [docs/error-handling.md](./docs/error-handling.md) | Stable error codes, did-you-mean, retries |
-| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** — 5,300-cite benchmark packs + answer keys |
+| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** — combined 5,300-cite benchmark + answer key |
 | [docs/recipes.md](./docs/recipes.md) | End-to-end patterns (agents, briefs, idempotency) |
 
 ---
@@ -278,7 +278,7 @@ Examples in this repository are community-oriented integration samples. They are
 - [LawDiver home](https://lawdiver.com)
 - [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
-- [Testing the API](./docs/testing-the-api.md) — 5,300-cite benchmark packs + answer keys
+- [Testing the API](./docs/testing-the-api.md) — combined 5,300-cite benchmark + answer key
 - [Cite-check benchmark blog post](https://lawdiver.com/blog/citediver-5200-citation-benchmark)
 - [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)
 - [CaseDiver](https://lawdiver.com/casediver)

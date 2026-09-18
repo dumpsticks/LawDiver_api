@@ -1,12 +1,14 @@
-# Cite-check benchmark packs
+# Cite-check benchmark (combined 5,300)
 
-Public **test inputs** and **answer keys** for verifying LawDiver’s cite-check API (and for third-party checkers to run the same suite).
+Public **test inputs** and **answer key** for one cite-check suite: existence/identity traps **and** overruled GoodLaw rows, shuffled together.
 
-See **[Testing the API](../testing-the-api.md)** for how to use these files, and the product write-up:
+See **[Testing the API](../testing-the-api.md)** and the product write-up:
 
 **[How Well Does Your Cite Checker Stack Up? LawDiver's 5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5200-citation-benchmark)**
 
-| Pack | Test (cites only) | Answer key |
-| --- | --- | --- |
-| CiteCheck 5,200 | `5000citechecktest.md` / `.json` | `5000citechecktest-ANSWER-KEY.md` / `.json` |
-| Overruled-100 (GoodLaw) | `overruled-100-citechecktest.md` / `.json` | `overruled-100-citechecktest-ANSWER-KEY.md` / `.json` |
+| File | Role |
+| --- | --- |
+| `5000citechecktest.md` / `.json` | **5,300** cites only |
+| `5000citechecktest-ANSWER-KEY.md` / `.json` | Graded answers (including `overruled` family) |
+
+Older `overruled-100-*` filenames, if present, are superseded by this combined suite — use the `5000citechecktest*` files only.
