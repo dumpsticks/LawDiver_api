@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-19T21:16:47.340Z",
+  "ranAt": "2026-09-18T23:27:03.792Z",
+  "method": {
+    "cat1": "Overruled/reversed (overruled, bad_law, good_law): OVRL needs accept+treatment; others key-aligned confirm.",
+    "cat2": "Fabrications: fail on false hard-confirm or Reject.",
+    "cat3": "Clean cites: fail only on Reject.",
+    "cat4": "Mangled recovery: candidate/correction + problem flag (Bluebook = confirm). Bare not_in_corpus without candidate fails.",
+    "cat5": "Unscored unresolved."
+  },
+  "categories": {
+    "1": {
+      "name": "Overruled / reversed",
+      "bar": "100%",
+      "n": 187,
+      "analyzed": 187,
+      "correct": 187,
+      "timeout": 0,
+      "accuracy": 1,
+      "mistakes": 0
+    },
+    "2": {
+      "name": "Fabricated",
+      "bar": "100%",
+      "n": 2455,
+      "analyzed": 2401,
+      "correct": 2397,
+      "timeout": 54,
+      "accuracy": 0.9983340274885465,
+      "mistakes": 4
+    },
+    "3": {
+      "name": "Clean real cites",
+      "bar": "99%",
+      "n": 2191,
+      "analyzed": 2167,
+      "correct": 2161,
+      "timeout": 24,
+      "accuracy": 0.9972311952007383,
+      "mistakes": 6
+    },
+    "4": {
+      "name": "Mangled real cites",
+      "bar": "90%",
+      "n": 420,
+      "analyzed": 349,
+      "correct": 317,
+      "timeout": 71,
+      "accuracy": 0.9083094555873925,
+      "mistakes": 32
+    },
+    "5": {
+      "name": "Unresolved",
+      "bar": "unscored",
+      "n": 47
+    }
+  }
+}

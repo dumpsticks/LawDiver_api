@@ -1,32 +1,33 @@
 ﻿# Testing the API
 
-Public **5,300-cite** benchmark with **four accuracy categories**. Files: [`docs/benchmarks/citecheck/`](./benchmarks/citecheck/).
+Public **5,300-cite** benchmark with **five accuracy categories**.
 
 **Blog:** [5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 
 ## Scoring
 
-| Category | Covers | Bar |
+| Cat | Covers | Bar |
 | --- | --- | --- |
-| **One** | Fabrications + overruled / negative treatment | **100%** |
-| **Two** | Clean cites to real cases (not overruled) | **99%** |
-| **Three** | Mangled real cites — identify, flag, suggest fix | **90%** |
-| **Four** | No honest high-probability call | Unscored |
+| **1** | Overruled / reversed authorities | **100%** |
+| **2** | Fabricated / identity traps | **100%** |
+| **3** | Clean cites to real cases | **99%** |
+| **4** | Mangled real cites (recover + flag) | **90%** |
+| **5** | No honest resolution | Unscored |
 
-Cat2 miss = affirmatively rejecting a clean cite. Cat1 miss = false-confirming a fabrication, or confirming overruled law without reporting treatment.
+Report **analyzed** and **correct** counts per category. Cat 4 requires recovering the intended case, not only declining a bad string.
 
 ## Files
 
 | File | Role |
 | --- | --- |
 | [5000citechecktest.md](./benchmarks/citecheck/5000citechecktest.md) / [.json](./benchmarks/citecheck/5000citechecktest.json) | Cites only |
-| [ANSWER-KEY.md](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md) / [.json](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json) | Answers |
+| [ANSWER-KEY](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md) / [.json](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json) | Answers |
+
+Mistake analysis (Cats 1-4): published with LawDiver run artifacts; see the blog for the current scoreboard.
 
 ## Outputs
 
-Verdicts: `valid`, `likely_valid`, `name_mismatch`, `page_mismatch`, `implausible`, `not_in_corpus`, `unverified`, …
-
-When a case resolves, also report **overruling / negative treatment**. Field names vary by product; LawDiver puts them on each candidate (`status`, `negative`, `basis`, …).
+Identity verdicts (`valid`, `name_mismatch`, …) plus **overruling / negative treatment** when a case resolves.
 
 ```bash
 curl -s https://lawdiver.com/api/v1/citecheck/cite \
