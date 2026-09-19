@@ -1,4 +1,4 @@
-"""Example 05 — Agent-oriented search (Python)."""
+"""Example 05 -- Agent-oriented search (Python)."""
 
 from __future__ import annotations
 
@@ -26,13 +26,13 @@ print()
 for r in found["results"]:
     gl = r.get("goodLaw") or {}
     if gl.get("negative"):
-        print(f"⚠ BAD LAW · {r.get('caseName')} · {gl.get('status')}")
+        print(f"WARNING: BAD LAW · {r.get('caseName')} · {gl.get('status')}")
     elif gl.get("unknown"):
         print(f"? UNKNOWN treatment · {r.get('caseName')}")
 
     card = r.get("caseCard") or {}
     summary = (card.get("summaryAi") or "(no case card yet)")[:160]
-    print(f"• {r.get('caseName')} — {r.get('citation')}")
+    print(f"* {r.get('caseName')} -- {r.get('citation')}")
     print(f"  summary: {summary}")
     opinion = r.get("opinion")
     if opinion:
@@ -41,5 +41,5 @@ for r in found["results"]:
             f"  opinion: mode={opinion.get('mode')} chars={opinion.get('charCount')} "
             f"truncated={opinion.get('truncated')}"
         )
-        print(f"  excerpt: {text[:120]}…")
+        print(f"  excerpt: {text[:120]}...")
     print()

@@ -1,4 +1,4 @@
-"""Example 01 — Case search (Python).
+"""Example 01 -- Case search (Python).
 
 Docs: https://lawdiver.com/docs/api
 """
@@ -31,10 +31,10 @@ print()
 for r in found["results"]:
     gl = r.get("goodLaw") or {}
     flag = " (NEGATIVE)" if gl.get("negative") else ""
-    print(f"• {r.get('caseName')}")
+    print(f"* {r.get('caseName')}")
     print(f"  {r.get('citation') or '(no citation)'} · {r.get('courtAbbreviation') or r.get('court') or ''}")
     print(f"  goodLaw={gl.get('status', '?')}{flag}")
     snippet = r.get("snippet") or ""
     if snippet:
-        print(f"  snippet: {snippet[:140]}…")
+        print(f"  snippet: {snippet[:140]}...")
     print()

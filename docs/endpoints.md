@@ -1,9 +1,9 @@
-# LawDiver API v1 — endpoint catalog
+# LawDiver API v1 -- endpoint catalog
 
 Canonical field-level reference: [https://lawdiver.com/docs/api](https://lawdiver.com/docs/api)  
 Base: `https://lawdiver.com/api/v1`
 
-Every JSON response includes `requestId`. Most also include `usage`. PDFs carry usage in headers — prefer `X-LawDiver-*` (`X-LawTools-*` is still emitted for older clients).
+Every JSON response includes `requestId`. Most also include `usage`. PDFs carry usage in headers -- prefer `X-LawDiver-*` (`X-LawTools-*` is still emitted for older clients).
 
 ---
 
@@ -32,15 +32,15 @@ Searches the caselaw corpus. **Jurisdiction is required.**
 | `query` | yes | Citation, case name, or issue description |
 | `jurisdiction` | yes | See jurisdiction table below |
 | `searchType` | no | `auto` (default), `citation`, `case_name`, `keyword`, `semantic`, `hybrid` |
-| `limit` | no | 1–200, default 10; capped by account `maxCasesPerSearch` |
+| `limit` | no | 1-200, default 10; capped by account `maxCasesPerSearch` |
 | `filters.dateFrom` / `dateTo` | no | `YYYY-MM-DD` |
 | `filters.includeUnpublished` | no | Unpublished excluded by default |
 | `filters.publishedOnly` | no | Further restrict to published |
-| `filters.goodLawOnly` | no | Hide negative treatment (off by default — bad law is flagged, not hidden) |
+| `filters.goodLawOnly` | no | Hide negative treatment (off by default -- bad law is flagged, not hidden) |
 | `include.caseCard` | no | AI analysis card when available |
 | `include.opinionText` | no | Full or excerpted opinion text |
 | `include.goodLawReport` | no | Expand negative-treatment evidence (**on by default**) |
-| `opinionTextMaxChars` | no | Default 10000, clamp 500–50000 |
+| `opinionTextMaxChars` | no | Default 10000, clamp 500-50000 |
 
 **Result highlights:** each hit may include `bluebookCitation`, `parallelCitations`, and `opinionType` in addition to `citation` / `caseName` / `goodLaw`.
 
@@ -48,14 +48,14 @@ Searches the caselaw corpus. **Jurisdiction is required.**
 
 | `type` | Extra fields |
 | --- | --- |
-| `all_states` | — |
-| `all_states_and_federal` | — |
-| `all_federal` | — |
+| `all_states` | -- |
+| `all_states_and_federal` | -- |
+| `all_federal` | -- |
 | `one_state` | `state` (USPS, e.g. `"FL"`) |
 | `one_state_plus_federal` | `state` |
-| `federal_circuit` | `circuit` (`"1"`–`"11"`, `"dc"`, `"federal"`) |
+| `federal_circuit` | `circuit` (`"1"`-`"11"`, `"dc"`, `"federal"`) |
 | `federal_district` | `districtState` |
-| `us_supreme_court` | — |
+| `us_supreme_court` | -- |
 
 Supports `Idempotency-Key`.
 
@@ -71,20 +71,20 @@ Authoritative types, circuit ids, USPS codes, and example payloads.
 
 ---
 
-## Cite check — citation(s)
+## Cite check -- citation(s)
 
 ### `POST /citecheck/cite`
 
 Send exactly one of:
 
-- `citation` — string
-- `citations` — string array, max 50
+- `citation` -- string
+- `citations` -- string array, max 50
 
 Beyond 50, use the document endpoint.
 
-**Sync behavior:** soft ~15s lookup budget after an exact-only first pass (overall wall ~20s). Timed-out rows return verdict `error` with `lookupStatus: deadline_exceeded` and are **not billed**. Blank or overlong elements become per-row `error` verdicts — they do **not** fail the whole request.
+**Sync behavior:** soft ~15s lookup budget after an exact-only first pass (overall wall ~20s). Timed-out rows return verdict `error` with `lookupStatus: deadline_exceeded` and are **not billed**. Blank or overlong elements become per-row `error` verdicts -- they do **not** fail the whole request.
 
-**Result rows are keyed by `inputIndex`.** Subsequent-history compounds and semicolon string cites can expand to multiple rows that share the same `inputIndex` (`unitIndex` distinguishes units). `results.length` may exceed the input count — match on `inputIndex`, not array position. `citationAsSent` echoes the exact input; `citationAsWritten` may also be present. Graded negatives may include structured `coverage`; caption/year/court divergence may include `fieldMatches`. Candidates carry `knownCitations` when available.
+**Result rows are keyed by `inputIndex`.** Subsequent-history compounds and semicolon string cites can expand to multiple rows that share the same `inputIndex` (`unitIndex` distinguishes units). `results.length` may exceed the input count -- match on `inputIndex`, not array position. `citationAsSent` echoes the exact input; `citationAsWritten` may also be present. Graded negatives may include structured `coverage`; caption/year/court divergence may include `fieldMatches`. Candidates carry `knownCitations` when available.
 
 
 **Verdicts** (there is no cite verdict `not_found`):
@@ -96,8 +96,8 @@ Beyond 50, use the document endpoint.
 | `page_mismatch` | Pin/internal page rather than first page; corrected form supplied |
 | `likely_valid` | Candidates only; **no automatic pick** |
 | `implausible` | Strong fabrication signal (e.g. impossible volume) |
-| `not_in_corpus` | Searched a held range, no match — not proof of fabrication |
-| `not_covered` | Range not held / unparseable — absence is evidence of nothing |
+| `not_in_corpus` | Searched a held range, no match -- not proof of fabrication |
+| `not_covered` | Range not held / unparseable -- absence is evidence of nothing |
 | `unverified` | Cannot confirm or deny |
 | `error` | Row failed (including soft timeout); reported, not omitted; not billed |
 
@@ -105,7 +105,7 @@ Supports `Idempotency-Key`.
 
 ---
 
-## Cite check — document (async)
+## Cite check -- document (async)
 
 ### `POST /citecheck/document`
 
@@ -115,7 +115,7 @@ Returns immediately with `jobId`, `status`, `statusUrl`, `reportUrl`, `pollAfter
 
 ### `GET /citecheck/jobs/:id`
 
-Poll every 2–5 seconds until `completed` or `failed`. Completed payloads include per-citation findings (`citations`) and `counts`.
+Poll every 2-5 seconds until `completed` or `failed`. Completed payloads include per-citation findings (`citations`) and `counts`.
 
 ### `GET /citecheck/jobs/:id/report`
 
@@ -127,7 +127,7 @@ Poll every 2–5 seconds until `completed` or `failed`. Completed payloads inclu
 
 ### `POST /citations/resolve`
 
-Body: `{ "query": "410 U.S. 113" }` (2–500 chars). Up to five candidates; no PDF delivery.
+Body: `{ "query": "410 U.S. 113" }` (2-500 chars). Up to five candidates; no PDF delivery.
 
 ---
 
@@ -137,8 +137,8 @@ Body: `{ "query": "410 U.S. 113" }` (2–500 chars). Up to five candidates; no P
 
 Body:
 
-- `query` (required) — citation or case name
-- `caseId` (optional) — answer a prior did-you-mean (opinion id)
+- `query` (required) -- citation or case name
+- `caseId` (optional) -- answer a prior did-you-mean (opinion id)
 
 **Statuses (all HTTP 200):** `ok` · `did_you_mean` · `not_found`
 
@@ -160,7 +160,7 @@ Metadata only. `:id` may be **opinion id or cluster id**.
 
 ### `POST /cases/batch`
 
-Body: `{ "caseIds": ["…", "…"] }` up to 50. Returns `cases` + `notFound`.
+Body: `{ "caseIds": ["...", "..."] }` up to 50. Returns `cases` + `notFound`.
 
 ---
 
@@ -176,7 +176,7 @@ Status plus `negativeCitations`.
 
 ### `GET /cases/:id/cited-by?limit=25&offset=0`
 
-`limit` 1–100 (default 25), `offset` default 0.
+`limit` 1-100 (default 25), `offset` default 0.
 
 ---
 
@@ -189,7 +189,7 @@ Opinion PDF with processing/analysis appendix. `:id` must be an **opinion id**.
 Usage travels in response headers (PDF cannot carry the JSON `usage` envelope). Prefer:
 
 ```http
-X-Request-Id: req_…
+X-Request-Id: req_...
 X-LawDiver-Operation: case_retrieval
 X-LawDiver-Charge-Units: 1
 X-LawDiver-Charge-Cents: 0
@@ -197,7 +197,7 @@ X-LawDiver-Charge-Cents: 0
 
 `X-LawTools-Operation`, `X-LawTools-Charge-Units`, and `X-LawTools-Charge-Cents` are still emitted for older clients.
 
-Re-rendered each time — cache on your side. Does **not** honor `Idempotency-Key`.
+Re-rendered each time -- cache on your side. Does **not** honor `Idempotency-Key`.
 
 ---
 
@@ -205,13 +205,13 @@ Re-rendered each time — cache on your side. Does **not** honor `Idempotency-Ke
 
 ### `GET /usage?days=30`
 
-`days` 1–365, default 30. Returns consumer info, `byOperation`, and `yourPricing` (limits + reserved price labels). While free, costs may be zero.
+`days` 1-365, default 30. Returns consumer info, `byOperation`, and `yourPricing` (limits + reserved price labels). While free, costs may be zero.
 
 ---
 
 ## MCP (same key)
 
-Hosted Model Context Protocol server: [https://lawdiver.com/mcp](https://lawdiver.com/mcp) (Streamable HTTP). Tool catalog: [https://lawdiver.com/mcp/toolspec.json](https://lawdiver.com/mcp/toolspec.json). Same API key and usage meter as REST — no MCP implementation is required in the HTTP clients in this repo.
+Hosted Model Context Protocol server: [https://lawdiver.com/mcp](https://lawdiver.com/mcp) (Streamable HTTP). Tool catalog: [https://lawdiver.com/mcp/toolspec.json](https://lawdiver.com/mcp/toolspec.json). Same API key and usage meter as REST -- no MCP implementation is required in the HTTP clients in this repo.
 
 ---
 
@@ -246,7 +246,7 @@ Hosted Model Context Protocol server: [https://lawdiver.com/mcp](https://lawdive
   "error": {
     "code": "invalid_request",
     "message": "Invalid search request.",
-    "details": [{ "field": "jurisdiction.state", "message": "…" }]
+    "details": [{ "field": "jurisdiction.state", "message": "..." }]
   },
   "usage": null,
   "requestId": "req_Ab3xK9pQ"

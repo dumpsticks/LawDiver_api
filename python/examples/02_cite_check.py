@@ -1,7 +1,7 @@
-"""Example 02 — Cite check citations (Python).
+"""Example 02 -- Cite check citations (Python).
 
 Match expanded rows on inputIndex (not array index). There is no cite
-verdict "not_found" — use not_in_corpus / implausible / not_covered / etc.
+verdict "not_found" -- use not_in_corpus / implausible / not_covered / etc.
 """
 
 from __future__ import annotations
@@ -26,8 +26,8 @@ def summarize_negatives(item: dict) -> str | None:
         return "cannot confirm or deny"
     if verdict == "error":
         if item.get("lookupStatus") == "deadline_exceeded":
-            return "soft timeout (deadline_exceeded) — not billed; retry"
-        return "row failed — not billed"
+            return "soft timeout (deadline_exceeded) -- not billed; retry"
+        return "row failed -- not billed"
     return None
 
 
@@ -44,7 +44,7 @@ for item in payload["results"]:
     idx = item.get("inputIndex", "?")
     unit = item.get("unitIndex")
     unit_bit = f" unit {unit}" if unit is not None else ""
-    print(f"[input {idx}{unit_bit}] {label} → {item['verdict']}")
+    print(f"[input {idx}{unit_bit}] {label} -> {item['verdict']}")
     if item.get("lookupStatus"):
         print(f"  lookupStatus: {item['lookupStatus']}")
     if item.get("correctedCitation"):

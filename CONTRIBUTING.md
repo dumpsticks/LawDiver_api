@@ -15,7 +15,7 @@ This repository is an **integration guide + sample clients**. Canonical API beha
 ## Guidelines
 
 1. Never commit API keys or real briefs containing confidential work product.
-2. Prefer thin clients over heavy SDKs — the API is plain REST.
+2. Prefer thin clients over heavy SDKs -- the API is plain REST.
 3. New examples should be runnable with `LAWDIVER_API_KEY` set.
 4. Quote `requestId` in error messages.
 5. Do not auto-pick `likely_valid` / `did_you_mean` candidates without documenting that it is a demo policy.

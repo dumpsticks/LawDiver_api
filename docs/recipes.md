@@ -1,10 +1,10 @@
-# Recipes — end-to-end LawDiver API patterns
+# Recipes -- end-to-end LawDiver API patterns
 
 Runnable code lives under [`typescript/examples`](../typescript/examples) and [`python/examples`](../python/examples). This page explains the patterns.
 
 ---
 
-## Recipe A — Practitioner search in one state + federal
+## Recipe A -- Practitioner search in one state + federal
 
 Use `one_state_plus_federal` when you want what a lawyer in that state actually cites: state courts, the regional circuit, and the U.S. Supreme Court.
 
@@ -19,7 +19,7 @@ Use `one_state_plus_federal` when you want what a lawyer in that state actually 
 
 ---
 
-## Recipe B — Agent search (card + excerpts + good-law)
+## Recipe B -- Agent search (card + excerpts + good-law)
 
 One round-trip for tool-using models. Keep `limit` small when `opinionText` is on.
 
@@ -37,35 +37,35 @@ One round-trip for tool-using models. Keep `limit` small when `opinionText` is o
 }
 ```
 
-Surface `goodLaw.negative` loudly. Treat `goodLaw.unknown` as unknown — never as a clean bill of health.
+Surface `goodLaw.negative` loudly. Treat `goodLaw.unknown` as unknown -- never as a clean bill of health.
 
 See: `05-agent-search` examples.
 
 ---
 
-## Recipe C — Cite-check a list before filing
+## Recipe C -- Cite-check a list before filing
 
 ```json
 { "citations": ["570 U.S. 744", "999 F.3d 1"] }
 ```
 
-UI guidance (match rows on `inputIndex`, not array index — compounds can expand):
+UI guidance (match rows on `inputIndex`, not array index -- compounds can expand):
 
-- `valid` → show `correctedCitation`
-- `name_mismatch` → warn: real reporter, wrong caption (hallucination shape)
-- `page_mismatch` → show corrected first-page form; review pin
-- `likely_valid` → show candidates; require human pick
-- `implausible` → strong fabrication signal
-- `not_in_corpus` → show `corpusCaveat` / `coverage` if present; do not auto-label “fake”
-- `not_covered` → range not held / unparseable; absence proves nothing
-- `unverified` → cannot confirm or deny
-- `error` → show failure for that row (including `lookupStatus: deadline_exceeded`); do not omit; not billed
+- `valid` -> show `correctedCitation`
+- `name_mismatch` -> warn: real reporter, wrong caption (hallucination shape)
+- `page_mismatch` -> show corrected first-page form; review pin
+- `likely_valid` -> show candidates; require human pick
+- `implausible` -> strong fabrication signal
+- `not_in_corpus` -> show `corpusCaveat` / `coverage` if present; do not auto-label "fake"
+- `not_covered` -> range not held / unparseable; absence proves nothing
+- `unverified` -> cannot confirm or deny
+- `error` -> show failure for that row (including `lookupStatus: deadline_exceeded`); do not omit; not billed
 
 There is no cite verdict `not_found` (that is HTTP 404 or retrieve `status` only).
 
 ---
 
-## Recipe D — Cite-check an entire brief
+## Recipe D -- Cite-check an entire brief
 
 1. `POST /citecheck/document` with multipart `file`
 2. Poll `GET /citecheck/jobs/:id` every ~5s (match `pollAfterSeconds`)
@@ -77,38 +77,38 @@ See: `04-document-cite-check` examples.
 
 ---
 
-## Recipe E — Retrieve with did-you-mean round trip
+## Recipe E -- Retrieve with did-you-mean round trip
 
 ```text
 POST /cases/retrieve { "query": "Smith v. Jones" }
-  → status: did_you_mean + candidates[]
+  -> status: did_you_mean + candidates[]
 
 POST /cases/retrieve { "query": "Smith v. Jones", "caseId": "<chosen>" }
-  → status: ok + case.pdfUrl
+  -> status: ok + case.pdfUrl
 ```
 
-Auto-picking `candidates[0]` is a product decision — it can silently deliver the wrong case.
+Auto-picking `candidates[0]` is a product decision -- it can silently deliver the wrong case.
 
 See: `03-retrieve` examples.
 
 ---
 
-## Recipe F — Safe retry after timeout
+## Recipe F -- Safe retry after timeout
 
 ```text
 key = "search-" + uuid()
 attempt POST /search with Idempotency-Key: key
-on timeout → retry with SAME key and SAME body
-  → stored response + replayed: true
-same key + different body → 409 idempotency_conflict
-  → generate a new key for the new request (does not return the old answer)
+on timeout -> retry with SAME key and SAME body
+  -> stored response + replayed: true
+same key + different body -> 409 idempotency_conflict
+  -> generate a new key for the new request (does not return the old answer)
 ```
 
 Never reuse a key across different queries/bodies.
 
 ---
 
-## Recipe G — Download and cache a PDF
+## Recipe G -- Download and cache a PDF
 
 ```bash
 curl -L "https://lawdiver.com/api/v1/cases/2812209/pdf" \
@@ -120,16 +120,16 @@ Re-fetch when currency of good-law/analysis matters; otherwise cache bytes for r
 
 ---
 
-## Recipe H — Distinguish network vs credentials
+## Recipe H -- Distinguish network vs credentials
 
-1. `GET /api/v1` → proves network
-2. `GET /api/v1/usage` → proves key
+1. `GET /api/v1` -> proves network
+2. `GET /api/v1/usage` -> proves key
 
 See: `06-usage` examples.
 
 ---
 
-## Recipe I — Treatment graph lite
+## Recipe I -- Treatment graph lite
 
 1. Search or retrieve to obtain `caseId`
 2. `GET /cases/:id/good-law` for negative citations

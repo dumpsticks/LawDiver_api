@@ -1,5 +1,5 @@
 /**
- * Example 06 — Discovery + usage ledger
+ * Example 06 -- Discovery + usage ledger
  * Language: TypeScript (Node.js)
  *
  * Fastest way to separate network problems from bad credentials:
@@ -11,7 +11,7 @@ const client = new LawDiverClient();
 
 console.log("=== Discovery (public) ===");
 const discovery = await client.discovery();
-console.log(JSON.stringify(discovery, null, 2).slice(0, 800) + "\n…\n");
+console.log(JSON.stringify(discovery, null, 2).slice(0, 800) + "\n...\n");
 
 console.log("=== Usage (authenticated) ===");
 const usage = await client.usage(30);

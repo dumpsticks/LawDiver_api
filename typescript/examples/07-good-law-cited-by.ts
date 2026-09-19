@@ -1,5 +1,5 @@
 /**
- * Example 07 — Good-law detail + cited-by pagination
+ * Example 07 -- Good-law detail + cited-by pagination
  * Language: TypeScript (Node.js)
  *
  * Usage: npx tsx examples/07-good-law-cited-by.ts [caseId]
@@ -21,11 +21,11 @@ const citedBy = (await client.citedBy(caseId, { limit: 10, offset: 0 })) as {
   requestId?: string;
 };
 console.log("=== Cited by (first page) ===");
-console.log(`total≈ ${citedBy.total ?? "?"} · requestId=${citedBy.requestId}`);
+console.log(`total~ ${citedBy.total ?? "?"} · requestId=${citedBy.requestId}`);
 const rows = citedBy.results ?? (citedBy as unknown as { cases?: unknown[] }).cases ?? [];
 for (const row of rows.slice(0, 10)) {
   const r = row as { caseName?: string; citation?: string; year?: number };
-  console.log(`• ${r.caseName ?? JSON.stringify(row).slice(0, 100)} — ${r.citation ?? ""} (${r.year ?? ""})`);
+  console.log(`* ${r.caseName ?? JSON.stringify(row).slice(0, 100)} -- ${r.citation ?? ""} (${r.year ?? ""})`);
 }
 
 const meta = await client.caseMetadata(caseId);

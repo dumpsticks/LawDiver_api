@@ -132,7 +132,7 @@ export interface SearchResponse {
 
 /**
  * Cite-check verdict taxonomy (sync + document jobs).
- * There is no cite verdict `not_found` — that code is only HTTP 404 or retrieve `status: "not_found"`.
+ * There is no cite verdict `not_found` -- that code is only HTTP 404 or retrieve `status: "not_found"`.
  */
 export type CiteVerdict =
   | "valid"
@@ -145,7 +145,7 @@ export type CiteVerdict =
   | "unverified"
   | "error";
 
-/** All cite-check verdicts — useful for exhaustive switches / tests. */
+/** All cite-check verdicts -- useful for exhaustive switches / tests. */
 export const CITE_VERDICTS: readonly CiteVerdict[] = [
   "valid",
   "name_mismatch",
@@ -213,7 +213,7 @@ export interface CiteCheckCandidate {
  *
  * Compounds / subsequent-history phrases can expand to multiple rows that share
  * the same `inputIndex` (with `unitIndex` distinguishing units). Always match on
- * `inputIndex`, not array position — `results.length` may exceed the input count.
+ * `inputIndex`, not array position -- `results.length` may exceed the input count.
  */
 export interface CiteCheckItem {
   /** Index into the original `citations` / `citation` input (0-based). */
@@ -301,7 +301,7 @@ export interface RetrieveDidYouMean {
   requestId: string;
 }
 
-/** Retrieve miss — not a cite-check verdict. Always HTTP 200. */
+/** Retrieve miss -- not a cite-check verdict. Always HTTP 200. */
 export interface RetrieveNotFound {
   status: "not_found";
   corpusCaveat?: string | null;

@@ -1,4 +1,4 @@
-"""Example 03 — Case retrieve with did-you-mean (Python)."""
+"""Example 03 -- Case retrieve with did-you-mean (Python)."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ with LawDiverClient() as client:
     hit = client.retrieve(query=query)
 
     if hit["status"] == "did_you_mean":
-        print("Ambiguous — candidates:")
+        print("Ambiguous -- candidates:")
         for c in hit.get("candidates") or []:
             print(
                 f"  [{c.get('caseId')}] {c.get('bluebookCitation') or c.get('caseName')} "
@@ -25,7 +25,7 @@ with LawDiverClient() as client:
         if not chosen:
             print("No candidates returned.")
             raise SystemExit(0)
-        print(f"\nResolving with caseId={chosen['caseId']}…")
+        print(f"\nResolving with caseId={chosen['caseId']}...")
         hit = client.retrieve(query=query, case_id=chosen["caseId"])
 
 if hit["status"] == "not_found":

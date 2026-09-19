@@ -1,4 +1,4 @@
-"""LawDiver API — Python examples package (clone-and-copy; not published to PyPI)."""
+"""LawDiver API -- Python examples package (clone-and-copy; not published to PyPI)."""
 
 from .client import DEFAULT_USER_AGENT, LawDiverApiError, LawDiverClient
 

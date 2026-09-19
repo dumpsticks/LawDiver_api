@@ -1,10 +1,10 @@
-﻿# LawDiver Caselaw API â€” Examples & Integration Guide
+# LawDiver Caselaw API -- Examples & Integration Guide
 
-> **The caselaw API legal AI builders have been waiting for.** Full boolean and semantic legal search, case retrieval, and a cite checker that resolves and scores citations â€” over **~10 million** U.S. federal and state opinions kept current around the clock. Same verified corpus as [CaseDiver](https://lawdiver.com/casediver). **No Westlaw contract required.** Free during rollout.
+> **The caselaw API legal AI builders have been waiting for.** Full boolean and semantic legal search, case retrieval, and a cite checker that resolves and scores citations -- over **~10 million** U.S. federal and state opinions kept current around the clock. Same verified corpus as [CaseDiver](https://lawdiver.com/casediver). **No Westlaw contract required.** Free during rollout.
 
 This repository is the official **examples pack** for the [LawDiver API](https://lawdiver.com/products/api): thin TypeScript and Python clients you **clone and copy**, cURL recipes, and docs so you can search cases, retrieve opinions, and cite-check briefs from your own apps and agents.
 
-**Not a published SDK.** `@lawdiver/api-examples` is not on npm and `lawdiver` is not on PyPI â€” install by cloning this repo (or copying `typescript/src` / `python/lawdiver` into your project). The API itself is language-agnostic REST; these clients are worked examples with typed surfaces, not a package registry product.
+**Not a published SDK.** `@lawdiver/api-examples` is not on npm and `lawdiver` is not on PyPI -- install by cloning this repo (or copying `typescript/src` / `python/lawdiver` into your project). The API itself is language-agnostic REST; these clients are worked examples with typed surfaces, not a package registry product.
 
 | | |
 | --- | --- |
@@ -12,28 +12,28 @@ This repository is the official **examples pack** for the [LawDiver API](https:/
 | **API docs** | [lawdiver.com/docs/api](https://lawdiver.com/docs/api) |
 | **Why it exists** | [Caselaw API for legal AI builders](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders) |
 | **Base URL** | `https://lawdiver.com/api/v1` |
-| **Auth** | Bearer API key (`ld_live_â€¦`) |
-| **Status** | Free during rollout Â· Plain REST Â· JSON (PDF where noted) |
+| **Auth** | Bearer API key (`ld_live_...`) |
+| **Status** | Free during rollout · Plain REST · JSON (PDF where noted) |
 
 ```bash
-# Discover endpoints and pricing policy â€” no key required
+# Discover endpoints and pricing policy -- no key required
 curl https://lawdiver.com/api/v1
 ```
 
-**About / advantages (read this first):** [docs/about-lawdiver.md](./docs/about-lawdiver.md) Â· [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md)
+**About / advantages (read this first):** [docs/about-lawdiver.md](./docs/about-lawdiver.md) · [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md)
 
 ---
 
 ## What this repository is
 
-LawDiverâ€™s API is **language-agnostic REST**. You do not need an SDK â€” any HTTP client works. This repo ships:
+LawDiver's API is **language-agnostic REST**. You do not need an SDK -- any HTTP client works. This repo ships:
 
-- A **TypeScript / Node** examples client and runnable demos (primary â€” matches the official quickstart)
+- A **TypeScript / Node** examples client and runnable demos (primary -- matches the official quickstart)
 - A **Python 3** examples client and matching demos (`httpx`)
 - **cURL / shell** recipes for any stack
 - Deep guides under [`docs/`](./docs/) (auth, endpoints, errors, agent recipes)
 
-Clone it, set a key, run an example, then copy the pattern into your product. Prefer a real `User-Agent` on hand-rolled clients â€” see [docs/authentication.md](./docs/authentication.md).
+Clone it, set a key, run an example, then copy the pattern into your product. Prefer a real `User-Agent` on hand-rolled clients -- see [docs/authentication.md](./docs/authentication.md).
 
 | Language | Role | Folder |
 | --- | --- | --- |
@@ -46,15 +46,15 @@ Clone it, set a key, run an example, then copy the pattern into your product. Pr
 
 ## Why the LawDiver API
 
-- **Same corpus as the product** â€” Case search, cite check, and PDF retrieval over the verified caselaw that powers CaseDiver â€” not a thin scrape. Public records + LawDiverâ€™s citator graph; no commercial research-platform feed underneath.
-- **Legal search that behaves like research** â€” Four engines + a router: citation, case name, boolean/keyword (with `/s`, `/p`, `w/n`), semantic, hybrid, or `auto`. Jurisdiction is required; filters run inside every engine.
-- **Cite check built for legal AI** â€” Resolves against a held corpus; returns Bluebook form and good-law. **`name_mismatch`** catches the classic hallucination (real reporter cite, wrong caption). **`likely_valid`** never silently â€œfixesâ€ a cite.
-- **Whole-brief cite check** â€” Upload PDF/DOCX â†’ async job â†’ report PDF with verdicts and exhibit pages; short forms bind correctly.
-- **Agent-ready search** â€” One `POST /search` can return analysis cards, opinion excerpts, and good-law reports so LLM tools reason without a second hop.
-- **Honest defaults** â€” Bad law is flagged, not hidden; unpublished opinions are excluded by default; `unknown` treatment is never sold as a clean bill of health.
-- **Production REST** â€” Bearer auth, `requestId` on every response, idempotency keys on hot paths, rate-limit headers, usage ledger.
-- **Free during rollout** â€” Usage is ledgered so you see volume now; discover pricing at `GET /api/v1` before you sign anything.
-- **Same key via MCP** â€” hosted MCP at [lawdiver.com/mcp](https://lawdiver.com/mcp); tool catalog at [`/mcp/toolspec.json`](https://lawdiver.com/mcp/toolspec.json).
+- **Same corpus as the product** -- Case search, cite check, and PDF retrieval over the verified caselaw that powers CaseDiver -- not a thin scrape. Public records + LawDiver's citator graph; no commercial research-platform feed underneath.
+- **Legal search that behaves like research** -- Four engines + a router: citation, case name, boolean/keyword (with `/s`, `/p`, `w/n`), semantic, hybrid, or `auto`. Jurisdiction is required; filters run inside every engine.
+- **Cite check built for legal AI** -- Resolves against a held corpus; returns Bluebook form and good-law. **`name_mismatch`** catches the classic hallucination (real reporter cite, wrong caption). **`likely_valid`** never silently "fixes" a cite.
+- **Whole-brief cite check** -- Upload PDF/DOCX -> async job -> report PDF with verdicts and exhibit pages; short forms bind correctly.
+- **Agent-ready search** -- One `POST /search` can return analysis cards, opinion excerpts, and good-law reports so LLM tools reason without a second hop.
+- **Honest defaults** -- Bad law is flagged, not hidden; unpublished opinions are excluded by default; `unknown` treatment is never sold as a clean bill of health.
+- **Production REST** -- Bearer auth, `requestId` on every response, idempotency keys on hot paths, rate-limit headers, usage ledger.
+- **Free during rollout** -- Usage is ledgered so you see volume now; discover pricing at `GET /api/v1` before you sign anything.
+- **Same key via MCP** -- hosted MCP at [lawdiver.com/mcp](https://lawdiver.com/mcp); tool catalog at [`/mcp/toolspec.json`](https://lawdiver.com/mcp/toolspec.json).
 
 Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 
@@ -66,10 +66,10 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | --- | --- | --- |
 | **Case search** | `POST /search` | Issue research scoped to jurisdiction; optional AI case card + opinion text + good-law |
 | **Jurisdictions reference** | `GET /jurisdictions` | Authoritative state/circuit codes and example payloads |
-| **Cite check (citations)** | `POST /citecheck/cite` | Validate 1â€“50 cites; Bluebook form; good-law; hallucination-shaped `name_mismatch` |
-| **Cite check (document)** | `POST /citecheck/document` + jobs | Upload brief â†’ async report PDF |
-| **Citation resolve** | `POST /citations/resolve` | Map cite/name â†’ up to 5 candidates (no PDF) |
-| **Case retrieve** | `POST /cases/retrieve` | Resolve â†’ deliver one case or did-you-mean round trip |
+| **Cite check (citations)** | `POST /citecheck/cite` | Validate 1-50 cites; Bluebook form; good-law; hallucination-shaped `name_mismatch` |
+| **Cite check (document)** | `POST /citecheck/document` + jobs | Upload brief -> async report PDF |
+| **Citation resolve** | `POST /citations/resolve` | Map cite/name -> up to 5 candidates (no PDF) |
+| **Case retrieve** | `POST /cases/retrieve` | Resolve -> deliver one case or did-you-mean round trip |
 | **Case metadata** | `GET /cases/:id` | Metadata for opinion or cluster id |
 | **Case batch** | `POST /cases/batch` | Up to 50 ids in one call |
 | **Good-law detail** | `GET /cases/:id/good-law` | Status + negative treatment citations |
@@ -77,17 +77,17 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Case PDF** | `GET /cases/:id/pdf` | Opinion PDF + processing/analysis appendix |
 | **Usage ledger** | `GET /usage` | Volume by operation + your rate limits |
 
-**Testing / benchmarks:** public combined 5,300-cite suite (inputs + answer key) â€” see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
+**Testing / benchmarks:** public combined 5,300-cite suite (inputs + answer key), scored in five categories (overruled 100%, fabricated 99.7%, clean 99%, mangled 90%, unresolved unscored) -- see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
 
-Full field-level reference: [docs/endpoints.md](./docs/endpoints.md) Â· Canonical source: [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
+Full field-level reference: [docs/endpoints.md](./docs/endpoints.md) · Canonical source: [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
 
 ---
 
 ## Get an API key (5 minutes)
 
 1. **Sign up** at [lawdiver.com](https://lawdiver.com) and **verify your email**.
-2. Open **[Account â†’ API keys](https://lawdiver.com/account/api-keys)**.
-3. **Create a key**. It is shown **exactly once** (only a SHA-256 hash is stored â€” it cannot be re-displayed).
+2. Open **[Account -> API keys](https://lawdiver.com/account/api-keys)**.
+3. **Create a key**. It is shown **exactly once** (only a SHA-256 hash is stored -- it cannot be re-displayed).
 4. Store it as an environment variable on your **server**:
 
 ```bash
@@ -106,9 +106,9 @@ Authorization: Bearer ld_live_xxxxxxxxxxxxxxxxxxxx
 X-API-Key: ld_live_xxxxxxxxxxxxxxxxxxxx
 ```
 
-**Never** put a key in browser JavaScript, a mobile app bundle, or a public repo. Call LawDiver from your backend and proxy results to the client. If a key is lost, revoke it and issue a new one â€” revocation applies on the next request.
+**Never** put a key in browser JavaScript, a mobile app bundle, or a public repo. Call LawDiver from your backend and proxy results to the client. If a key is lost, revoke it and issue a new one -- revocation applies on the next request.
 
-More detail: [docs/getting-started.md](./docs/getting-started.md) Â· [docs/authentication.md](./docs/authentication.md).
+More detail: [docs/getting-started.md](./docs/getting-started.md) · [docs/authentication.md](./docs/authentication.md).
 
 ---
 
@@ -145,7 +145,7 @@ const found = await client.search({
 });
 
 for (const r of found.results) {
-  console.log(r.caseName, "â€”", r.citation);
+  console.log(r.caseName, " -- ", r.citation);
 }
 ```
 
@@ -174,7 +174,7 @@ found = client.search(
 )
 
 for r in found["results"]:
-    print(r["caseName"], "â€”", r.get("citation"))
+    print(r["caseName"], " -- ", r.get("citation"))
 ```
 
 ### 2c. cURL
@@ -198,25 +198,25 @@ See [`curl/examples.sh`](./curl/examples.sh) for the full cookbook.
 
 ```
 LawDiver_api/
-â”œâ”€â”€ README.md                 â† you are here (overview + SEO guide)
-â”œâ”€â”€ docs/                     â† deep guides (about, auth, endpoints, testing, recipes)
-â”‚   â””â”€â”€ benchmarks/citecheck/ â† public cite-check test packs + answer keys
-â”œâ”€â”€ typescript/               â† TypeScript examples client + runnable demos
-â”œâ”€â”€ python/                   â† Python examples client + runnable demos
-â”œâ”€â”€ curl/                     â† shell recipes
-â”œâ”€â”€ .github/workflows/        â† CI (build + unit tests)
-â””â”€â”€ .env.example              â† key template (copy to .env)
++---- README.md                 <- you are here (overview + SEO guide)
++---- docs/                     <- deep guides (about, auth, endpoints, testing, recipes)
+|   +---- benchmarks/citecheck/ <- public cite-check test packs + answer keys
++---- typescript/               <- TypeScript examples client + runnable demos
++---- python/                   <- Python examples client + runnable demos
++---- curl/                     <- shell recipes
++---- .github/workflows/        <- CI (build + unit tests)
++---- .env.example              <- key template (copy to .env)
 ```
 
 | Doc | Contents |
 | --- | --- |
-| [docs/about-lawdiver.md](./docs/about-lawdiver.md) | **About the API** â€” features, advantages, corpus, agent loop (SEO) |
+| [docs/about-lawdiver.md](./docs/about-lawdiver.md) | **About the API** -- features, advantages, corpus, agent loop (SEO) |
 | [docs/why-lawdiver-api.md](./docs/why-lawdiver-api.md) | Builder value props vs scrape / incumbents |
 | [docs/getting-started.md](./docs/getting-started.md) | Signup, keys, first successful call, env vars |
 | [docs/authentication.md](./docs/authentication.md) | Headers, key hygiene, revocation |
 | [docs/endpoints.md](./docs/endpoints.md) | Endpoint catalog with request/response notes |
 | [docs/error-handling.md](./docs/error-handling.md) | Stable error codes, did-you-mean, retries |
-| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** â€” four-category 5,300-cite benchmark + answer key |
+| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** -- five-category 5,300-cite benchmark + answer key |
 | [docs/recipes.md](./docs/recipes.md) | End-to-end patterns (agents, briefs, idempotency) |
 
 ---
@@ -225,14 +225,14 @@ LawDiver_api/
 
 1. **Authenticate** with a server-side Bearer key.
 2. **Every JSON response** includes `requestId` (quote it in support) and usually a `usage` block (units recorded even while free).
-3. **Search requires jurisdiction** â€” unscoped national search is almost never what you want.
-4. **Cite check never silently â€œfixesâ€ a cite** â€” `likely_valid` returns candidates; you (or a human) pick.
-5. **Retrieve ambiguity is `200` + `did_you_mean`**, not an error â€” present candidates, call again with `caseId`.
+3. **Search requires jurisdiction** -- unscoped national search is almost never what you want.
+4. **Cite check never silently "fixes" a cite** -- `likely_valid` returns candidates; you (or a human) pick.
+5. **Retrieve ambiguity is `200` + `did_you_mean`**, not an error -- present candidates, call again with `caseId`.
 6. **Idempotency-Key** is honored on `POST /search`, `POST /citecheck/cite`, and `POST /cases/retrieve` for safe retries after timeouts.
-7. **Document cite check is async** â€” upload â†’ poll job â†’ download report PDF.
-8. **PDFs are re-rendered** (good-law changes) â€” cache bytes yourself when you need safe retry; they do not use idempotency keys.
+7. **Document cite check is async** -- upload -> poll job -> download report PDF.
+8. **PDFs are re-rendered** (good-law changes) -- cache bytes yourself when you need safe retry; they do not use idempotency keys.
 9. **Rate limits** arrive as `X-RateLimit-*` and `RateLimit-*`; on `429`, honor `Retry-After`.
-10. **Branch on `error.code`**, not message text â€” codes are stable.
+10. **Branch on `error.code`**, not message text -- codes are stable.
 
 ---
 
@@ -253,8 +253,8 @@ LawDiver_api/
 ## Pricing, limits, and support
 
 - **Free during the current rollout.** Usage rows still appear (`costCents` may be `0`).
-- Default-ish ceiling: on the order of **60 requests/minute** per account (confirm via `GET /usage` â†’ `yourPricing.rateLimitPerMinute`).
-- Need a higher ceiling or another key? Ask â€” those are per-account settings, not plan tiers.
+- Default-ish ceiling: on the order of **60 requests/minute** per account (confirm via `GET /usage` -> `yourPricing.rateLimitPerMinute`).
+- Need a higher ceiling or another key? Ask -- those are per-account settings, not plan tiers.
 - Support: include the response **`requestId`** so LawDiver can jump to the exact ledger/log row.
 
 Canonical policy always wins: [API docs](https://lawdiver.com/docs/api) and `GET /api/v1`.
@@ -263,7 +263,7 @@ Canonical policy always wins: [API docs](https://lawdiver.com/docs/api) and `GET
 
 ## SEO / product keywords
 
-LawDiver caselaw API Â· caselaw API for legal AI Â· boolean and semantic legal search Â· free Westlaw alternative API Â· U.S. court opinions API Â· case citation checker API Â· Bluebook citation validation Â· good law citator API Â· legal research API for developers and agents Â· TypeScript caselaw client Â· Python legal research SDK examples Â· brief cite check PDF Â· federal and state opinion search API Â· hallucination detection for legal citations Â· MCP legal tools Â· CaseDiver API integration
+LawDiver caselaw API · caselaw API for legal AI · boolean and semantic legal search · free Westlaw alternative API · U.S. court opinions API · case citation checker API · Bluebook citation validation · good law citator API · legal research API for developers and agents · TypeScript caselaw client · Python legal research SDK examples · brief cite check PDF · federal and state opinion search API · hallucination detection for legal citations · MCP legal tools · CaseDiver API integration
 
 ---
 
@@ -278,7 +278,7 @@ Examples in this repository are community-oriented integration samples. They are
 - [LawDiver home](https://lawdiver.com)
 - [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
-- [Testing the API](./docs/testing-the-api.md) â€” four-category 5,300-cite benchmark + answer key
+- [Testing the API](./docs/testing-the-api.md) -- five-category 5,300-cite benchmark (100% / 99.7% / 99% / 90% / unscored) + answer key
 - [Cite-check benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 - [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)
 - [CaseDiver](https://lawdiver.com/casediver)

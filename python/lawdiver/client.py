@@ -55,7 +55,7 @@ class LawDiverApiError(Exception):
 
 
 class LawDiverClient:
-    """Thin REST client for LawDiver API v1 (examples pack — clone-and-copy, not a PyPI SDK)."""
+    """Thin REST client for LawDiver API v1 (examples pack -- clone-and-copy, not a PyPI SDK)."""
 
     def __init__(
         self,

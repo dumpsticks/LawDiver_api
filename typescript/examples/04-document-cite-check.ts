@@ -1,5 +1,5 @@
 /**
- * Example 04 — Document cite check (upload → poll → report PDF)
+ * Example 04 -- Document cite check (upload -> poll -> report PDF)
  * Language: TypeScript (Node.js)
  *
  * Usage: npx tsx examples/04-document-cite-check.ts path/to/brief.pdf
@@ -24,7 +24,7 @@ const mime = fileName.endsWith(".docx")
     ? "application/msword"
     : "application/pdf";
 
-console.log(`Uploading ${fileName} (${bytes.byteLength} bytes)…`);
+console.log(`Uploading ${fileName} (${bytes.byteLength} bytes)...`);
 
 const { job, report } = await client.citeCheckDocument(
   new Blob([new Uint8Array(bytes)], { type: mime }),
@@ -42,7 +42,7 @@ if (job.otherAuthoritiesFound) {
 for (const item of job.citations ?? []) {
   const label = item.citationAsSent ?? item.citationAsWritten ?? "(unknown)";
   console.log(
-    `  [input ${item.inputIndex}] ${label} → ${item.verdict}` +
+    `  [input ${item.inputIndex}] ${label} -> ${item.verdict}` +
       (item.lookupStatus ? ` (${item.lookupStatus})` : ""),
   );
 }

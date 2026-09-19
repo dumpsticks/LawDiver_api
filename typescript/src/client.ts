@@ -89,7 +89,7 @@ export interface LawDiverClientOptions {
 }
 
 /**
- * Thin LawDiver API client — plain fetch, no SDK magic.
+ * Thin LawDiver API client -- plain fetch, no SDK magic.
  * Docs: https://lawdiver.com/docs/api
  *
  * This package is an examples client (clone-and-copy), not a published npm SDK.
@@ -225,7 +225,7 @@ export class LawDiverClient {
   }
 
   /**
-   * Upload → poll → optional report download.
+   * Upload -> poll -> optional report download.
    * Caps polling so a stuck job becomes an error instead of an infinite loop.
    */
   async citeCheckDocument(

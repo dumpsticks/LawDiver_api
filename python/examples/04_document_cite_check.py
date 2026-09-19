@@ -1,4 +1,4 @@
-"""Example 04 — Document cite check (Python).
+"""Example 04 -- Document cite check (Python).
 
 Usage: python examples/04_document_cite_check.py path/to/brief.pdf
 """
@@ -19,7 +19,7 @@ if len(sys.argv) < 2:
 path = Path(sys.argv[1])
 
 with LawDiverClient() as client:
-    print(f"Uploading {path.name} ({path.stat().st_size} bytes)…")
+    print(f"Uploading {path.name} ({path.stat().st_size} bytes)...")
     result = client.cite_check_document(path, download_report=True)
 
 job = result["job"]
@@ -32,7 +32,7 @@ if job.get("otherAuthoritiesFound"):
 for item in job.get("citations") or []:
     label = item.get("citationAsSent") or item.get("citationAsWritten") or "(unknown)"
     status = f" ({item['lookupStatus']})" if item.get("lookupStatus") else ""
-    print(f"  [input {item.get('inputIndex', '?')}] {label} → {item.get('verdict')}{status}")
+    print(f"  [input {item.get('inputIndex', '?')}] {label} -> {item.get('verdict')}{status}")
 
 report = result.get("report")
 if report:

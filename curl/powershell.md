@@ -1,4 +1,4 @@
-# LawDiver API — PowerShell recipes (Windows)
+# LawDiver API -- PowerShell recipes (Windows)
 
 Set your key (session-scoped):
 

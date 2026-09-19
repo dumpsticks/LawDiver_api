@@ -1,8 +1,8 @@
 /**
- * Example 03 — Case retrieve with did-you-mean handling
+ * Example 03 -- Case retrieve with did-you-mean handling
  * Language: TypeScript (Node.js)
  *
- * Ambiguous queries return HTTP 200 + status "did_you_mean" — not an error.
+ * Ambiguous queries return HTTP 200 + status "did_you_mean" -- not an error.
  */
 import { LawDiverClient } from "../src/client.js";
 
@@ -12,7 +12,7 @@ const query = process.argv[2] ?? "410 U.S. 113";
 let hit = await client.retrieve({ query });
 
 if (hit.status === "did_you_mean") {
-  console.log("Ambiguous — candidates:");
+  console.log("Ambiguous -- candidates:");
   for (const c of hit.candidates) {
     console.log(`  [${c.caseId}] ${c.bluebookCitation ?? c.caseName} (confidence=${c.confidence})`);
   }
@@ -22,7 +22,7 @@ if (hit.status === "did_you_mean") {
     console.log("No candidates returned.");
     process.exit(0);
   }
-  console.log(`\nResolving with caseId=${chosen.caseId}…`);
+  console.log(`\nResolving with caseId=${chosen.caseId}...`);
   hit = await client.retrieve({ query, caseId: chosen.caseId });
 }
 

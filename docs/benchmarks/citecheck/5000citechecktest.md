@@ -1,11 +1,11 @@
 # 5000 CiteCheck Test
 
-**5300** citations. Combined base + overruled; shuffled (seed `0x51e5300`). Generated 2026-09-18T22:20:13.502Z.
+**5300** citations. One combined suite (base + overruled); shuffled (seed `0x51e5300`). Generated 2026-09-18T22:20:13.502Z.
 
-Inputs only — no expected answers. Answer key: [`5000citechecktest-ANSWER-KEY.md`](./5000citechecktest-ANSWER-KEY.md).
+Inputs only -- no expected answers. Answer key: [`5000citechecktest-ANSWER-KEY.md`](./5000citechecktest-ANSWER-KEY.md).
 Machine twin: [`5000citechecktest.json`](./5000citechecktest.json).
 
-Send each `cite` string to the citation-verification API under test. Record the verdict. Score against the answer key.
+Send each `cite` string to the citation-verification API under test. Record the verdict. Score against the answer key using the **five accuracy categories** in [Testing the API](../../testing-the-api.md) (overruled 100%, fabricated 99.7%, clean 99%, mangled 90%, unresolved unscored).
 
 | # | Id | Cite |
 |---|---|---|
@@ -87,7 +87,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 76 | [JUR-0323-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 122 F. 655 (3-43-6490) |
 | 77 | [OVRL-020](./5000citechecktest-ANSWER-KEY.md) | Neeley v. State, 269 Ind. 588 (Ind. 1978) |
 | 78 | [REP-0119-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8244 Cal. App. 4th 765 (2016) |
-| 79 | [REP-0220-P](./5000citechecktest-ANSWER-KEY.md) | IN THE MATTER OF THE APPLICATION OF TOKU SAKAI FOR A WRIT OF HABEAS…, 4 D. Haw. 669 (1916) |
+| 79 | [REP-0220-P](./5000citechecktest-ANSWER-KEY.md) | IN THE MATTER OF THE APPLICATION OF TOKU SAKAI FOR A WRIT OF HABEAS..., 4 D. Haw. 669 (1916) |
 | 80 | [JUR-1388-P](./5000citechecktest-ANSWER-KEY.md) | Excess Insurance Rates, 52 Pa. D. & C. 635 (7-21990) |
 | 81 | [BANK-LA-11](./5000citechecktest-ANSWER-KEY.md) | State Ex Rel. Glover v. State, 660 So. 2d 1189 (1995); Marbury v. Quillon, 88888 So. 2d 9 (1997) |
 | 82 | [BANK-WA-06](./5000citechecktest-ANSWER-KEY.md) | Cowiche Canyon Conservancy v. Bosley, 118 Wash. 2d 804 (1992) |
@@ -138,7 +138,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 127 | [SEED-NV-M1](./5000citechecktest-ANSWER-KEY.md) | Wood v. Safeway, 121 Nev. 742 (Nev. 2005) |
 | 128 | [REP-0664-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8199 So. 1006 (1941) |
 | 129 | [REP-0216-P](./5000citechecktest-ANSWER-KEY.md) | DELAWARE TRUST COMPANY, 12 Del. J. Corp. L. 236 (1986) |
-| 130 | [JUR-0186-P](./5000citechecktest-ANSWER-KEY.md) | FINANCE CO. OF PENNSYLVANIA v. NEW JERSEY SHORT LINE R. CO. SAME v.…, 183 F. 830 (3-30-25592) |
+| 130 | [JUR-0186-P](./5000citechecktest-ANSWER-KEY.md) | FINANCE CO. OF PENNSYLVANIA v. NEW JERSEY SHORT LINE R. CO. SAME v...., 183 F. 830 (3-30-25592) |
 | 131 | [JUR-0457-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9369 F. Supp. 3d 1401 (4-10-11-2) |
 | 132 | [BANK-NJ-18](./5000citechecktest-ANSWER-KEY.md) | Brill v. Guardian Life Insurance Co. of America, 1995 WL 9999999 (N.J. 1995) |
 | 133 | [REP-0059-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8027 Ariz. App. 933 (1976) |
@@ -196,7 +196,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 185 | [SEED-MT-P](./5000citechecktest-ANSWER-KEY.md) | Carbon County v. Union Reserve Coal Co., 271 Mont. 459 (Mont. 1995) |
 | 186 | [BANK-OK-20](./5000citechecktest-ANSWER-KEY.md) | see generally the Oklahoma cases on this point, passim |
 | 187 | [REP-0500-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 10022 NMCA 362 (2021) |
-| 188 | [REP-0686-P](./5000citechecktest-ANSWER-KEY.md) | MICHAEL H. DUDEK AND BRENDA M. DUDEK v. COMMISSIONER OF INTERNAL RE…, 106 Tax Ct. Mem. Dec. (CCH) 621 (2013) |
+| 188 | [REP-0686-P](./5000citechecktest-ANSWER-KEY.md) | MICHAEL H. DUDEK AND BRENDA M. DUDEK v. COMMISSIONER OF INTERNAL RE..., 106 Tax Ct. Mem. Dec. (CCH) 621 (2013) |
 | 189 | [BANK-MI-03](./5000citechecktest-ANSWER-KEY.md) | People v. Carines, 597 N.W.2d 130 (1999) |
 | 190 | [JUR-0267-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 171 F. 902 (3-39-5229) |
 | 191 | [REP-0436-P](./5000citechecktest-ANSWER-KEY.md) | PEOPLE of the State of Michigan v. James Victor HACKLER, 503 Mich. 1002 (2019) |
@@ -283,7 +283,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 272 | [ANAT-A011](./5000citechecktest-ANSWER-KEY.md) | Sentinel Mgmt. Co. v. N.H. Ins. Co., 563 N.W.2d 296 (Minn. Ct. App. 1997) |
 | 273 | [JUR-1285-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Earl Benard BLASINGAME Margaret Gooch Blasingame, 597 B.R. 614 (5-6-1) |
 | 274 | [ANAT-A266](./5000citechecktest-ANSWER-KEY.md) | 835 S.W.2d 80 |
-| 275 | [JUR-1405-P](./5000citechecktest-ANSWER-KEY.md) | In re DEPARTMENT OF ENERGY STRIPPER WELL EXEMPTION LITIGATION. ANAD…, 956 F.2d 282 (7-2561) |
+| 275 | [JUR-1405-P](./5000citechecktest-ANSWER-KEY.md) | In re DEPARTMENT OF ENERGY STRIPPER WELL EXEMPTION LITIGATION. ANAD..., 956 F.2d 282 (7-2561) |
 | 276 | [REP-0538-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8021 Ohio C.C. 852 (1901) |
 | 277 | [REP-0495-P](./5000citechecktest-ANSWER-KEY.md) | PETER DE ROSA v. DIRECTOR, 28 N.J. Tax 256 (2015) |
 | 278 | [BANK-MN-13](./5000citechecktest-ANSWER-KEY.md) | Minn. Stat. § 541.05 |
@@ -339,7 +339,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 328 | [ANAT-A179](./5000citechecktest-ANSWER-KEY.md) | Matjoulis v. Integon General Ins. Corp., 226 Ga. App. 459 (Ga. Ct. App. 1997) |
 | 329 | [JUR-0115-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 181 F. 206 (3-20-15632) |
 | 330 | [SEED-NE-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9275 Neb. 411 (Neb. 2008) |
-| 331 | [JUR-0621-P](./5000citechecktest-ANSWER-KEY.md) | ARGENT PREPARATORY ACADEMY f/k/a Silver State Charter Schools v. PH…, 371 F. Supp. 3d 836 (4-28-9-1) |
+| 331 | [JUR-0621-P](./5000citechecktest-ANSWER-KEY.md) | ARGENT PREPARATORY ACADEMY f/k/a Silver State Charter Schools v. PH..., 371 F. Supp. 3d 836 (4-28-9-1) |
 | 332 | [JUR-0016-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 137 F.4th 1140 (3-10) |
 | 333 | [JUR-0296-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 57 F. 144 (3-42-12231) |
 | 334 | [REP-0280-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8321 Ga. 1072 (2025) |
@@ -559,7 +559,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 548 | [JUR-0190-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 189 F. 896 (3-32-11963) |
 | 549 | [REP-0106-P](./5000citechecktest-ANSWER-KEY.md) | Williams v. Rogers, 14 Bush 776 (1879) |
 | 550 | [SEED-TN-N0-P](./5000citechecktest-ANSWER-KEY.md) | Nelson v. Martin, 958 S.W.2d 643 (Tenn. 1997) |
-| 551 | [JUR-0446-P](./5000citechecktest-ANSWER-KEY.md) | Javier COTTO LÓPEZ v. UNIÓN DE TRABAJADORES DE LA INDUSTRIA ELÉCTRI…, 392 F. Supp. 3d 263 (4-1) |
+| 551 | [JUR-0446-P](./5000citechecktest-ANSWER-KEY.md) | Javier COTTO LÓPEZ v. UNIÓN DE TRABAJADORES DE LA INDUSTRIA ELÉCTRI..., 392 F. Supp. 3d 263 (4-1) |
 | 552 | [BANK-AR-14](./5000citechecktest-ANSWER-KEY.md) | Ark. Code Ann. § 999999.99 |
 | 553 | [SEED-MN-V1](./5000citechecktest-ANSWER-KEY.md) | Thiele vs. Stich, 425 N.W.2d 580 (Minn. 1988) |
 | 554 | [REP-0142-P](./5000citechecktest-ANSWER-KEY.md) | BUCKEYE COTTON OIL CO. v. SLOAN, 163 C.C.A. 44 (1921) |
@@ -653,7 +653,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 642 | [BANK-SC-17](./5000citechecktest-ANSWER-KEY.md) | State v. Williams, 12 S.C. Sup. Rptr. 4th 88 (1991) |
 | 643 | [BANK-KS-08](./5000citechecktest-ANSWER-KEY.md) | State v. Ward, 292 Kan. 541 (Okla. 2017) |
 | 644 | [JUR-0246-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 196 F. 503 (3-37-18002) |
-| 645 | [JUR-0539-P](./5000citechecktest-ANSWER-KEY.md) | IN RE CLASSICSTAR MARE LEASE LITIGATION Neil and Anne Baker v. Davi…, 361 F. Supp. 3d 677 (4-17-6-4) |
+| 645 | [JUR-0539-P](./5000citechecktest-ANSWER-KEY.md) | IN RE CLASSICSTAR MARE LEASE LITIGATION Neil and Anne Baker v. Davi..., 361 F. Supp. 3d 677 (4-17-6-4) |
 | 646 | [REP-0586-P](./5000citechecktest-ANSWER-KEY.md) | Commonwealth v. Snyder, 75 Pa. D. & C.2d 588 (1977) |
 | 647 | [JUR-0787-P](./5000citechecktest-ANSWER-KEY.md) | BIMBO BAKERIES USA, 372 F. Supp. 3d 1291 (4-44-10-1) |
 | 648 | [JUR-0488-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 958 F. Supp. 2d 928 (4-13-7-1) |
@@ -664,7 +664,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 653 | [JUR-0242-P](./5000citechecktest-ANSWER-KEY.md) | BRANN v. BELL BELL v. BRANN, 192 F. 427 (3-36-8746) |
 | 654 | [REP-0757-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8020 Wall. 979 (1875) |
 | 655 | [JUR-0340-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 143 F. 574 (3-46-17399) |
-| 656 | [JUR-0430-P](./5000citechecktest-ANSWER-KEY.md) | Levenia E. MATTHEWS on Behalf of Devon and Lou Retha MATTHEWS v. SE…, 810 F. Supp. 587 (3-8-10327) |
+| 656 | [JUR-0430-P](./5000citechecktest-ANSWER-KEY.md) | Levenia E. MATTHEWS on Behalf of Devon and Lou Retha MATTHEWS v. SE..., 810 F. Supp. 587 (3-8-10327) |
 | 657 | [JUR-1297-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Teresa Cedreca EDWARDS, 601 B.R. 660 (5-8-1) |
 | 658 | [JUR-1490-P](./5000citechecktest-ANSWER-KEY.md) | Deric Smith v. State of Arkansas, 711 S.W.3d 297 (1-4-803) |
 | 659 | [OVRL-036](./5000citechecktest-ANSWER-KEY.md) | State Ex Rel. Bear v. District Court of the Fifteenth Judicial District Ex Rel. County of Roosevelt, 162 Mont. 335 (Mont. 1973) |
@@ -692,7 +692,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 681 | [BANK-WI-20](./5000citechecktest-ANSWER-KEY.md) | see generally the Wisconsin cases on this point, passim |
 | 682 | [REP-0699-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8004 Tenn. Crim. App. 990 (1971) |
 | 683 | [BANK-IA-16](./5000citechecktest-ANSWER-KEY.md) | In Re P.L., 12 Iowa Sup. Rptr. 4th 88 (2010) |
-| 684 | [REP-0278-P](./5000citechecktest-ANSWER-KEY.md) | Independent Grocers Alliance Distributing Co. v. Federal Trade Comm…, 49 F.T.C. 1751 (1953) |
+| 684 | [REP-0278-P](./5000citechecktest-ANSWER-KEY.md) | Independent Grocers Alliance Distributing Co. v. Federal Trade Comm..., 49 F.T.C. 1751 (1953) |
 | 685 | [BANK-MA-01](./5000citechecktest-ANSWER-KEY.md) | Kourouvacilis v. General Motors Corp., 410 Mass. 706 (1991) |
 | 686 | [JUR-1215-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Steven Conway CASSIDY, 595 B.R. 507 (5-46-4-5) |
 | 687 | [BANK-MI-11](./5000citechecktest-ANSWER-KEY.md) | People v. Carines, 460 Mich. 750 (1999); Marbury v. Quillon, 88888 Mich. 9 (2001) |
@@ -709,7 +709,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 698 | [JUR-0025-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 151 F. 276 (3-10-20932) |
 | 699 | [BANK-IA-10](./5000citechecktest-ANSWER-KEY.md) | Id. at 36 |
 | 700 | [REP-0431-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8253 Md. App. 358 (2021) |
-| 701 | [JUR-1598-P](./5000citechecktest-ANSWER-KEY.md) | ROGERS v. DUPREE Et Al. Dupree Et Al. v. Rogers. Cohen Et Al. v. Ro…, 824 S.E.2d 823 (1-10-17291) |
+| 701 | [JUR-1598-P](./5000citechecktest-ANSWER-KEY.md) | ROGERS v. DUPREE Et Al. Dupree Et Al. v. Rogers. Cohen Et Al. v. Ro..., 824 S.E.2d 823 (1-10-17291) |
 | 702 | [REP-0491-P](./5000citechecktest-ANSWER-KEY.md) | ROY D. KEEHN, 68 N.J.L.J. 101 (1945) |
 | 703 | [BANK-DE-01](./5000citechecktest-ANSWER-KEY.md) | Brehm v. Eisner, 746 A.2d 244 (2000) |
 | 704 | [BANK-NM-12](./5000citechecktest-ANSWER-KEY.md) | State v. Rojo, 126 N.M. 438 (1998), aff'd, 999 F.3d 1 (11th Cir. 2001) |
@@ -751,7 +751,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 740 | [REP-0379-P](./5000citechecktest-ANSWER-KEY.md) | Robert Farrell v. Commonwealth, 13 Ky. Op. 988 (1886) |
 | 741 | [REP-0226-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8002 Doug. 753 (1847) |
 | 742 | [ANAT-A014](./5000citechecktest-ANSWER-KEY.md) | Templet v. HydroChem Inc., 367 F.3d 473 (5th Cir. 2004) |
-| 743 | [JUR-1610-P](./5000citechecktest-ANSWER-KEY.md) | In re: The Petition for the Coordination of Maui Fire Cases. S.Ct. …, 565 P.3d 754 (1-11-31153) |
+| 743 | [JUR-1610-P](./5000citechecktest-ANSWER-KEY.md) | In re: The Petition for the Coordination of Maui Fire Cases. S.Ct. ..., 565 P.3d 754 (1-11-31153) |
 | 744 | [REP-0688-P](./5000citechecktest-ANSWER-KEY.md) | WHISTLEBLOWER 11099-13W v. COMMISSIONER OF INTERNAL REVENUE, 147 T.C. 110 (2016) |
 | 745 | [REP-0668-P](./5000citechecktest-ANSWER-KEY.md) | Melvin O. Graives v. S.E. Stone, 168 Sp. 407 (1936) |
 | 746 | [REP-0218-P](./5000citechecktest-ANSWER-KEY.md) | In re Estate of Bellesheim, 6 Dem. Surr. 60 (1888) |
@@ -924,7 +924,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 913 | [ANAT-A016](./5000citechecktest-ANSWER-KEY.md) | Young v. Keohane, 809 F. Supp. 1185 (M.D. Pa. 1992) |
 | 914 | [REP-0257-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES of America, 2 Fed. Sent'g Rep 93 (1989) |
 | 915 | [REP-0798-P](./5000citechecktest-ANSWER-KEY.md) | Byers v. Bacon, 27 York 54 (1915) |
-| 916 | [JUR-0715-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: PROCESSED EGG PRODUCTS ANTITRUST LITIGATION This Document Ap…, 392 F. Supp. 3d 498 (4-38-3-4) |
+| 916 | [JUR-0715-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: PROCESSED EGG PRODUCTS ANTITRUST LITIGATION This Document Ap..., 392 F. Supp. 3d 498 (4-38-3-4) |
 | 917 | [REP-0639-P](./5000citechecktest-ANSWER-KEY.md) | Gates v. Nobles, 1 Root 344 (1795) |
 | 918 | [REP-0534-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8197 Ohio App. 3d 1038 (2012) |
 | 919 | [REP-0516-P](./5000citechecktest-ANSWER-KEY.md) | The People of the State of New York ex rel. Charles S. Whitman, 3 N.Y. Civ. Proc. R., (N.S.) 301 (1912) |
@@ -1004,7 +1004,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 993 | [REP-0135-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8002 Cal. Super. Ct. 440 (1926) |
 | 994 | [JUR-1566-P](./5000citechecktest-ANSWER-KEY.md) | B.E. CAPITAL MANAGEMENT FUND LP, 171 A.3d 140 (1-8-27381) |
 | 995 | [REP-0307-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8002 Hayw. 710 (1805) |
-| 996 | [REP-0448-P](./5000citechecktest-ANSWER-KEY.md) | Tishomingo Savings Institution v. O. C. Carr Tishomingo Savings Ins…, 1 Miss. Dec. 364 (1887) |
+| 996 | [REP-0448-P](./5000citechecktest-ANSWER-KEY.md) | Tishomingo Savings Institution v. O. C. Carr Tishomingo Savings Ins..., 1 Miss. Dec. 364 (1887) |
 | 997 | [ANAT-A097](./5000citechecktest-ANSWER-KEY.md) | Weedo v. Stone-E-Brick, Inc., 405 A.2d 788 (N.J. 1979) |
 | 998 | [JUR-0462-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 371 F. Supp. 3d 1340 (4-10-11-6) |
 | 999 | [REP-0501-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 10011 NMCERT 336 (2011) |
@@ -1115,7 +1115,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1104 | [REP-0692-P](./5000citechecktest-ANSWER-KEY.md) | RUDOLPH H. BEAVER v. COMMISSIONER OF INTERNAL REVENUE, 85 T.C.M. (RIA) 1265 (2003) |
 | 1105 | [BANK-FL-17](./5000citechecktest-ANSWER-KEY.md) | State v. DiGuilio, 1986 WL 9999999 (Fla. 1986) |
 | 1106 | [ANAT-A088](./5000citechecktest-ANSWER-KEY.md) | Butler v. Deutsche Morgan Grenfell, Inc., 2006 NMCA 084 (N.M. Ct. App. 2006) |
-| 1107 | [REP-0315-P](./5000citechecktest-ANSWER-KEY.md) | The Board of Commissioners of Excise of the city and county of New …, 2 Hilt. 588 (1860) |
+| 1107 | [REP-0315-P](./5000citechecktest-ANSWER-KEY.md) | The Board of Commissioners of Excise of the city and county of New ..., 2 Hilt. 588 (1860) |
 | 1108 | [REP-0112-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8062 Cal. 4th 1525 (2016) |
 | 1109 | [ANAT-A321](./5000citechecktest-ANSWER-KEY.md) | Sheldon Appel Co. v. Albert & Oliker, 47 Cal. 3d 863 (Cal. 1978) |
 | 1110 | [OVRL-093](./5000citechecktest-ANSWER-KEY.md) | Walton v. Arizona, 497 U.S. 639 (SCOTUS 1990) |
@@ -1266,7 +1266,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1255 | [BANK-CO-05](./5000citechecktest-ANSWER-KEY.md) | People v. District Court, Second Judicial District, 713 P.2d 921 (1986) |
 | 1256 | [ANAT-A106](./5000citechecktest-ANSWER-KEY.md) | Auth. v. McDevitt Street Bovis, Inc., 507 S.E.2d 344 (Va. 1998) |
 | 1257 | [ANAT-A252](./5000citechecktest-ANSWER-KEY.md) | Gillespie v. Gillespie, 644 S.W.2d 449, 26 Tex. Sup. Ct. J. 83 (Tex. 1982) |
-| 1258 | [REP-0051-P](./5000citechecktest-ANSWER-KEY.md) | PROGRESSIVE INSURANCE COMPANY (PAGO PAGO) LIMITED v. DEPARTMENT OF …, 10 Am. Samoa 3d 244 (2005) |
+| 1258 | [REP-0051-P](./5000citechecktest-ANSWER-KEY.md) | PROGRESSIVE INSURANCE COMPANY (PAGO PAGO) LIMITED v. DEPARTMENT OF ..., 10 Am. Samoa 3d 244 (2005) |
 | 1259 | [JUR-0117-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9188 F. 888 (3-21-11057) |
 | 1260 | [REP-0586-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8075 Pa. D. & C.2d 921 (1977) |
 | 1261 | [JUR-0496-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9371 F. Supp. 3d 536 (4-13-7-3) |
@@ -1296,7 +1296,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1285 | [BANK-WV-18](./5000citechecktest-ANSWER-KEY.md) | In Re Cecil T., 2011 WL 9999999 (W. Va. 2011) |
 | 1286 | [REP-0437-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8326 Mich. App. 1073 (2019) |
 | 1287 | [JUR-2072-P](./5000citechecktest-ANSWER-KEY.md) | Ex parte Andrew Rhodes, 2 Wheel. Cr. Cas. 559 (1-40-16338) |
-| 1288 | [REP-0206-P](./5000citechecktest-ANSWER-KEY.md) | Ebenezer Sage and Eben W. Sage against The Middletown Insurance Com…, 5 Day 409 (1813) |
+| 1288 | [REP-0206-P](./5000citechecktest-ANSWER-KEY.md) | Ebenezer Sage and Eben W. Sage against The Middletown Insurance Com..., 5 Day 409 (1813) |
 | 1289 | [BANK-WI-06](./5000citechecktest-ANSWER-KEY.md) | State Ex Rel. Kalal v. Circuit Court for Dane County, 271 Wis. 2d 636 (2004) |
 | 1290 | [REP-0252-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8653 Fed. Appx. 799 (2016) |
 | 1291 | [REP-0128-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8017 Cal. Daily Op. Serv. 6887 (2017) |
@@ -1407,7 +1407,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1396 | [SEED-CO-V1](./5000citechecktest-ANSWER-KEY.md) | People vs. District Court, 713 P.2d 918 (Colo. 1986) |
 | 1397 | [REP-0395-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8001 Law Times (N.S.) 490 (1879) |
 | 1398 | [SEED-MD-N0-M1](./5000citechecktest-ANSWER-KEY.md) | State Highway Administration v. Kee, 309 Md. 532 (Md. 1987) |
-| 1399 | [JUR-1904-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADOPTION OF N.J.A.C. 17:2-3.8 AND 17:2-3.13 (DIVISION OF PENS…, 458 N.J. Super. 326 (1-30-19975) |
+| 1399 | [JUR-1904-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADOPTION OF N.J.A.C. 17:2-3.8 AND 17:2-3.13 (DIVISION OF PENS..., 458 N.J. Super. 326 (1-30-19975) |
 | 1400 | [SEED-AZ-N1-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 210 Ariz. 571 (Ariz. 2005) |
 | 1401 | [JUR-1325-P](./5000citechecktest-ANSWER-KEY.md) | General Investment and Development Co. Inc. v. D.E.R., 26 Pa. D. & C.3d 271 (7-10608) |
 | 1402 | [JUR-1940-P](./5000citechecktest-ANSWER-KEY.md) | In re Baby Anonymous, 2026 NY Slip Op 26019 (1-32-18836) |
@@ -1556,7 +1556,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1545 | [JUR-0444-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 122 F. 722 (3-9-26852) |
 | 1546 | [REP-0583-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8114 Pa. Commw. 961 (2009) |
 | 1547 | [JUR-0259-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 192 F. 670 (3-38-5529) |
-| 1548 | [JUR-2229-P](./5000citechecktest-ANSWER-KEY.md) | Integración De Las Salas De Despacho Durante Los Meses De Mayo Y Ju…, 2018 TSPR 58 (1-52-19643) |
+| 1548 | [JUR-2229-P](./5000citechecktest-ANSWER-KEY.md) | Integración De Las Salas De Despacho Durante Los Meses De Mayo Y Ju..., 2018 TSPR 58 (1-52-19643) |
 | 1549 | [BANK-KS-07](./5000citechecktest-ANSWER-KEY.md) | State v. Ward, 292 Kan. 533 (2011) |
 | 1550 | [SEED-AK-P](./5000citechecktest-ANSWER-KEY.md) | Zeman v. Lufthansa German Airlines, 699 P.2d 1274 (Alaska 1985) |
 | 1551 | [REP-0672-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8005 Stew. & P. 531 (1834) |
@@ -1613,7 +1613,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1602 | [REP-0300-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8001 Handy 842 (1855) |
 | 1603 | [REP-0045-P](./5000citechecktest-ANSWER-KEY.md) | In re WHETMORE, 1 Am. Law T. Rep. Bankr. 136 (1869) |
 | 1604 | [ANAT-A189](./5000citechecktest-ANSWER-KEY.md) | Sun Valley Shopping Center, Inc. v. Idaho Power Co., 803 P.2d 993 (Idaho 1991) |
-| 1605 | [JUR-2023-P](./5000citechecktest-ANSWER-KEY.md) | Stephen G. DAYTON and Carolyn Laverne Dayton v. Randy JORDAN and Su…, 279 Or. App. 737 (1-37-10233) |
+| 1605 | [JUR-2023-P](./5000citechecktest-ANSWER-KEY.md) | Stephen G. DAYTON and Carolyn Laverne Dayton v. Randy JORDAN and Su..., 279 Or. App. 737 (1-37-10233) |
 | 1606 | [JUR-0136-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 189 F. 445 (3-23-10142) |
 | 1607 | [REP-0744-P](./5000citechecktest-ANSWER-KEY.md) | Kelly v. First Virginia Bank-Southwest, 7 Va. Law Rep. 2195 (1991) |
 | 1608 | [ANAT-A010](./5000citechecktest-ANSWER-KEY.md) | Kuroda v. SPJS Hldgs., LLC, 971 A.2d 872 (Del. Ch. 2009) |
@@ -1625,7 +1625,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1614 | [REP-0755-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8001 Walk. Ch. 877 (1845) |
 | 1615 | [REP-0753-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8027 Wage Hour & Leave Rep. (BNA) 947 (2017) |
 | 1616 | [BANK-OK-06](./5000citechecktest-ANSWER-KEY.md) | Carmichael v. Beller, 914 P.2d 1054 (1996) |
-| 1617 | [REP-0779-P](./5000citechecktest-ANSWER-KEY.md) | Midwest Renewable Energy Association v. Public Service Commission o…, 2024 WI App 34 (2024) |
+| 1617 | [REP-0779-P](./5000citechecktest-ANSWER-KEY.md) | Midwest Renewable Energy Association v. Public Service Commission o..., 2024 WI App 34 (2024) |
 | 1618 | [ANAT-A403](./5000citechecktest-ANSWER-KEY.md) | New York v. Belton, 453 U.S. 454 (1981) |
 | 1619 | [REP-0388-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8013 La.App. 6 Cir. 1135 (2014) |
 | 1620 | [REP-0701-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8157 Tex. 976 (1967) |
@@ -1774,7 +1774,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1763 | [BANK-SD-14](./5000citechecktest-ANSWER-KEY.md) | S.D. Codified Laws § 15-2-13 |
 | 1764 | [JUR-0293-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 359 F. Supp. 3d 1129 (3-4166) |
 | 1765 | [REP-0683-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8002 Sweeny 915 (1871) |
-| 1766 | [REP-0716-P](./5000citechecktest-ANSWER-KEY.md) | Integración De Las Salas De Despacho Durante Los Meses De Mayo Y Ju…, 2018 TSPR 58 (2028) |
+| 1766 | [REP-0716-P](./5000citechecktest-ANSWER-KEY.md) | Integración De Las Salas De Despacho Durante Los Meses De Mayo Y Ju..., 2018 TSPR 58 (2028) |
 | 1767 | [OVRL-080](./5000citechecktest-ANSWER-KEY.md) | Ohio v. Roberts, 448 U.S. 56 (SCOTUS 1980) |
 | 1768 | [REP-0781-P](./5000citechecktest-ANSWER-KEY.md) | W. U. Tel. Co. v. Patrick McKinney, 2 Wilson 562 (1885) |
 | 1769 | [JUR-0131-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 6 F. Cas. 219 (3-22-3737) |
@@ -1787,7 +1787,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1776 | [REP-0590-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8001 Pa. Fid. 506 (1981) |
 | 1777 | [REP-0197-P](./5000citechecktest-ANSWER-KEY.md) | In Re MIKE HAMMER PRODUCTIONS, 2003 Daily Journal DAR 5428 (2003) |
 | 1778 | [REP-0456-P](./5000citechecktest-ANSWER-KEY.md) | STEVENS v. GILL, 1 Morr. Min. Rep. 576 (1879) |
-| 1779 | [REP-0347-P](./5000citechecktest-ANSWER-KEY.md) | People of the State of Illinois ex rel. John Koelling v. John C. Ca…, 3 Ill. Cir. Ct. 277 (1908) |
+| 1779 | [REP-0347-P](./5000citechecktest-ANSWER-KEY.md) | People of the State of Illinois ex rel. John Koelling v. John C. Ca..., 3 Ill. Cir. Ct. 277 (1908) |
 | 1780 | [BANK-TX-18](./5000citechecktest-ANSWER-KEY.md) | City of Keller v. Wilson, 2005 WL 9999999 (Tex. 2005) |
 | 1781 | [REP-0167-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8077 Collier Bankr. Cas. 2d 399 (2017) |
 | 1782 | [REP-0217-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8006 Dem. Sur. 381 (1888) |
@@ -1847,7 +1847,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1836 | [OVRL-067](./5000citechecktest-ANSWER-KEY.md) | State v. McMillion, 104 W. Va. 1 (W. Va. 1927) |
 | 1837 | [SEED-SC-N0-P](./5000citechecktest-ANSWER-KEY.md) | Key v. Currie, 305 S.C. 115 (S.C. 1991) |
 | 1838 | [ANAT-A336](./5000citechecktest-ANSWER-KEY.md) | Stanback v. Stanback, 254 S.E.2d 611, 254 (N.C. 1979) |
-| 1839 | [REP-0036-P](./5000citechecktest-ANSWER-KEY.md) | LOUIS DREYFUS COMPANY FREIGHT ASIA PTE LTD (f/k/a Louis Dreyfus Com…, 2017 A.M.C. 1679 (2017) |
+| 1839 | [REP-0036-P](./5000citechecktest-ANSWER-KEY.md) | LOUIS DREYFUS COMPANY FREIGHT ASIA PTE LTD (f/k/a Louis Dreyfus Com..., 2017 A.M.C. 1679 (2017) |
 | 1840 | [OVRL-095](./5000citechecktest-ANSWER-KEY.md) | Wolf v. Colorado, 338 U.S. 25 (SCOTUS 1949) |
 | 1841 | [JUR-0224-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9087 F. 707 (3-34-20102) |
 | 1842 | [REP-0732-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8336 Utah 346 (1998) |
@@ -1874,7 +1874,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1863 | [JUR-0053-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9062 F. 978 (3-13-15240) |
 | 1864 | [JUR-1428-P](./5000citechecktest-ANSWER-KEY.md) | UNION BANK v. NEW ORLEANS, 24 F. Cas. 550 (7-30893) |
 | 1865 | [ANAT-A023](./5000citechecktest-ANSWER-KEY.md) | Bruce-Terminix Company v. Zurich Ins. Co., 504 S.E.2d 574 (N.C. Ct. App. 1998) |
-| 1866 | [REP-0559-P](./5000citechecktest-ANSWER-KEY.md) | NONDOC MEDIA and WILLIAM W. SAVAGE III v. STATE Ex Rel. BOARD OF RE…, 2026 OK 2 (2026) |
+| 1866 | [REP-0559-P](./5000citechecktest-ANSWER-KEY.md) | NONDOC MEDIA and WILLIAM W. SAVAGE III v. STATE Ex Rel. BOARD OF RE..., 2026 OK 2 (2026) |
 | 1867 | [REP-0605-P](./5000citechecktest-ANSWER-KEY.md) | AMERICAN INS. CO. v. CANTER, 3 Pet. 28 (1892) |
 | 1868 | [ANAT-A475](./5000citechecktest-ANSWER-KEY.md) | Republic of Com., Inc. v. Pataki, 100 N.Y.2d 801 (N.Y. 2003) |
 | 1869 | [JUR-0410-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9121 F. 1006 (3-6-10529) |
@@ -1907,7 +1907,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1896 | [JUR-1115-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Loretta Dae JOLLY, 567 B.R. 480 (5-33-4-6) |
 | 1897 | [BANK-MD-18](./5000citechecktest-ANSWER-KEY.md) | Kaczorowski v. Mayor of Baltimore, 1987 WL 9999999 (Md. 1987) |
 | 1898 | [ANAT-A389](./5000citechecktest-ANSWER-KEY.md) | Ng v. Kalihi Shipping & Terminal Co., 672 Haw. 118 (Haw. 2015) |
-| 1899 | [REP-0558-P](./5000citechecktest-ANSWER-KEY.md) | CITY OF LONGMONT Colorado Food and Water Watch Sierra Club Earthwor…, 182 Oil & Gas Rep. 210 (2016) |
+| 1899 | [REP-0558-P](./5000citechecktest-ANSWER-KEY.md) | CITY OF LONGMONT Colorado Food and Water Watch Sierra Club Earthwor..., 182 Oil & Gas Rep. 210 (2016) |
 | 1900 | [SEED-VT-N1-M1](./5000citechecktest-ANSWER-KEY.md) | Marine Midland Bank v. Bicknell, 176 Vt. 398 (Vt. 2004) |
 | 1901 | [BANK-NJ-15](./5000citechecktest-ANSWER-KEY.md) | N.J. Stat. Ann. § 2A:999999.99 |
 | 1902 | [REP-0641-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8003 Sand. Ch. 364 (1847) |
@@ -1918,7 +1918,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 1907 | [JUR-1446-P](./5000citechecktest-ANSWER-KEY.md) | THUNDERBOLT LODE v. JAY GOULD LODE, 2 Colo. L. Rep. 149 (7-8432) |
 | 1908 | [JUR-0308-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9192 F. 731 (3-42-26620) |
 | 1909 | [ANAT-A033](./5000citechecktest-ANSWER-KEY.md) | Lone Star Steakhouse & Saloon, Inc. v. Alpha of Va., Inc., 43 F.3d 922 (4th Cir. 1995) |
-| 1910 | [JUR-1713-P](./5000citechecktest-ANSWER-KEY.md) | DOWNTOWN DEVELOPMENT DISTRICT OF the CITY OF NEW ORLEANS v. The CIT…, 272 So. 3d 917 (1-18-29741) |
+| 1910 | [JUR-1713-P](./5000citechecktest-ANSWER-KEY.md) | DOWNTOWN DEVELOPMENT DISTRICT OF the CITY OF NEW ORLEANS v. The CIT..., 272 So. 3d 917 (1-18-29741) |
 | 1911 | [BANK-NC-06](./5000citechecktest-ANSWER-KEY.md) | State v. Lawrence, 365 N.C. 509 (2012) |
 | 1912 | [BANK-AZ-15](./5000citechecktest-ANSWER-KEY.md) | Ariz. Rev. Stat. § 999999.99 |
 | 1913 | [JUR-0131-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9006 F. Cas. 296 (3-22-3737) |
@@ -2056,7 +2056,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2045 | [JUR-0030-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9124 F.4th 1399 (3-11) |
 | 2046 | [BANK-CA-01](./5000citechecktest-ANSWER-KEY.md) | People v. Kelly, 51 Cal. Rptr. 3d 98 (2006) |
 | 2047 | [SEED-UT-M1](./5000citechecktest-ANSWER-KEY.md) | State v. Pena, 232 Utah Adv. Rep. 4 (Utah 1994) |
-| 2048 | [REP-0286-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Judicial Settlement of the Account of John B. …, 2 Gibb. Surr. 381 (1898) |
+| 2048 | [REP-0286-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Judicial Settlement of the Account of John B. ..., 2 Gibb. Surr. 381 (1898) |
 | 2049 | [REP-0790-P](./5000citechecktest-ANSWER-KEY.md) | Citizens' Ins. Co. v. Kountz Line, 4 Woods 268 (1883) |
 | 2050 | [REP-0552-P](./5000citechecktest-ANSWER-KEY.md) | The State, 75 Ohio Op. 2d 142 (1976) |
 | 2051 | [BANK-AR-19](./5000citechecktest-ANSWER-KEY.md) | see generally the Arkansas cases on this point, passim |
@@ -2115,7 +2115,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2104 | [SEED-PA-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 518 Pa. 491 (Pa. 1988) |
 | 2105 | [REP-0607-P](./5000citechecktest-ANSWER-KEY.md) | The American Insurance Company, 1 Pet. C.C. 511 (1828) |
 | 2106 | [REP-0580-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8638 Pa. 388 (2017) |
-| 2107 | [REP-0395-P](./5000citechecktest-ANSWER-KEY.md) | OVERSEERS OF POOR OF DAVIDSON TOWNSHIP v. OVERSEERS OF POOR OF MORE…, 1 Law Times (N.S.) 157 (1879) |
+| 2107 | [REP-0395-P](./5000citechecktest-ANSWER-KEY.md) | OVERSEERS OF POOR OF DAVIDSON TOWNSHIP v. OVERSEERS OF POOR OF MORE..., 1 Law Times (N.S.) 157 (1879) |
 | 2108 | [JUR-0061-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9189 F. 282 (3-1-32217) |
 | 2109 | [REP-0114-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8012 Cal. 5th 877 (2022) |
 | 2110 | [REP-0253-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8134 Fed. Cl. 868 (2018) |
@@ -2204,7 +2204,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2193 | [BANK-IN-10](./5000citechecktest-ANSWER-KEY.md) | Id. at 1222 |
 | 2194 | [BANK-MD-07](./5000citechecktest-ANSWER-KEY.md) | Kaczorowski v. Mayor of Baltimore, 309 Md. 523 (1987) |
 | 2195 | [JUR-0428-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 124 F.4th 1110 (3-8) |
-| 2196 | [JUR-2108-P](./5000citechecktest-ANSWER-KEY.md) | Southwest Airlines Pilots Association (SWAPA) on Behalf of Itself a…, 704 SW3d 832 (1-43-3423) |
+| 2196 | [JUR-2108-P](./5000citechecktest-ANSWER-KEY.md) | Southwest Airlines Pilots Association (SWAPA) on Behalf of Itself a..., 704 SW3d 832 (1-43-3423) |
 | 2197 | [REP-0697-P](./5000citechecktest-ANSWER-KEY.md) | J. D. McMILLIN, 63 Tenn. App. 732 (1972) |
 | 2198 | [JUR-0107-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 178 F. 596 (3-19-14717) |
 | 2199 | [JUR-0398-P](./5000citechecktest-ANSWER-KEY.md) | NORTH FORK WATER CO. v. MEDLAND, 187 F. 163 (3-5-21109) |
@@ -2258,7 +2258,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2247 | [JUR-0300-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 191 F. 450 (3-42-17910) |
 | 2248 | [JUR-0323-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9122 F. 732 (3-43-6490) |
 | 2249 | [BANK-MD-01](./5000citechecktest-ANSWER-KEY.md) | Kaczorowski v. Mayor of Baltimore, 309 Md. 505 (1987) |
-| 2250 | [ANAT-A373](./5000citechecktest-ANSWER-KEY.md) | Morrisey v. Chandler Pointe Condominium Ass’n, 71 Cal. 6th 220, 402 Cal. Rptr. 4th 13 (Cal. 2021) |
+| 2250 | [ANAT-A373](./5000citechecktest-ANSWER-KEY.md) | Morrisey v. Chandler Pointe Condominium Ass'n, 71 Cal. 6th 220, 402 Cal. Rptr. 4th 13 (Cal. 2021) |
 | 2251 | [REP-0271-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8002 Foster 683 (1875) |
 | 2252 | [JUR-0009-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9138 F.4th 126 (3-1) |
 | 2253 | [ANAT-A065](./5000citechecktest-ANSWER-KEY.md) | Dodson v. St. Paul Insurance Co., 1991 OK 24 (Okla. 1991) |
@@ -2266,7 +2266,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2255 | [JUR-0455-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9374 F. Supp. 3d 1403 (4-10-11-2) |
 | 2256 | [JUR-1797-P](./5000citechecktest-ANSWER-KEY.md) | Sheila OLIVER v. STATE FARM FIRE AND CASUALTY INSURANCE COMPANY, 923 N.W.2d 680 (1-23-2872) |
 | 2257 | [JUR-2224-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES v. GILLIAM, 25 F. Cas. 1319 (1-51-25666) |
-| 2258 | [REP-0689-P](./5000citechecktest-ANSWER-KEY.md) | DEPARTAMENTO DE LA FAMILIA Peticionario v. JESSICA ROSARIO LUZUNARI…, 15 T.C.A. 1133 (2010) |
+| 2258 | [REP-0689-P](./5000citechecktest-ANSWER-KEY.md) | DEPARTAMENTO DE LA FAMILIA Peticionario v. JESSICA ROSARIO LUZUNARI..., 15 T.C.A. 1133 (2010) |
 | 2259 | [BANK-AL-09](./5000citechecktest-ANSWER-KEY.md) | West, 547 So. 2d at 874 |
 | 2260 | [REP-0764-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8027 Wash. App. 2d 615 (2023) |
 | 2261 | [BANK-RI-08](./5000citechecktest-ANSWER-KEY.md) | Accent Store Design, Inc. v. Marathon House, Inc., 476 A.2d 1223 (1996) |
@@ -2390,7 +2390,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2379 | [REP-0638-P](./5000citechecktest-ANSWER-KEY.md) | Monmouth County Electric Company v. Thomas P. McKenna, 3 Robb. 841 (1906) |
 | 2380 | [REP-0276-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8996 F. Supp. 2d 687 (2014) |
 | 2381 | [BANK-IN-11](./5000citechecktest-ANSWER-KEY.md) | Cardwell v. State, 895 N.E.2d 1219 (2008); Marbury v. Quillon, 88888 N.E.2d 9 (2010) |
-| 2382 | [REP-0147-P](./5000citechecktest-ANSWER-KEY.md) | Jesse Sanderlin v. The Trustees of the Roman Catholic Church of Sav…, 1 Charlton 551 (1837) |
+| 2382 | [REP-0147-P](./5000citechecktest-ANSWER-KEY.md) | Jesse Sanderlin v. The Trustees of the Roman Catholic Church of Sav..., 1 Charlton 551 (1837) |
 | 2383 | [BANK-VT-01](./5000citechecktest-ANSWER-KEY.md) | Robertson v. Mylan Laboratories, Inc., 176 Vt. 356 (2004) |
 | 2384 | [REP-0133-P](./5000citechecktest-ANSWER-KEY.md) | David Haskell Green v. State of Arkansas, 329 Cal. Rptr. 3d 782 (2025) |
 | 2385 | [BANK-CON-01](./5000citechecktest-ANSWER-KEY.md) | U.S. Const. amend. XIV, § 1 |
@@ -2529,7 +2529,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2518 | [REP-0780-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8004 Willson 845 (1892) |
 | 2519 | [REP-0227-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 10007 DSD 335 (2007) |
 | 2520 | [OVRL-058](./5000citechecktest-ANSWER-KEY.md) | State v. Leggs, 1997 Tenn. Crim. App. LEXIS 192 (Tenn. Crim. App. 1997) |
-| 2521 | [JUR-0458-P](./5000citechecktest-ANSWER-KEY.md) | Frederick WASHINGTON and Mini Jolita Washington v. The NATIONAL SHI…, 374 F. Supp. 3d 1339 (4-10-11-3) |
+| 2521 | [JUR-0458-P](./5000citechecktest-ANSWER-KEY.md) | Frederick WASHINGTON and Mini Jolita Washington v. The NATIONAL SHI..., 374 F. Supp. 3d 1339 (4-10-11-3) |
 | 2522 | [JUR-0322-P](./5000citechecktest-ANSWER-KEY.md) | VAN BRIMMER v. TEXAS & P. RY. CO., 190 F. 394 (3-43-6490) |
 | 2523 | [ANAT-A469](./5000citechecktest-ANSWER-KEY.md) | American Greetings Corporation v. Cohn, 839 F.2d 1164 (10th Cir. 1988) |
 | 2524 | [JUR-0042-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 129 F.4th 869 (3-12) |
@@ -2652,7 +2652,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2641 | [ANAT-A345](./5000citechecktest-ANSWER-KEY.md) | Carvel Corp. v. Noonan, 3 N.Y.3d 182, 247 (N.Y. 2004) |
 | 2642 | [BANK-IA-09](./5000citechecktest-ANSWER-KEY.md) | In Re, 778 N.W.2d at 37 |
 | 2643 | [SEED-NC-M1](./5000citechecktest-ANSWER-KEY.md) | State v. Lawrence, 365 N.C. 560 (N.C. 2012) |
-| 2644 | [REP-0320-P](./5000citechecktest-ANSWER-KEY.md) | The Attorney General v. The President Directors and Company of the …, 1 Hopk. Ch. 596 (1826) |
+| 2644 | [REP-0320-P](./5000citechecktest-ANSWER-KEY.md) | The Attorney General v. The President Directors and Company of the ..., 1 Hopk. Ch. 596 (1826) |
 | 2645 | [REP-0002-P](./5000citechecktest-ANSWER-KEY.md) | COMMONWEALTH of Pennsylvania v. Jeorge GONZALEZ, 988 A.2d 668 (2010) |
 | 2646 | [JUR-0005-P](./5000citechecktest-ANSWER-KEY.md) | Johnson v. Dunn, 792 F. Supp. 3d 1241 (3) |
 | 2647 | [JUR-0268-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 173 F. 622 (3-39-5229) |
@@ -2698,7 +2698,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2687 | [JUR-1211-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Leroy MANGRUM, 599 B.R. 868 (5-46-4-4) |
 | 2688 | [REP-0035-P](./5000citechecktest-ANSWER-KEY.md) | Williams v. State of Arkansas, 18 Am. Ann. Cas. 865 (1910) |
 | 2689 | [JUR-1664-P](./5000citechecktest-ANSWER-KEY.md) | Lizik v. Lizik, 3 Pa. D. & C.5th 484 (1-14-17990) |
-| 2690 | [JUR-0563-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: MCNEILUS MANUFACTURING EXPLOSION COORDINATED LITIGATION File…, 381 F. Supp. 3d 1075 (4-19-1-1) |
+| 2690 | [JUR-0563-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: MCNEILUS MANUFACTURING EXPLOSION COORDINATED LITIGATION File..., 381 F. Supp. 3d 1075 (4-19-1-1) |
 | 2691 | [BANK-VT-16](./5000citechecktest-ANSWER-KEY.md) | 99999 Vt. 1 |
 | 2692 | [SEED-WA-N0-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 118 Wash. 2d 782 (Wash. 1992) |
 | 2693 | [JUR-0418-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9169 F. 227 (3-7-24081) |
@@ -2745,7 +2745,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2734 | [SEED-MI-M1](./5000citechecktest-ANSWER-KEY.md) | People v. Carines, 460 Mich. 705 (Mich. 1999) |
 | 2735 | [SEED-AL-N0-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 547 So. 2d 868 (Ala. 1989) |
 | 2736 | [JUR-0475-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 255 F. Supp. 3d 1187 (4-1-11-3) |
-| 2737 | [REP-0237-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Judicial Settlement of the Accounts of Joseph …, 15 E.H. Smith 644 (1900) |
+| 2737 | [REP-0237-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Judicial Settlement of the Accounts of Joseph ..., 15 E.H. Smith 644 (1900) |
 | 2738 | [BANK-OK-08](./5000citechecktest-ANSWER-KEY.md) | Carmichael v. Beller, 914 P.2d 1051 (Tex. 2002) |
 | 2739 | [ANAT-A383](./5000citechecktest-ANSWER-KEY.md) | Adeyemi v. Cranbrook Insurance Group, 127 S.W.3d 737 (Tenn. 2004) |
 | 2740 | [BANK-AL-17](./5000citechecktest-ANSWER-KEY.md) | West v. Founders Life Assur. Co. of Florida, 1989 WL 9999999 (Ala. 1989) |
@@ -2781,7 +2781,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2770 | [BANK-MT-18](./5000citechecktest-ANSWER-KEY.md) | Carbon County v. Union Reserve Coal Co., Inc., 1995 WL 9999999 (Mont. 1995) |
 | 2771 | [SEED-MS-V1](./5000citechecktest-ANSWER-KEY.md) | Bush vs. State, 895 So. 2d 836 (Miss. 2005) |
 | 2772 | [BANK-ID-18](./5000citechecktest-ANSWER-KEY.md) | State v. Oliver, 2007 WL 9999999 (Idaho 2007) |
-| 2773 | [REP-0360-P](./5000citechecktest-ANSWER-KEY.md) | In Re Condemnation of Certain Land for Use and Benefit of Primary R…, 256 Iowa 43 (1980) |
+| 2773 | [REP-0360-P](./5000citechecktest-ANSWER-KEY.md) | In Re Condemnation of Certain Land for Use and Benefit of Primary R..., 256 Iowa 43 (1980) |
 | 2774 | [REP-0162-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8002 Code Rep. 435 (1849) |
 | 2775 | [BANK-NC-12](./5000citechecktest-ANSWER-KEY.md) | State v. Lawrence, 365 N.C. 506 (2012); Marbury v. Quillon, 88888 N.C. 9 (2014) |
 | 2776 | [OVRL-046](./5000citechecktest-ANSWER-KEY.md) | State v. Pimental, 153 N.C. App. 69 (N.C. Ct. App. 2002) |
@@ -2855,7 +2855,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2844 | [JUR-0234-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 116 F. 490 (3-35-9025) |
 | 2845 | [ANAT-A326](./5000citechecktest-ANSWER-KEY.md) | Alliance Mortgage Co. v. Rothwell, 207 S.W.3d 334 (Tex. 2006) |
 | 2846 | [JUR-0305-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 172 F. 905 (3-42-2557) |
-| 2847 | [REP-0063-P](./5000citechecktest-ANSWER-KEY.md) | Kayla STEPHENS v. ARKANSAS DEPARTMENT OF HUMAN SERVICES and Minor C…, 2013 Ark. App. 249 (2013) |
+| 2847 | [REP-0063-P](./5000citechecktest-ANSWER-KEY.md) | Kayla STEPHENS v. ARKANSAS DEPARTMENT OF HUMAN SERVICES and Minor C..., 2013 Ark. App. 249 (2013) |
 | 2848 | [REP-0628-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8002 Rec. Co. Ct. 1464 (1680) |
 | 2849 | [BANK-LA-06](./5000citechecktest-ANSWER-KEY.md) | State Ex Rel. Glover v. State, 660 So. 2d 1187 (1995) |
 | 2850 | [JUR-0242-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9192 F. 504 (3-36-8746) |
@@ -2883,7 +2883,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2872 | [REP-0411-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8010 Mackey 421 (1892) |
 | 2873 | [JUR-0202-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9101 F. 330 (3-32-2654) |
 | 2874 | [REP-0154-P](./5000citechecktest-ANSWER-KEY.md) | Donetta DAVIDSON, 2001 CJ C.A.R. 500 (2001) |
-| 2875 | [REP-0442-P](./5000citechecktest-ANSWER-KEY.md) | The Travelers Insurance Company v. T. Eugene Thompson and Others; C…, 281 Minn. 547 (2008) |
+| 2875 | [REP-0442-P](./5000citechecktest-ANSWER-KEY.md) | The Travelers Insurance Company v. T. Eugene Thompson and Others; C..., 281 Minn. 547 (2008) |
 | 2876 | [BANK-SC-04](./5000citechecktest-ANSWER-KEY.md) | State v. Williams, 1991 S.C. LEXIS 172 |
 | 2877 | [REP-0222-P](./5000citechecktest-ANSWER-KEY.md) | PEPPER v. SALINE COUNTY, 5 Dill. 270 (1879) |
 | 2878 | [JUR-0021-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 187 F. 378 (3-10-20721) |
@@ -2910,7 +2910,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 2899 | [BANK-MD-03](./5000citechecktest-ANSWER-KEY.md) | Kaczorowski v. Mayor of Baltimore, 525 A.2d 628 (1987) |
 | 2900 | [SEED-WY-P](./5000citechecktest-ANSWER-KEY.md) | Vaughn v. State, 962 P.2d 149 (Wyo. 1998) |
 | 2901 | [REP-0621-P](./5000citechecktest-ANSWER-KEY.md) | Toro contra Berenger, 2 P.R. Sent. 411 (1902) |
-| 2902 | [JUR-1435-P](./5000citechecktest-ANSWER-KEY.md) | Musicians' Protective Union Local No. 814 American Federation of Mu…, 88 Ohio Law. Abs. 491 (7-31297) |
+| 2902 | [JUR-1435-P](./5000citechecktest-ANSWER-KEY.md) | Musicians' Protective Union Local No. 814 American Federation of Mu..., 88 Ohio Law. Abs. 491 (7-31297) |
 | 2903 | [ANAT-A053](./5000citechecktest-ANSWER-KEY.md) | West v. Caterpillar Tractor Co., Inc., 336 So. 2d 80 (Fla. 1976) |
 | 2904 | [JUR-0398-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9187 F. 240 (3-5-21109) |
 | 2905 | [ANAT-A418](./5000citechecktest-ANSWER-KEY.md) | Bivens v. Six Unknown Named Agents, 403 U.S. 400 (1971) |
@@ -3045,7 +3045,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3034 | [BANK-NC-09](./5000citechecktest-ANSWER-KEY.md) | State v. Lawrence, 563 N.C. 506 (2012) |
 | 3035 | [JUR-0329-H2](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 9155 F. 760 (3-44-30031) |
 | 3036 | [REP-0238-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8063 Employee Benefits Cas. (BNA) 1386 (2017) |
-| 3037 | [JUR-0767-P](./5000citechecktest-ANSWER-KEY.md) | ASSOCIATED RADIO SERVICE COMPANY and Associated Radio Company v. PA…, 73 F.R.D. 633 (4-43-5-1) |
+| 3037 | [JUR-0767-P](./5000citechecktest-ANSWER-KEY.md) | ASSOCIATED RADIO SERVICE COMPANY and Associated Radio Company v. PA..., 73 F.R.D. 633 (4-43-5-1) |
 | 3038 | [TRICK-029](./5000citechecktest-ANSWER-KEY.md) | Boyer v. Snap-On Tools Corp., 913 F2d 108 (3d Cir. 1990) |
 | 3039 | [REP-0085-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8022 Blatchf. 464 (1884) |
 | 3040 | [ANAT-A077](./5000citechecktest-ANSWER-KEY.md) | Cumis Ins. Soc'y, Inc. v. Clark, 318 F. Supp. 3d 199 (D.C. Cir. 2018) |
@@ -3065,7 +3065,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3054 | [JUR-0183-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 193 F. 418 (3-30202) |
 | 3055 | [BANK-MD-05](./5000citechecktest-ANSWER-KEY.md) | Thornbury v. Aldenmoor Holdings, LLC, 309 Md. 505 (1987) |
 | 3056 | [REP-0677-P](./5000citechecktest-ANSWER-KEY.md) | WILDES v. PARKER, 3 Sumn. 593 (1839) |
-| 3057 | [REP-0793-P](./5000citechecktest-ANSWER-KEY.md) | STATE of West Virginia EX REL. WEST VIRGINIA DEPARTMENT OF TRANSPOR…, 241 W. Va. 307 (2019) |
+| 3057 | [REP-0793-P](./5000citechecktest-ANSWER-KEY.md) | STATE of West Virginia EX REL. WEST VIRGINIA DEPARTMENT OF TRANSPOR..., 241 W. Va. 307 (2019) |
 | 3058 | [JUR-0216-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 184 F. 515 (3-33-20940) |
 | 3059 | [JUR-0247-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 196 F. 423 (3-37-18002) |
 | 3060 | [REP-0774-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8006 Whart. 737 (1841) |
@@ -3201,7 +3201,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3190 | [OVRL-086](./5000citechecktest-ANSWER-KEY.md) | Planned Parenthood of Southeastern Pa. v. Casey, 505 U.S. 833 (SCOTUS 1992) |
 | 3191 | [SEED-AR-M1](./5000citechecktest-ANSWER-KEY.md) | Finn v. McCuen, 303 Ark. 481 (Ark. 1990) |
 | 3192 | [REP-0674-P](./5000citechecktest-ANSWER-KEY.md) | DOROTHY PAUL, 9 Storey 235 (1966) |
-| 3193 | [REP-0424-P](./5000citechecktest-ANSWER-KEY.md) | PHINEAS ADAMS agt. THE BOARD OF COUNTY COMMISSIONERS OF DOUGLAS COU…, 1 McCahon 235 (1868) |
+| 3193 | [REP-0424-P](./5000citechecktest-ANSWER-KEY.md) | PHINEAS ADAMS agt. THE BOARD OF COUNTY COMMISSIONERS OF DOUGLAS COU..., 1 McCahon 235 (1868) |
 | 3194 | [BANK-CT-11](./5000citechecktest-ANSWER-KEY.md) | Ferryman v. City of Groton, 212 Conn. 138 (1989); Marbury v. Quillon, 88888 Conn. 9 (1991) |
 | 3195 | [REP-0160-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 10024 CO 390 (2024) |
 | 3196 | [REP-0084-P](./5000citechecktest-ANSWER-KEY.md) | Troth and Another v. Hunt, 8 Blackf. 580 (1848) |
@@ -3234,7 +3234,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3223 | [JUR-0979-P](./5000citechecktest-ANSWER-KEY.md) | In the MATTER OF: Steve H. LOY, 584 B.R. 302 (5-14-7-2) |
 | 3224 | [BANK-IP-01](./5000citechecktest-ANSWER-KEY.md) | 35 U.S.C. § 101 |
 | 3225 | [SEED-HI-V1](./5000citechecktest-ANSWER-KEY.md) | Kema vs. Gaddis, 91 Haw. 200 (Haw. 1999) |
-| 3226 | [REP-0108-P](./5000citechecktest-ANSWER-KEY.md) | In re the Marriage of KAREN and CHARLES ERIK HARRIS. KAREN BUTLER v…, 34 Cal. 210 (2004) |
+| 3226 | [REP-0108-P](./5000citechecktest-ANSWER-KEY.md) | In re the Marriage of KAREN and CHARLES ERIK HARRIS. KAREN BUTLER v..., 34 Cal. 210 (2004) |
 | 3227 | [JUR-2247-P](./5000citechecktest-ANSWER-KEY.md) | OLIVE WEBSTER v. CLEMENT WEBSTER, 9 V.I. 31 (1-53-18937) |
 | 3228 | [REP-0076-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8001 Bee 433 (1798) |
 | 3229 | [JUR-1634-P](./5000citechecktest-ANSWER-KEY.md) | People v. Fair, 238 N.E.3d 1119 (1-13-10310) |
@@ -3336,7 +3336,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3325 | [REP-0191-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8005 Cranch 991 (1840) |
 | 3326 | [BANK-KS-05](./5000citechecktest-ANSWER-KEY.md) | Thornbury v. Aldenmoor Holdings, LLC, 292 Kan. 541 (2011) |
 | 3327 | [REP-0346-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8407 Ill. App. 3d 1385 (2011) |
-| 3328 | [JUR-0154-P](./5000citechecktest-ANSWER-KEY.md) | DEPOT CARRIAGE & BAGGAGE CO. v. KANSAS CITY TERMINAL RY. CO. KANSAS…, 190 F. 212 (3-25-16906) |
+| 3328 | [JUR-0154-P](./5000citechecktest-ANSWER-KEY.md) | DEPOT CARRIAGE & BAGGAGE CO. v. KANSAS CITY TERMINAL RY. CO. KANSAS..., 190 F. 212 (3-25-16906) |
 | 3329 | [BANK-WY-17](./5000citechecktest-ANSWER-KEY.md) | Vaughn v. State, 1998 WL 9999999 (Wyo. 1998) |
 | 3330 | [SEED-CA-N0-M1](./5000citechecktest-ANSWER-KEY.md) | People v. Wright, 51 Cal. Rptr. 3d 8 (Cal. 2006) |
 | 3331 | [REP-0049-P](./5000citechecktest-ANSWER-KEY.md) | OTTO v. HALECK v. MORRIS I. SCANLAN, 4 Am. Samoa 841 (1975) |
@@ -3530,7 +3530,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3519 | [BANK-AR-04](./5000citechecktest-ANSWER-KEY.md) | Finn v. McCuen, 1990 Ark. LEXIS 491 |
 | 3520 | [ANAT-A160](./5000citechecktest-ANSWER-KEY.md) | Winston & Strawn, LLP v. James P. McLean, Jr., 843 F.3d 503 (D.C. Cir. 2016) |
 | 3521 | [REP-0056-P](./5000citechecktest-ANSWER-KEY.md) | WILLIAMS v. WILLIAMS, 25 App. D.C. 32 (1995) |
-| 3522 | [JUR-2271-P](./5000citechecktest-ANSWER-KEY.md) | OFFICE OF THE ATTORNEY GENERAL AND THE OFFICE OF IMMIGRATION AND NA…, 3 N. Mar. I. Commw. 633 (1-55-25120) |
+| 3522 | [JUR-2271-P](./5000citechecktest-ANSWER-KEY.md) | OFFICE OF THE ATTORNEY GENERAL AND THE OFFICE OF IMMIGRATION AND NA..., 3 N. Mar. I. Commw. 633 (1-55-25120) |
 | 3523 | [SEED-MI-N1-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 460 Mich. 720 (Mich. 1999) |
 | 3524 | [REP-0136-P](./5000citechecktest-ANSWER-KEY.md) | In re STUDENTS OF HASTINGS COLLEGE OF LAW, 7 Cal. Unrep. 376 (1910) |
 | 3525 | [TRICK-005](./5000citechecktest-ANSWER-KEY.md) | Transp. Ins. Co. v. Moriel, 879 S.W.2d 10 (Tex. 1994) |
@@ -3810,7 +3810,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3799 | [BANK-PA-14](./5000citechecktest-ANSWER-KEY.md) | 42 Pa. Cons. Stat. § 5524 |
 | 3800 | [JUR-0043-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 138 F.4th 563 (3-12) |
 | 3801 | [ANAT-A094](./5000citechecktest-ANSWER-KEY.md) | Conrad v. Hazen, 140 N.H. 249 (N.H. 1995) |
-| 3802 | [REP-0477-P](./5000citechecktest-ANSWER-KEY.md) | In Re the Matter of the ADOPTION OF Minor Children C.B.M. and C.R.M…, 992 N.E.2d 687 (2013) |
+| 3802 | [REP-0477-P](./5000citechecktest-ANSWER-KEY.md) | In Re the Matter of the ADOPTION OF Minor Children C.B.M. and C.R.M..., 992 N.E.2d 687 (2013) |
 | 3803 | [ANAT-A075](./5000citechecktest-ANSWER-KEY.md) | Gallo v. Prudential Residential Servs., 22 F.3d 1219 (2d Cir. 1994) |
 | 3804 | [ANAT-A327](./5000citechecktest-ANSWER-KEY.md) | McCrea v. Commissioner of Soc. Sec., 370 F.3d 357 29 S.W.3d 62 (3d Cir. 2004) |
 | 3805 | [JUR-2278-P](./5000citechecktest-ANSWER-KEY.md) | AMERICAN SAMOA GOVERNMENT v. IFALEMI HUAKAU, 10 Am. Samoa 3d 431 (1-56-12261) |
@@ -3943,7 +3943,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3932 | [REP-0574-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8012 O. Supp. 441 (1943) |
 | 3933 | [BANK-SC-14](./5000citechecktest-ANSWER-KEY.md) | S.C. Code Ann. § 15-3-530 |
 | 3934 | [SEED-LA-N0-P](./5000citechecktest-ANSWER-KEY.md) | Adams v. State, 660 So. 2d 1187 (La. 1995) |
-| 3935 | [REP-0548-P](./5000citechecktest-ANSWER-KEY.md) | HENKEL v. ASCHINGER SPRUILL v. ASCHINGER WEISER REVOCABLE TRUST v. …, 167 Ohio Misc. 2d 4 (2012) |
+| 3935 | [REP-0548-P](./5000citechecktest-ANSWER-KEY.md) | HENKEL v. ASCHINGER SPRUILL v. ASCHINGER WEISER REVOCABLE TRUST v. ..., 167 Ohio Misc. 2d 4 (2012) |
 | 3936 | [ANAT-A386](./5000citechecktest-ANSWER-KEY.md) | Okonkwo v. Brightpath Analytics, Inc., 1188 F.2d 91 (7th Cir. 1991) |
 | 3937 | [ANAT-A006](./5000citechecktest-ANSWER-KEY.md) | City of Rome v. Jordan, 426 S.E.2d 861 (Ga. 1993) |
 | 3938 | [REP-0666-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8427 So. 3d 1448 (2026) |
@@ -3967,13 +3967,13 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 3956 | [REP-0316-P](./5000citechecktest-ANSWER-KEY.md) | Pannell & Smith v. The Farmers' Bank of Maryland, 7 H. & J. 202 (1826) |
 | 3957 | [BANK-WY-19](./5000citechecktest-ANSWER-KEY.md) | see generally the Wyoming cases on this point, passim |
 | 3958 | [SEED-NH-N1-M1](./5000citechecktest-ANSWER-KEY.md) | Kelley's Case, 137 N.H. 341 (N.H. 1993) |
-| 3959 | [REP-0473-P](./5000citechecktest-ANSWER-KEY.md) | PEMBINA COUNTY WATER RESOURCE BOARD and the Pembina County Board of…, 2010 N.D. 148 (2010) |
+| 3959 | [REP-0473-P](./5000citechecktest-ANSWER-KEY.md) | PEMBINA COUNTY WATER RESOURCE BOARD and the Pembina County Board of..., 2010 N.D. 148 (2010) |
 | 3960 | [JUR-0368-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9184 F. 586 (3-48-9580) |
 | 3961 | [JUR-0249-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 186 F. 665 (3-37-18002) |
-| 3962 | [REP-0511-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of Norman Saferstein v. Lawyers' Fund For Client Prot…, 99 N.Y.2d 637 (2003) |
+| 3962 | [REP-0511-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of Norman Saferstein v. Lawyers' Fund For Client Prot..., 99 N.Y.2d 637 (2003) |
 | 3963 | [REP-0235-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8345 Educ. L. Rep. 1469 (2017) |
 | 3964 | [REP-0488-P](./5000citechecktest-ANSWER-KEY.md) | Louis H. Seylaz Et Al., 141 N.J. Eq. 303 (1948) |
-| 3965 | [SEED-RI-N1-P](./5000citechecktest-ANSWER-KEY.md) | Rhode Island Hospital Trust National Bank v. Eastern General Contra…, 674 A.2d 1227 (R.I. 1996) |
+| 3965 | [SEED-RI-N1-P](./5000citechecktest-ANSWER-KEY.md) | Rhode Island Hospital Trust National Bank v. Eastern General Contra..., 674 A.2d 1227 (R.I. 1996) |
 | 3966 | [ANAT-A145](./5000citechecktest-ANSWER-KEY.md) | Pacific Ins. Co. v. Am. Nat. Fire Ins. Co., 148 F.3d 396 (4th Cir. 1998) |
 | 3967 | [REP-0035-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8018 Am. Ann. Cas. 1198 (1910) |
 | 3968 | [REP-0772-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES v. KIE, 7 West Coast Rep. 6 (1885) |
@@ -4071,9 +4071,9 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4060 | [REP-0407-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8004 L.R.A. 1168 (1912) |
 | 4061 | [REP-0330-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8005 Hughes 807 (1883) |
 | 4062 | [ANAT-A238](./5000citechecktest-ANSWER-KEY.md) | Ryan v. New York Telephone Co., 62 N.Y.2d 494 (1984) |
-| 4063 | [REP-0072-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of a Petition by Excelsior Energy Inc. for Approval o…, 216 Barb. 1694 (2010) |
+| 4063 | [REP-0072-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of a Petition by Excelsior Energy Inc. for Approval o..., 216 Barb. 1694 (2010) |
 | 4064 | [JUR-0827-P](./5000citechecktest-ANSWER-KEY.md) | VIRGINIA SOCIETY FOR HUMAN LIFE, 26 F. Supp. 2d 868 (4-48-4-1) |
-| 4065 | [JUR-2199-P](./5000citechecktest-ANSWER-KEY.md) | Clarence PETTIBONE v. HO-CHUNK NATION LEGISLATURE and Ho-Chunk Nati…, 3 Am. Tribal Law 413 (1-49-13655) |
+| 4065 | [JUR-2199-P](./5000citechecktest-ANSWER-KEY.md) | Clarence PETTIBONE v. HO-CHUNK NATION LEGISLATURE and Ho-Chunk Nati..., 3 Am. Tribal Law 413 (1-49-13655) |
 | 4066 | [JUR-0122-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9190 F. 274 (3-22-11416) |
 | 4067 | [JUR-0191-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 189 F. 391 (3-32-11963) |
 | 4068 | [JUR-0227-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9196 F. 200 (3-35-2113) |
@@ -4144,7 +4144,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4133 | [REP-0163-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8006 Coffey 868 (1915) |
 | 4134 | [REP-0183-P](./5000citechecktest-ANSWER-KEY.md) | JOAN ZANARD-KLOTH v. DEPARTMENT OF SOCIAL SERVICES, 53 Conn. Supp. 363 (2014) |
 | 4135 | [REP-0526-P](./5000citechecktest-ANSWER-KEY.md) | Jeremiah Quill v. The Empire State Telephone and Telegraph Company, 99 N.Y. Sup. Ct. 539 (1895) |
-| 4136 | [JUR-0839-P](./5000citechecktest-ANSWER-KEY.md) | Petrolia MOSS v. TEXARKANA ARKANSAS SCHOOL DISTRICT and Theresa Cow…, 240 F. Supp. 3d 966 (4-4-8-5) |
+| 4136 | [JUR-0839-P](./5000citechecktest-ANSWER-KEY.md) | Petrolia MOSS v. TEXARKANA ARKANSAS SCHOOL DISTRICT and Theresa Cow..., 240 F. Supp. 3d 966 (4-4-8-5) |
 | 4137 | [JUR-1317-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: LATITUDE 360, 603 B.R. 183 (5-9-11-6) |
 | 4138 | [REP-0527-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8059 N.Y. Super. Ct. 920 (1891) |
 | 4139 | [REP-0326-P](./5000citechecktest-ANSWER-KEY.md) | Commonwealth v. Samuel Hastings, 1 Howison 44 (1851) |
@@ -4218,7 +4218,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4207 | [BANK-CO-01](./5000citechecktest-ANSWER-KEY.md) | People v. District Court, Second Judicial District, 713 P.2d 918 (1986) |
 | 4208 | [REP-0002-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8988 A.2d 1001 (2010) |
 | 4209 | [JUR-0157-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 180 F. 565 (3-25-16906) |
-| 4210 | [JUR-1019-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Jeffrey J. ROCKWELL d/b/a Rockwell Productions f/d/b/a Rockw…, 590 B.R. 19 (5-19-1-1) |
+| 4210 | [JUR-1019-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Jeffrey J. ROCKWELL d/b/a Rockwell Productions f/d/b/a Rockw..., 590 B.R. 19 (5-19-1-1) |
 | 4211 | [BANK-FL-06](./5000citechecktest-ANSWER-KEY.md) | State v. DiGuilio, 491 So. 2d 1128 (1986) |
 | 4212 | [REP-0157-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8004 Cliff. 757 (1878) |
 | 4213 | [REP-0467-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8008 Navajo Rptr. 1226 (2006) |
@@ -4252,7 +4252,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4241 | [JUR-0430-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 810 F. Supp. 587 (3-8-10327) |
 | 4242 | [ANAT-A302](./5000citechecktest-ANSWER-KEY.md) | Applied Equipment Corp. v. Litton Saudi Arabia Ltd., 869 P.2d 461 (Cal. 1994) |
 | 4243 | [BANK-NJ-05](./5000citechecktest-ANSWER-KEY.md) | Thornbury v. Aldenmoor Holdings, LLC, 142 N.J. 520 (1995) |
-| 4244 | [REP-0698-P](./5000citechecktest-ANSWER-KEY.md) | Mumford Smith and others v. St. Louis Mutual Life Insurance Company…, 3 Tenn. Ch. R. 631 (1878) |
+| 4244 | [REP-0698-P](./5000citechecktest-ANSWER-KEY.md) | Mumford Smith and others v. St. Louis Mutual Life Insurance Company..., 3 Tenn. Ch. R. 631 (1878) |
 | 4245 | [REP-0337-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 10026 IL App (1st) 231968 (2026) |
 | 4246 | [ANAT-A208](./5000citechecktest-ANSWER-KEY.md) | Sage v. Wilcox, 6 Conn. 81 (Conn. 1826) |
 | 4247 | [BANK-WY-04](./5000citechecktest-ANSWER-KEY.md) | Thornbury v. Aldenmoor Holdings, LLC, 962 P.2d 149 (1998) |
@@ -4330,7 +4330,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4319 | [REP-0632-P](./5000citechecktest-ANSWER-KEY.md) | John H. Sullivan v. Isaac B. Allen, 1 Rep. Cont. Elect. Case. 99 (1897) |
 | 4320 | [ANAT-A098](./5000citechecktest-ANSWER-KEY.md) | Canter v. Koehring Co., 283 So. 2d 716 (La. 1973) |
 | 4321 | [BANK-SD-03](./5000citechecktest-ANSWER-KEY.md) | Permann v. South Dakota Department of Labor, Unemployment Insurance Division, 41 Educ. L. Rep. 322 (1987) |
-| 4322 | [REP-0357-P](./5000citechecktest-ANSWER-KEY.md) | FRANKLE v. PENNSYLVANIA FIRE INS. CO. SAME v. INSURANCE CO. OF NORT…, 12 Ins. L.J. 614 (1883) |
+| 4322 | [REP-0357-P](./5000citechecktest-ANSWER-KEY.md) | FRANKLE v. PENNSYLVANIA FIRE INS. CO. SAME v. INSURANCE CO. OF NORT..., 12 Ins. L.J. 614 (1883) |
 | 4323 | [JUR-2214-P](./5000citechecktest-ANSWER-KEY.md) | Commonwealth v. McConnell, 35 Pa. D. & C.2d 541 (1-50-17230) |
 | 4324 | [REP-0240-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES of America (14-2274), 47 Envtl. L. Rep. (Envtl. Law Inst.) 20007 (2017) |
 | 4325 | [REP-0031-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8125 A.L.R. 5th 1020 (2004) |
@@ -4350,8 +4350,8 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4339 | [JUR-0050-H2](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 9130 F.4th 1102 (3-13) |
 | 4340 | [REP-0408-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8051 L.R.A.N.S. 1226 (1914) |
 | 4341 | [JUR-0028-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 120 F. 550 (3-10-20932) |
-| 4342 | [REP-0750-P](./5000citechecktest-ANSWER-KEY.md) | Bruce Kirkland and Gordon Kirkland v. James Kolodziej and Barbara K…, 199 Vt. 606 (2016) |
-| 4343 | [REP-0247-P](./5000citechecktest-ANSWER-KEY.md) | ERICH E. SCHLEIER AND HELEN B. SCHLEIER v. COMMISSIONER OF INTERNAL…, 67 Fair Empl. Prac. Cas. (BNA) 1744 (1993) |
+| 4342 | [REP-0750-P](./5000citechecktest-ANSWER-KEY.md) | Bruce Kirkland and Gordon Kirkland v. James Kolodziej and Barbara K..., 199 Vt. 606 (2016) |
+| 4343 | [REP-0247-P](./5000citechecktest-ANSWER-KEY.md) | ERICH E. SCHLEIER AND HELEN B. SCHLEIER v. COMMISSIONER OF INTERNAL..., 67 Fair Empl. Prac. Cas. (BNA) 1744 (1993) |
 | 4344 | [JUR-0190-P](./5000citechecktest-ANSWER-KEY.md) | WHEELER v. JAMES SAME v. MURRAY, 189 F. 896 (3-32-11963) |
 | 4345 | [JUR-0172-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9184 F. 435 (3-28-3805) |
 | 4346 | [JUR-0397-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 18 F. Cas. 912 (3-51-6195) |
@@ -4378,7 +4378,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4367 | [JUR-0315-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9182 F. 433 (3-43-14552) |
 | 4368 | [REP-0517-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8041 N.Y. Crim. 614 (1924) |
 | 4369 | [REP-0541-P](./5000citechecktest-ANSWER-KEY.md) | HENRY MORRIS v. NANCY ANN MORRIS, 1 Ohio Ch. 630 (1834) |
-| 4370 | [JUR-0198-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES of America and Revenue Officer John Felske of the Int…, 592 F. Supp. 1290 (3-32-12942) |
+| 4370 | [JUR-0198-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES of America and Revenue Officer John Felske of the Int..., 592 F. Supp. 1290 (3-32-12942) |
 | 4371 | [ANAT-A181](./5000citechecktest-ANSWER-KEY.md) | Dube v. Likins, 167 P.3d 93 (Ariz. Ct. App. 2007) |
 | 4372 | [TRICK-043](./5000citechecktest-ANSWER-KEY.md) | Auer v. Robbins, 519 U.S. 452 (1997) |
 | 4373 | [REP-0453-P](./5000citechecktest-ANSWER-KEY.md) | State v. Partain, 421 Mont. 375 (2025) |
@@ -4386,7 +4386,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4375 | [JUR-0041-P](./5000citechecktest-ANSWER-KEY.md) | USA ex rel. Danilo Feliciano v. Robert Ardoin (ORDER), 127 F.4th 382 (3-12) |
 | 4376 | [SEED-FL-N1-P](./5000citechecktest-ANSWER-KEY.md) | Noah v. Noah, 491 So. 2d 1124 (Fla. 1986) |
 | 4377 | [ANAT-A240](./5000citechecktest-ANSWER-KEY.md) | Green-Younger v. Barnhart, 335 F.3d 99, 101 (2d Cir. 2003) |
-| 4378 | [JUR-0823-P](./5000citechecktest-ANSWER-KEY.md) | EQUAL EMPLOYMENT OPPORTUNITY COMMISSION v. CRAIN AUTOMOTIVE HOLDING…, 372 F. Supp. 3d 751 (4-4-8-4) |
+| 4378 | [JUR-0823-P](./5000citechecktest-ANSWER-KEY.md) | EQUAL EMPLOYMENT OPPORTUNITY COMMISSION v. CRAIN AUTOMOTIVE HOLDING..., 372 F. Supp. 3d 751 (4-4-8-4) |
 | 4379 | [REP-0581-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8001 Pa. (Admiralty) 398 (1788) |
 | 4380 | [SEED-TN-N1-P](./5000citechecktest-ANSWER-KEY.md) | State v. Yeargan, 958 S.W.2d 626 (Tenn. 1997) |
 | 4381 | [BANK-GA-08](./5000citechecktest-ANSWER-KEY.md) | Lau's Corp., Inc. v. Haskins, 261 Ga. 491 (Fla. 1997) |
@@ -4414,7 +4414,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4403 | [BANK-FL-18](./5000citechecktest-ANSWER-KEY.md) | Clark v. State, 363 So. 2d 331 (1978) |
 | 4404 | [BANK-AK-18](./5000citechecktest-ANSWER-KEY.md) | Wetherhorn v. Alaska Psychiatric Institute, 156 P.3d 371 (2007) |
 | 4405 | [REP-0567-P](./5000citechecktest-ANSWER-KEY.md) | The MOSLEM, 1 Olcott 289 (1846) |
-| 4406 | [REP-0253-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADDICKS AND BARKER (TEXAS) FLOOD-CONTROL RESERVOIRS. This Doc…, 134 Fed. Cl. 535 (2018) |
+| 4406 | [REP-0253-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADDICKS AND BARKER (TEXAS) FLOOD-CONTROL RESERVOIRS. This Doc..., 134 Fed. Cl. 535 (2018) |
 | 4407 | [JUR-0108-H2](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 9182 F. 1085 (3-19-14717) |
 | 4408 | [REP-0180-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 8031 Conn. L. Rptr. 959 (2002) |
 | 4409 | [REP-0648-P](./5000citechecktest-ANSWER-KEY.md) | ESTATE OF HENRY P. SLATER, 1 Sch. Reg. 40 (1933) |
@@ -4439,7 +4439,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4428 | [SEED-KY-M1](./5000citechecktest-ANSWER-KEY.md) | Commonwealth v. English, 993 S.W.2d 914 (Ky. 1999) |
 | 4429 | [JUR-0201-H2](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 9183 F. 1091 (3-32-12942) |
 | 4430 | [REP-0685-P](./5000citechecktest-ANSWER-KEY.md) | MOODEY, 1 Tapp. Rep. 330 (1819) |
-| 4431 | [SEED-RI-N1-M1](./5000citechecktest-ANSWER-KEY.md) | Rhode Island Hospital Trust National Bank v. Eastern General Contra…, 674 A.2d 1272 (R.I. 1996) |
+| 4431 | [SEED-RI-N1-M1](./5000citechecktest-ANSWER-KEY.md) | Rhode Island Hospital Trust National Bank v. Eastern General Contra..., 674 A.2d 1272 (R.I. 1996) |
 | 4432 | [REP-0243-P](./5000citechecktest-ANSWER-KEY.md) | In re Zalkind, 126 F. 835 (1942) |
 | 4433 | [REP-0325-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8001 Howard 589 (1872) |
 | 4434 | [BANK-UT-12](./5000citechecktest-ANSWER-KEY.md) | State v. Pena, 232 Utah Adv. Rep. 3 (1994), aff'd, 999 F.3d 1 (11th Cir. 1997) |
@@ -4475,7 +4475,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4464 | [BANK-NJ-04](./5000citechecktest-ANSWER-KEY.md) | Brill v. Guardian Life Insurance Co. of America, 1995 N.J. LEXIS 1040 |
 | 4465 | [JUR-1451-P](./5000citechecktest-ANSWER-KEY.md) | Russell County, 422 So. 3d 68 (1-1-19134) |
 | 4466 | [REP-0379-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8013 Ky. Op. 1321 (1886) |
-| 4467 | [REP-0024-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES ex rel. HUMBOLDT STEAMSHIP COMPANY v. INTERSTATE COMM…, 3 Alaska Fed. 611 (1911) |
+| 4467 | [REP-0024-P](./5000citechecktest-ANSWER-KEY.md) | UNITED STATES ex rel. HUMBOLDT STEAMSHIP COMPANY v. INTERSTATE COMM..., 3 Alaska Fed. 611 (1911) |
 | 4468 | [REP-0166-P](./5000citechecktest-ANSWER-KEY.md) | In re LANSDALE TRANSPORTATION CO., 24 Collier Bankr. Cas. 268 (1981) |
 | 4469 | [BANK-NC-18](./5000citechecktest-ANSWER-KEY.md) | State v. Lawrence, 2012 WL 9999999 (N.C. 2012) |
 | 4470 | [REP-0786-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8010 W.L.J. 703 (1853) |
@@ -4490,7 +4490,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4479 | [JUR-0086-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9189 F. 846 (3-16-4854) |
 | 4480 | [BANK-VA-16](./5000citechecktest-ANSWER-KEY.md) | 99999 Va. 1 |
 | 4481 | [REP-0518-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8012 N.Y. Leg. Obs. 496 (1854) |
-| 4482 | [JUR-0867-P](./5000citechecktest-ANSWER-KEY.md) | SAID HASSEN AND KAREN HASSEN v. GOVERNMENT OF THE VIRGIN ISLANDS AN…, 66 V.I. 860 (4-53-3-1) |
+| 4482 | [JUR-0867-P](./5000citechecktest-ANSWER-KEY.md) | SAID HASSEN AND KAREN HASSEN v. GOVERNMENT OF THE VIRGIN ISLANDS AN..., 66 V.I. 860 (4-53-3-1) |
 | 4483 | [OVRL-033](./5000citechecktest-ANSWER-KEY.md) | Rowland v. State, 2010 Miss. LEXIS 386 (Miss. 2010) |
 | 4484 | [JUR-0231-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 194 F. 732 (3-35-23599) |
 | 4485 | [JUR-0263-H1](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 181 F. 168 (3-38-8176) |
@@ -4572,7 +4572,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4561 | [JUR-0049-P](./5000citechecktest-ANSWER-KEY.md) | Alnylam Pharmaceuticals, 138 F.4th 1326 (3-13) |
 | 4562 | [REP-0493-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8026 N.J. Misc. 659 (1949) |
 | 4563 | [JUR-0026-H2](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 9151 F. 968 (3-10-20932) |
-| 4564 | [JUR-0673-P](./5000citechecktest-ANSWER-KEY.md) | Shannon Oranda JEFFERIES v. UNC REGIONAL PHYSICIANS PEDIATRICS and …, 392 F. Supp. 3d 620 (4-33-4-6) |
+| 4564 | [JUR-0673-P](./5000citechecktest-ANSWER-KEY.md) | Shannon Oranda JEFFERIES v. UNC REGIONAL PHYSICIANS PEDIATRICS and ..., 392 F. Supp. 3d 620 (4-33-4-6) |
 | 4565 | [JUR-0509-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 23 F.2d 852 (4-14-7-1) |
 | 4566 | [JUR-0212-H2](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 9042 F. 646 (3-33-11804) |
 | 4567 | [REP-0735-P](./5000citechecktest-ANSWER-KEY.md) | Nielsen v. Cronquist, 2026 UT App 65 (2026) |
@@ -4724,7 +4724,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4713 | [BANK-TN-14](./5000citechecktest-ANSWER-KEY.md) | Tenn. Code Ann. § 999999.99 |
 | 4714 | [JUR-0995-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: Ronald Martin KANE, 603 B.R. 491 (5-16-10-1) |
 | 4715 | [SEED-NJ-N1-M1](./5000citechecktest-ANSWER-KEY.md) | Polshek v. Bergen Cty. Iron Works, 142 N.J. Super. 561 (N.J. 1976) |
-| 4716 | [REP-0568-P](./5000citechecktest-ANSWER-KEY.md) | Kelly G. Dincau Department of Legislative Services Office of Policy…, 96 Op. Att'y Gen. 93 (2011) |
+| 4716 | [REP-0568-P](./5000citechecktest-ANSWER-KEY.md) | Kelly G. Dincau Department of Legislative Services Office of Policy..., 96 Op. Att'y Gen. 93 (2011) |
 | 4717 | [REP-0347-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8003 Ill. Cir. Ct. 610 (1908) |
 | 4718 | [SEED-FL-N1-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 491 So. 2d 1124 (Fla. 1986) |
 | 4719 | [REP-0433-H](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 10012 Me. 389 (2012) |
@@ -4738,7 +4738,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4727 | [REP-0164-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8001 Cole. & Cai. Cas. 752 (1805) |
 | 4728 | [BANK-SD-13](./5000citechecktest-ANSWER-KEY.md) | Permann v. South Dakota Department of Labor, Unemployment Insurance Division, 411 N.W.2d 113 (1987), aff'd, 999 F.3d 1 (11th Cir. 1990) |
 | 4729 | [REP-0545-H](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 8095 Ohio Law. Abs. 701 (1964) |
-| 4730 | [REP-0538-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Application of AMANDA FITZPATRICK for Habeas C…, 21 Ohio C.C. 519 (1901) |
+| 4730 | [REP-0538-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of the Application of AMANDA FITZPATRICK for Habeas C..., 21 Ohio C.C. 519 (1901) |
 | 4731 | [SEED-WA-N1-M1](./5000citechecktest-ANSWER-KEY.md) | City of Tacoma v. Luvene, 118 Wash. 2d 862 (Wash. 1992) |
 | 4732 | [SEED-WV-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 228 W. Va. 89 (W. Va. 2011) |
 | 4733 | [REP-0059-P](./5000citechecktest-ANSWER-KEY.md) | TOWN OF PARADISE VALLEY, 27 Ariz. App. 600 (1976) |
@@ -4791,7 +4791,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4780 | [BANK-WV-13](./5000citechecktest-ANSWER-KEY.md) | In Re Cecil T., 228 W. Va. 89 (2011), aff'd, 999 F.3d 1 (11th Cir. 2014) |
 | 4781 | [JUR-1063-P](./5000citechecktest-ANSWER-KEY.md) | IN RE Edra D. BLIXSETH, 599 B.R. 106 (5-26-9-1) |
 | 4782 | [JUR-0127-H1](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 188 F. 759 (3-22-17183) |
-| 4783 | [JUR-2109-P](./5000citechecktest-ANSWER-KEY.md) | in the Matter of the Marriage of Carolyn Ruth Thompson and Curtis O…, 578 S.W.3d 152 (1-43-6168) |
+| 4783 | [JUR-2109-P](./5000citechecktest-ANSWER-KEY.md) | in the Matter of the Marriage of Carolyn Ruth Thompson and Curtis O..., 578 S.W.3d 152 (1-43-6168) |
 | 4784 | [REP-0194-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8034 Ct. Int'l Trade 845 (2010) |
 | 4785 | [SEED-KS-N1-P](./5000citechecktest-ANSWER-KEY.md) | In Re Harris, 292 Kan. 521 (Kan. 2011) |
 | 4786 | [REP-0654-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8106 SEC Docket 4849 (2013) |
@@ -4809,7 +4809,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4798 | [SEED-NE-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 275 Neb. 334 (Neb. 2008) |
 | 4799 | [BANK-TX-02](./5000citechecktest-ANSWER-KEY.md) | 48 Tex. Sup. Ct. J. 848 |
 | 4800 | [JUR-1945-P](./5000citechecktest-ANSWER-KEY.md) | P.P.S., 2026 NY Slip Op 26036 (1-32-21228) |
-| 4801 | [JUR-2151-P](./5000citechecktest-ANSWER-KEY.md) | Daryl Flowers and Christopher Flowers v. Tom Richardson and Ellen E…, 88 Va. Cir. 109 (1-46-2630) |
+| 4801 | [JUR-2151-P](./5000citechecktest-ANSWER-KEY.md) | Daryl Flowers and Christopher Flowers v. Tom Richardson and Ellen E..., 88 Va. Cir. 109 (1-46-2630) |
 | 4802 | [JUR-0476-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 371 F. Supp. 3d 1018 (4-1-11-6) |
 | 4803 | [JUR-0230-P](./5000citechecktest-ANSWER-KEY.md) | CENTRAL TRUST CO. OF NEW YORK v. WHEELING & L. E. R. CO., 189 F. 82 (3-35-23599) |
 | 4804 | [REP-0590-P](./5000citechecktest-ANSWER-KEY.md) | Grote Trust, 1 Pa. Fid. 173 (1981) |
@@ -4979,7 +4979,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 4968 | [BANK-WA-17](./5000citechecktest-ANSWER-KEY.md) | Cowiche Canyon Conservancy v. Bosley, 12 Wash. Sup. Rptr. 4th 88 (1992) |
 | 4969 | [BANK-HI-05](./5000citechecktest-ANSWER-KEY.md) | Thornbury v. Aldenmoor Holdings, LLC, 91 Haw. 200 (1999) |
 | 4970 | [REP-0052-P](./5000citechecktest-ANSWER-KEY.md) | Adams v. St. Louis Southwestern Ry. Co. of Texas., 137 Am. St. Rep. 89 (1911) |
-| 4971 | [JUR-1335-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADDICKS AND BARKER (TEXAS) FLOOD-CONTROL RESERVOIRS. This Doc…, 134 Fed. Cl. 535 (7-13896) |
+| 4971 | [JUR-1335-P](./5000citechecktest-ANSWER-KEY.md) | IN RE ADDICKS AND BARKER (TEXAS) FLOOD-CONTROL RESERVOIRS. This Doc..., 134 Fed. Cl. 535 (7-13896) |
 | 4972 | [JUR-0052-H1](./5000citechecktest-ANSWER-KEY.md) | Ashcombe Holdings, LLC v. Petrillo, 139 F.4th 1300 (3-13) |
 | 4973 | [SEED-MN-M1](./5000citechecktest-ANSWER-KEY.md) | Thiele v. Stich, 425 N.W.2d 508 (Minn. 1988) |
 | 4974 | [REP-0535-P](./5000citechecktest-ANSWER-KEY.md) | State v. Doane, 7 Ohio App. Unrep. 503 (1991) |
@@ -5023,7 +5023,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 5012 | [SEED-ME-N0-P](./5000citechecktest-ANSWER-KEY.md) | State v. Bavouset, 784 A.2d 27 (Me. 2001) |
 | 5013 | [REP-0466-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8019 Nat. Bank. Reg. 841 (1880) |
 | 5014 | [REP-0688-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8147 T.C. 443 (2016) |
-| 5015 | [REP-0228-P](./5000citechecktest-ANSWER-KEY.md) | BÁRBARA SCHETTINI ENRÍQUEZ Peticionaria v. IVÁN RAFAEL RODRÍGUEZ OL…, 2010 DTA 47 (2010) |
+| 5015 | [REP-0228-P](./5000citechecktest-ANSWER-KEY.md) | BÁRBARA SCHETTINI ENRÍQUEZ Peticionaria v. IVÁN RAFAEL RODRÍGUEZ OL..., 2010 DTA 47 (2010) |
 | 5016 | [TRICK-027](./5000citechecktest-ANSWER-KEY.md) | Moki Mac River Expeditions vs. Drugg, 221 S.W.3d 569 (Tex. 2007) |
 | 5017 | [JUR-0819-P](./5000citechecktest-ANSWER-KEY.md) | AUTOS, 332 B.R. 628 (4-4-8-1) |
 | 5018 | [BANK-AZ-08](./5000citechecktest-ANSWER-KEY.md) | State v. Henderson, 210 Ariz. 561 (N.M. 2011) |
@@ -5035,7 +5035,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 5024 | [REP-0479-H](./5000citechecktest-ANSWER-KEY.md) | Halcyon Data Systems v. Delacroix, 8321 Neb. 971 (2026) |
 | 5025 | [OVRL-088](./5000citechecktest-ANSWER-KEY.md) | Olmstead v. United States, 277 U.S. 438 (SCOTUS 1928) |
 | 5026 | [JUR-0126-H1](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 189 F. 146 (3-22-17183) |
-| 5027 | [JUR-0883-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: GERMAN AUTOMOTIVE MANUFACTURERS ANTITRUST LITIGATION This Or…, 392 F. Supp. 3d 1059 (4-5-9-2) |
+| 5027 | [JUR-0883-P](./5000citechecktest-ANSWER-KEY.md) | IN RE: GERMAN AUTOMOTIVE MANUFACTURERS ANTITRUST LITIGATION This Or..., 392 F. Supp. 3d 1059 (4-5-9-2) |
 | 5028 | [JUR-0305-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9172 F. 982 (3-42-2557) |
 | 5029 | [REP-0687-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8006 T.B. Mon. 925 (1828) |
 | 5030 | [REP-0440-P](./5000citechecktest-ANSWER-KEY.md) | COLCORD v. WALL, 2 Miles 459 (1841) |
@@ -5052,7 +5052,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 5041 | [ANAT-A406](./5000citechecktest-ANSWER-KEY.md) | South Carolina v. Gathers, 490 U.S. 805 (1989) |
 | 5042 | [REP-0201-P](./5000citechecktest-ANSWER-KEY.md) | Raymond Darly v. Chas. Chevallier, 1 Dallam 555 (1844) |
 | 5043 | [REP-0443-P](./5000citechecktest-ANSWER-KEY.md) | Olive against O'Riley, 1 Minor 410 (1826) |
-| 5044 | [REP-0207-P](./5000citechecktest-ANSWER-KEY.md) | GEORGE WASHINGTON UNIVERSITY MEDICAL CENTER v. DISTRICT OF COLUMBIA…, 1987 D.C. 8 (1987) |
+| 5044 | [REP-0207-P](./5000citechecktest-ANSWER-KEY.md) | GEORGE WASHINGTON UNIVERSITY MEDICAL CENTER v. DISTRICT OF COLUMBIA..., 1987 D.C. 8 (1987) |
 | 5045 | [REP-0660-P](./5000citechecktest-ANSWER-KEY.md) | Amos Potter v. Abram F. Gates, 2 Silv. Sup. 389 (1890) |
 | 5046 | [BANK-MS-16](./5000citechecktest-ANSWER-KEY.md) | Bush v. State, 12 Miss. Sup. Rptr. 4th 88 (2005) |
 | 5047 | [BANK-AR-10](./5000citechecktest-ANSWER-KEY.md) | Id. at 421 |
@@ -5202,7 +5202,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 5191 | [JUR-2192-P](./5000citechecktest-ANSWER-KEY.md) | Wisconsin Department of Revenue v. Master's Gallery Foods, 411 Wis. 2d 563 (1-49-15655) |
 | 5192 | [ANAT-A132](./5000citechecktest-ANSWER-KEY.md) | Valadez v. Avitia, 238 S.W.3d 843 (Tex. App.-El Paso 2007) |
 | 5193 | [REP-0353-P](./5000citechecktest-ANSWER-KEY.md) | Richard Eugene ADAMS, 78 Ind. Dec. 671 (1980) |
-| 5194 | [JUR-2212-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of William ENOS and Antoinette Jorgenson and individu…, 12 Am. Tribal Law 420 (1-50-23085) |
+| 5194 | [JUR-2212-P](./5000citechecktest-ANSWER-KEY.md) | In the Matter of William ENOS and Antoinette Jorgenson and individu..., 12 Am. Tribal Law 420 (1-50-23085) |
 | 5195 | [JUR-0386-P](./5000citechecktest-ANSWER-KEY.md) | COLUMBIA BUILDING & LOAN ASS'N v. JUNQUIST, 111 F. 645 (3-50-32282) |
 | 5196 | [REP-0005-H](./5000citechecktest-ANSWER-KEY.md) | Ferraro Grain Partners v. Verduzco-Ruiz, 8001 Abb. Adm. 902 (1849) |
 | 5197 | [JUR-0362-P](./5000citechecktest-ANSWER-KEY.md) | COFFIELD MOTOR WASHER CO. v. A. D. HOWE MACH. CO., 190 F. 42 (3-48-1623) |
@@ -5248,7 +5248,7 @@ Send each `cite` string to the citation-verification API under test. Record the 
 | 5237 | [JUR-0017-H1](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 194 F. 534 (3-10-17379) |
 | 5238 | [JUR-0153-H2](./5000citechecktest-ANSWER-KEY.md) | Northgate Indemnity Co. v. Whitcomb, 9168 F. 829 (3-25-11693) |
 | 5239 | [REP-0623-H](./5000citechecktest-ANSWER-KEY.md) | Pinnacle Rail Services v. Ostrander, 8213 P.U.R.4th 509 (2001) |
-| 5240 | [REP-0389-P](./5000citechecktest-ANSWER-KEY.md) | AMERICAN HOTEL AND LODGING ASSOCIATION; Asian American Hotel Owners…, 167 Lab. Cas. (CCH) 61,735 (2016) |
+| 5240 | [REP-0389-P](./5000citechecktest-ANSWER-KEY.md) | AMERICAN HOTEL AND LODGING ASSOCIATION; Asian American Hotel Owners..., 167 Lab. Cas. (CCH) 61,735 (2016) |
 | 5241 | [BANK-VT-09](./5000citechecktest-ANSWER-KEY.md) | Robertson v. Mylan Laboratories, Inc., 671 Vt. 356 (2004) |
 | 5242 | [JUR-1791-P](./5000citechecktest-ANSWER-KEY.md) | State of Minnesota v. Kristi Dannette Mcneilly, 6 N.W.3d 161 (1-23-978) |
 | 5243 | [BANK-CO-18](./5000citechecktest-ANSWER-KEY.md) | Bogdanov v. People, 941 P.2d 247 (1997) |

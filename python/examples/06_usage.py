@@ -1,4 +1,4 @@
-"""Example 06 — Discovery + usage (Python)."""
+"""Example 06 -- Discovery + usage (Python)."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from lawdiver import LawDiverClient
 with LawDiverClient() as client:
     print("=== Discovery (public) ===")
     discovery = client.discovery()
-    print(json.dumps(discovery, indent=2)[:800] + "\n…\n")
+    print(json.dumps(discovery, indent=2)[:800] + "\n...\n")
 
     print("=== Usage (authenticated) ===")
     usage = client.usage(30)

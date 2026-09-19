@@ -4,7 +4,7 @@ This guide takes you from zero to a successful authenticated call against `https
 
 ## Prerequisites
 
-- A United States–based account on [lawdiver.com](https://lawdiver.com)
+- A United States-based account on [lawdiver.com](https://lawdiver.com)
 - Verified email
 - Node.js 18+ **or** Python 3.10+ **or** any HTTP client (cURL, Postman, etc.)
 
@@ -15,7 +15,7 @@ The API is **plain REST**. TypeScript and Python folders in this repo are conven
 1. Sign up at [https://lawdiver.com](https://lawdiver.com).
 2. Verify your email (keys require a verified account).
 3. Visit [https://lawdiver.com/account/api-keys](https://lawdiver.com/account/api-keys).
-4. Create a key. Copy it immediately — it is shown **once**. Only a SHA-256 hash is stored server-side.
+4. Create a key. Copy it immediately -- it is shown **once**. Only a SHA-256 hash is stored server-side.
 5. If you lose it, revoke and create a new key. Revocation takes effect on the next request.
 
 Keys look like: `ld_live_xxxxxxxxxxxxxxxxxxxx`.
@@ -30,7 +30,7 @@ export LAWDIVER_API_KEY=ld_live_xxxxxxxxxxxxxxxxxxxx
 $env:LAWDIVER_API_KEY = "ld_live_xxxxxxxxxxxxxxxxxxxx"
 ```
 
-Or copy `.env.example` → `.env` in this repository root and fill in the value. Prefer `LAWDIVER_API_KEY`; sample clients also accept the optional legacy alias `LAWTOOLS_API_KEY`.
+Or copy `.env.example` -> `.env` in this repository root and fill in the value. Prefer `LAWDIVER_API_KEY`; sample clients also accept the optional legacy alias `LAWTOOLS_API_KEY`.
 
 **Rules**
 
@@ -54,10 +54,10 @@ curl "https://lawdiver.com/api/v1/usage?days=7" \
   -H "Authorization: Bearer $LAWDIVER_API_KEY"
 ```
 
-- Discovery works but usage returns `invalid_api_key` → network is fine; key is wrong/revoked.
-- Usage returns your consumer + `byOperation` → you are ready to integrate.
+- Discovery works but usage returns `invalid_api_key` -> network is fine; key is wrong/revoked.
+- Usage returns your consumer + `byOperation` -> you are ready to integrate.
 
-## 5. First real call — case search
+## 5. First real call -- case search
 
 Jurisdiction is **required**. Prefer practitioner-shaped scopes such as `one_state_plus_federal`.
 
@@ -75,8 +75,8 @@ curl -X POST https://lawdiver.com/api/v1/search \
 Successful responses include:
 
 - Payload fields (`results`, etc.)
-- `usage` — units recorded for the call
-- `requestId` — quote this in any support ticket
+- `usage` -- units recorded for the call
+- `requestId` -- quote this in any support ticket
 
 ## 6. Run the sample projects
 

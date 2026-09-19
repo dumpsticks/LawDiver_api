@@ -1,5 +1,5 @@
 /**
- * Example 01 — Case search
+ * Example 01 -- Case search
  * Language: TypeScript (Node.js)
  * Docs: https://lawdiver.com/docs/api#case-search
  */
@@ -26,10 +26,10 @@ for (const r of found.results) {
   const gl = r.goodLaw
     ? `goodLaw=${r.goodLaw.status}${r.goodLaw.negative ? " (NEGATIVE)" : ""}`
     : "goodLaw=?";
-  console.log(`• ${r.caseName}`);
+  console.log(`* ${r.caseName}`);
   console.log(`  ${r.citation ?? "(no citation)"} · ${r.courtAbbreviation ?? r.court ?? ""}`);
   console.log(`  ${gl}`);
-  if (r.snippet) console.log(`  snippet: ${r.snippet.slice(0, 140)}…`);
+  if (r.snippet) console.log(`  snippet: ${r.snippet.slice(0, 140)}...`);
   console.log("");
 }
 

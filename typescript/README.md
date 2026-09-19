@@ -1,10 +1,10 @@
-# LawDiver API — TypeScript / Node.js examples
+# LawDiver API -- TypeScript / Node.js examples
 
 **Primary language in this repository.** Official docs also use TypeScript for the quickstart.
 
 Requires **Node.js 18+** (native `fetch`, `FormData`, `Blob`).
 
-This folder is an **examples client** (`private: true` in `package.json`). It is **not** published to npm — clone this repo or copy `src/` into your app.
+This folder is an **examples client** (`private: true` in `package.json`). It is **not** published to npm -- clone this repo or copy `src/` into your app.
 
 ## Setup
 

@@ -1,5 +1,5 @@
 /**
- * Example 05 — Agent-oriented search (case card + opinion text + good-law)
+ * Example 05 -- Agent-oriented search (case card + opinion text + good-law)
  * Language: TypeScript (Node.js)
  *
  * One call returns enough context for a tool-using model to reason.
@@ -22,7 +22,7 @@ console.log("");
 
 for (const r of found.results) {
   if (r.goodLaw?.negative) {
-    console.warn(`⚠ BAD LAW · ${r.caseName} · ${r.goodLaw.status}`);
+    console.warn(`WARNING: BAD LAW · ${r.caseName} · ${r.goodLaw.status}`);
   } else if (r.goodLaw?.unknown) {
     console.warn(`? UNKNOWN treatment · ${r.caseName}`);
   }
@@ -30,13 +30,13 @@ for (const r of found.results) {
   const summary =
     (r.caseCard as { summaryAi?: string } | null)?.summaryAi?.slice(0, 160) ??
     "(no case card yet)";
-  console.log(`• ${r.caseName} — ${r.citation}`);
+  console.log(`* ${r.caseName} -- ${r.citation}`);
   console.log(`  summary: ${summary}`);
   if (r.opinion) {
     console.log(
       `  opinion: mode=${r.opinion.mode} chars=${r.opinion.charCount} truncated=${r.opinion.truncated}`,
     );
-    console.log(`  excerpt: ${r.opinion.text.slice(0, 120).replace(/\s+/g, " ")}…`);
+    console.log(`  excerpt: ${r.opinion.text.slice(0, 120).replace(/\s+/g, " ")}...`);
   }
   console.log("");
 }

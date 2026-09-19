@@ -1,6 +1,16 @@
-﻿# Cite-check benchmark (combined 5,300)
+# Cite-check benchmark (combined 5,300)
 
-Public **test inputs** and **answer key** for one cite-check suite, scored in **five accuracy categories** (100% / 99.7% / 99% / 90% / unscored).
+Public **test inputs** and **answer key** for one cite-check suite.
+
+Scored in **five accuracy categories**:
+
+| Cat | Covers | Bar |
+| --- | --- | --- |
+| 1 | Overruled / reversed | 100% |
+| 2 | Fabricated / identity traps | 99.7% |
+| 3 | Clean real cites | 99% |
+| 4 | Mangled real cites (recover + flag) | 90% |
+| 5 | Unresolved | unscored |
 
 See **[Testing the API](../testing-the-api.md)** and:
 
@@ -10,3 +20,5 @@ See **[Testing the API](../testing-the-api.md)** and:
 | --- | --- |
 | `5000citechecktest.md` / `.json` | **5,300** cites only |
 | `5000citechecktest-ANSWER-KEY.md` / `.json` | Graded answers (including overruled treatment requirements) |
+
+Report analyzed and correct counts per category. Mistake-level run artifacts are not published here.

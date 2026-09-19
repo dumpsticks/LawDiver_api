@@ -1,10 +1,10 @@
-# LawDiver API — Python examples
+# LawDiver API -- Python examples
 
 **Also included** alongside the primary TypeScript examples. Same endpoints, idiomatic `httpx` client.
 
 Requires **Python 3.10+**.
 
-This folder is an **examples client**. It is **not** published to PyPI — clone this repo and `pip install -e .` (or copy `lawdiver/` into your project).
+This folder is an **examples client**. It is **not** published to PyPI -- clone this repo and `pip install -e .` (or copy `lawdiver/` into your project).
 
 ## Setup
 
@@ -71,4 +71,4 @@ with LawDiverClient() as client:
         print(r["caseName"], r.get("citation"))
 ```
 
-The client sets a `User-Agent`. If you write a bare `urllib` script instead, set one yourself — missing User-Agents often fail at Cloudflare with error 1010 before reaching the API (see [docs/authentication.md](../docs/authentication.md)).
+The client sets a `User-Agent`. If you write a bare `urllib` script instead, set one yourself -- missing User-Agents often fail at Cloudflare with error 1010 before reaching the API (see [docs/authentication.md](../docs/authentication.md)).

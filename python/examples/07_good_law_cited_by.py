@@ -1,4 +1,4 @@
-"""Example 07 — Good-law + cited-by (Python)."""
+"""Example 07 -- Good-law + cited-by (Python)."""
 
 from __future__ import annotations
 
@@ -20,10 +20,10 @@ with LawDiverClient() as client:
 
     cited = client.cited_by(case_id, limit=10, offset=0)
     print("=== Cited by (first page) ===")
-    print(f"total≈ {cited.get('total', '?')} · requestId={cited.get('requestId')}")
+    print(f"total~ {cited.get('total', '?')} · requestId={cited.get('requestId')}")
     rows = cited.get("results") or cited.get("cases") or []
     for row in rows[:10]:
-        print(f"• {row.get('caseName')} — {row.get('citation')} ({row.get('year')})")
+        print(f"* {row.get('caseName')} -- {row.get('citation')} ({row.get('year')})")
 
     meta = client.case_metadata(case_id)
     print("\n=== Metadata (truncated) ===")
