@@ -9,7 +9,7 @@ Public **5,300-cite** benchmark with **five accuracy categories**.
 | Cat | Covers | Bar |
 | --- | --- | --- |
 | **1** | Overruled / reversed authorities | **100%** |
-| **2** | Fabricated / identity traps | **100%** |
+| **2** | Fabricated / identity traps | **99.7%** |
 | **3** | Clean cites to real cases | **99%** |
 | **4** | Mangled real cites (recover + flag) | **90%** |
 | **5** | No honest resolution | Unscored |
@@ -23,7 +23,7 @@ Report **analyzed** and **correct** counts per category. Cat 4 requires recoveri
 | [5000citechecktest.md](./benchmarks/citecheck/5000citechecktest.md) / [.json](./benchmarks/citecheck/5000citechecktest.json) | Cites only |
 | [ANSWER-KEY](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md) / [.json](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json) | Answers |
 
-Mistake analysis (Cats 1-4): published with LawDiver run artifacts; see the blog for the current scoreboard.
+Mistake analysis stays private (LawDiver internal run artifacts). Public scoreboard: see the blog.
 
 ## Outputs
 

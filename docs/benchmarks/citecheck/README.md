@@ -1,6 +1,6 @@
 ﻿# Cite-check benchmark (combined 5,300)
 
-Public **test inputs** and **answer key** for one cite-check suite, scored in **four accuracy categories** (100% / 99% / 90% / unscored).
+Public **test inputs** and **answer key** for one cite-check suite, scored in **five accuracy categories** (100% / 99.7% / 99% / 90% / unscored).
 
 See **[Testing the API](../testing-the-api.md)** and:
 
