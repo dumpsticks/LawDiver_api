@@ -216,7 +216,7 @@ LawDiver_api/
 | [docs/authentication.md](./docs/authentication.md) | Headers, key hygiene, revocation |
 | [docs/endpoints.md](./docs/endpoints.md) | Endpoint catalog with request/response notes |
 | [docs/error-handling.md](./docs/error-handling.md) | Stable error codes, did-you-mean, retries |
-| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** â€” combined 5,300-cite benchmark + answer key |
+| [docs/testing-the-api.md](./docs/testing-the-api.md) | **Testing the API** â€” four-category 5,300-cite benchmark + answer key |
 | [docs/recipes.md](./docs/recipes.md) | End-to-end patterns (agents, briefs, idempotency) |
 
 ---
@@ -278,7 +278,7 @@ Examples in this repository are community-oriented integration samples. They are
 - [LawDiver home](https://lawdiver.com)
 - [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
-- [Testing the API](./docs/testing-the-api.md) â€” combined 5,300-cite benchmark + answer key
+- [Testing the API](./docs/testing-the-api.md) â€” four-category 5,300-cite benchmark + answer key
 - [Cite-check benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 - [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)
 - [CaseDiver](https://lawdiver.com/casediver)

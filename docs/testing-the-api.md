@@ -1,83 +1,80 @@
 ﻿# Testing the API
 
-This section is LawDiverâ€™s **public cite-check benchmark**: one combined suite of **5,300** citation strings, plus the graded answer key.
+This section is LawDiver’s **public cite-check benchmark**: one combined suite of **5,300** citation strings, plus the graded answer key — scored in **four accuracy categories**.
 
-Files live under [`docs/benchmarks/citecheck/`](./benchmarks/citecheck/). The main LawDiver application repo is private â€” **this is the public copy** of the test and answers.
+Files: [`docs/benchmarks/citecheck/`](./benchmarks/citecheck/). The main app repo is private; **this is the public copy**.
 
 **Product write-up:** [How Well Does Your Cite Checker Stack Up? LawDiver's 5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 
-## What the test covers (one suite)
+## Four-category scoring (lead with this)
 
-The suite checks **both**:
+| Category | What it covers | Required bar |
+| --- | --- | --- |
+| **One** | Fabrications + **overruled** / negative-treatment authorities | **100%** Accept |
+| **Two** | Proper cites to real cases that are not overruled | **99%** Accept |
+| **Three** | Real cases, not overruled, but **mangled** cites (Bluebook / transcription / near-miss) — identify case, report problem, suggest form | **90%** Accept ∪ Partial |
+| **Four** | Too incomplete / ambiguous for a high-probability call | **Unscored** — honest unresolved |
 
-1. **Citation identity / existence** â€” perfect cites, Bluebook noise, mangles, close hallucinations, fabrications, statutes, specialty courts across U.S. jurisdictions.
-2. **Overruled / negative treatment** â€” 100 well-formed cites to overruled state and federal authorities mixed into the same shuffled list (family `overruled`). Pass only if the checker confirms the locator **and** surfaces GoodLaw negative/overruled treatment.
+Category One is the most important: missing a fabrication or staying silent on an overruled case is dangerous. Category Two protects trust (false alarms on clean cites waste time). Category Three is the hardest differentiator — recovering mangled form among many plausible resolutions. Category Four must not be forced into a vanity percentage.
 
-It is **not** two separate exams. Download and run the combined files below.
+Full rationale and CiteDiver numbers: the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
 
-## Files
+## Files (one combined suite)
 
 | File | Contents |
 | --- | --- |
 | [benchmarks/citecheck/5000citechecktest.md](./benchmarks/citecheck/5000citechecktest.md) | **5,300** cite strings only |
-| [benchmarks/citecheck/5000citechecktest.json](./benchmarks/citecheck/5000citechecktest.json) | Machine twin (`n`, `id`, `cite`) |
-| [benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md) | Graded answers + why |
-| [benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json) | Machine twin for scoring scripts |
-
-Folder overview: [benchmarks/citecheck/README.md](./benchmarks/citecheck/README.md).
+| [benchmarks/citecheck/5000citechecktest.json](./benchmarks/citecheck/5000citechecktest.json) | Machine twin |
+| [benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.md) | Graded answers |
+| [benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json](./benchmarks/citecheck/5000citechecktest-ANSWER-KEY.json) | Machine twin |
 
 ## Possible outputs
 
-`POST https://lawdiver.com/api/v1/citecheck/cite` returns a **verdict** per unit and optional **candidates** (with GoodLaw).
+`POST https://lawdiver.com/api/v1/citecheck/cite` returns a **verdict** per unit and optional **candidates**.
 
-### Verdict vocabulary
+### Verdicts
 
 | Verdict | Meaning |
 | --- | --- |
 | `valid` | Locator + caption (+ year/court when asserted) match a real authority |
-| `likely_valid` | Soft confirm (antique reporter, whitespace variant, etc.) |
+| `likely_valid` | Soft confirm |
 | `name_mismatch` | Locator real; asserted caption is not that case |
 | `page_mismatch` | Volume/reporter/parties OK; first page wrong |
-| `implausible` | Impossible volume / series / reporter shape |
-| `not_in_corpus` / `not_covered` | No match / authority class not covered |
+| `implausible` | Impossible volume / series / shape |
+| `not_in_corpus` / `not_covered` | No match / class not covered |
 | `unverified` / `error` | Cannot decide |
 
-### GoodLaw on candidates
+### Overruling / negative treatment
+
+When a case resolves, the product must also indicate whether the authority has been **overruled** or carries other **negative treatment**. Confirming the locator while omitting that signal fails Category One.
+
+LawDiver exposes treatment on each candidate, for example:
 
 ```json
-"goodLaw": {
+{
   "status": "overruled",
   "negative": true,
   "unknown": false,
-  "negativeTreatmentCount": 1,
-  "basis": "â€¦"
+  "basis": "…"
 }
 ```
 
-| Field | Meaning |
-| --- | --- |
-| `negative` | Warn the user â€” questioned or worse |
-| `status` | e.g. `overruled`, other negative statuses, or unknown |
-| `unknown: true` | Not determined â€” **not** a clean bill of health |
-
-For `overruled` rows in the answer key, a pass requires an Accept verdict **and** `goodLaw.negative === true` (or an overruled/negative status). Confirming without a treatment flag fails that row.
+`unknown` means not determined — not a clean bill of health. Other checkers should expose an equivalent signal under whatever field names they use.
 
 ### Scoring bands
 
 | Band | Meaning |
 | --- | --- |
-| **Accept** | Verdict in the rowâ€™s Accept list (+ GoodLaw when required) |
-| **Partial** | Listed Partial â€” defensible for a limited checker |
+| **Accept** | Verdict in the row’s Accept list (+ treatment surfaced when the row requires overruling detection) |
+| **Partial** | Listed Partial — counts toward Category Three’s 90% bar |
 | **Reject** | Affirmatively wrong |
-| **Stance** | `must_confirm` / `must_decline` / `open` class match |
+| **Unresolved** | Category Four / honest cannot-decide |
 
-Full methodology: the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
+## How to run
 
-## How to run against CiteDiver
-
-1. Get a developer API key ([getting started](./getting-started.md)).
-2. Batch cite strings from `5000citechecktest.json` into `POST /api/v1/citecheck/cite` (up to 50 per request).
-3. Score each response against the matching answer-key row.
+1. Developer API key — [getting started](./getting-started.md).
+2. Batch cites from `5000citechecktest.json` into `POST /api/v1/citecheck/cite` (up to 50 / request).
+3. Score with the answer key **and** report Category One–Three rates.
 
 ```bash
 curl -s https://lawdiver.com/api/v1/citecheck/cite \
@@ -86,9 +83,7 @@ curl -s https://lawdiver.com/api/v1/citecheck/cite \
   -d '{"citations":["Poole v. State, 846 So. 2d 370 (Ala. Crim. App. 2002)"]}'
 ```
 
-## Related docs
+## Related
 
-- [Endpoints](./endpoints.md)
-- [Recipes](./recipes.md)
-- [Getting started](./getting-started.md)
-- [CiteDiver](https://lawdiver.com/products/citediver) Â· [Caselaw API](https://lawdiver.com/products/api)
+- [Endpoints](./endpoints.md) · [Recipes](./recipes.md) · [Getting started](./getting-started.md)
+- [CiteDiver](https://lawdiver.com/products/citediver) · [Caselaw API](https://lawdiver.com/products/api)
