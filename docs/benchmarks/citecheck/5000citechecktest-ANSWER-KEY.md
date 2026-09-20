@@ -1,10 +1,6 @@
 # 5000 CiteCheck Test -- Answer Key
 
-Generated 2026-09-18T22:20:13.502Z (shuffled seed 0x51e5300) · **5300** cases.
-
 Companion to [`5000citechecktest.md`](./5000citechecktest.md). Machine twin: [`5000citechecktest-ANSWER-KEY.json`](./5000citechecktest-ANSWER-KEY.json).
-
-Synthesized from the CiteCheck Mega Bank after independent audits (corpus existence check + structural second opinion + stratified fresh LLM review). Corpus audit: 0 wrong among decidable locators. Second opinion: 0 contradictory keys. Fresh sample: 0 stance reversals.
 
 ## Accuracy categories (report analyzed + correct)
 
@@ -13,10 +9,12 @@ Synthesized from the CiteCheck Mega Bank after independent audits (corpus existe
 | 1 | Overruled / reversed (`overruled` family and equivalent treatment rows) | 100% |
 | 2 | Fabricated / identity traps (hallucinations, neighbor-page, impossible locators, ...) | 99.7% |
 | 3 | Clean real cites | 99% |
-| 4 | Mangled real cites -- recover intended case + flag problem | 90% |
-| 5 | Unresolved (e.g. bare `Id.`) | unscored |
+| 4 | Mangled - Bluebook / form (easier) (`bluebook_variant`) | 95% |
+| 5 | Mangled - hard problems (`mild_mangle`, `severe_mangle`, `page_mismatch`, `transposed_volume`, `structural`) - recover + flag | 80% |
+| 6 | Unresolved (e.g. bare `Id.`) | unscored |
 
 Full scoring rules: [Testing the API](../../testing-the-api.md). Public scoreboard: [benchmark blog](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
+
 
 ## How to score (different checkers, different functions)
 

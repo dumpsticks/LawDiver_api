@@ -1,6 +1,6 @@
 # Testing the API
 
-Public **5,300-cite** benchmark with **five accuracy categories**. One combined suite (inputs + answer key) -- not separate exams.
+Public **5,300-cite** benchmark with **six accuracy categories**. One combined suite (inputs + answer key) — not separate exams.
 
 **Blog / scoreboard:** [5,300-Citation Benchmark](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 
@@ -11,10 +11,11 @@ Public **5,300-cite** benchmark with **five accuracy categories**. One combined 
 | **1** | Overruled / reversed authorities | **100%** | Confirm the cite **and** report overruling / negative treatment. Silent confirm fails. |
 | **2** | Fabricated / identity traps | **99.7%** | Must not hard-confirm. Bar is 99.7% (not 100%): adversarial suites can invent rare traps that are uncommon in real briefs. |
 | **3** | Clean cites to real cases | **99%** | Must not call a good cite bad (false Reject). |
-| **4** | Mangled real cites | **90%** | Recover the intended case **and** flag the problem (candidate / correction). Bare decline without recovery fails. |
-| **5** | No honest resolution | Unscored | e.g. bare `Id.` -- say so; no vanity percentage. |
+| **4** | Mangled — Bluebook / form (easier) | **95%** | Basic Bluebook or form noise on a real case. Confirm (or soft-confirm) when it is still the same authority. |
+| **5** | Mangled — hard problems | **80%** | Wrong page, transposed volume, OCR / structural damage. Recover the intended case **and** flag the problem (candidate / correction). Bare decline without recovery fails. |
+| **6** | No honest resolution | Unscored | e.g. bare `Id.` — say so; no vanity percentage. |
 
-Report **analyzed** and **correct** counts per category (exclude timeouts from the denominator). Publish Category 1-4 rates, not one blended percentage.
+Report **analyzed** and **correct** counts per category (exclude timeouts from the denominator). Publish Category 1–5 rates separately — do not merge Categories 4 and 5 into one mangled percentage.
 
 ## Files
 

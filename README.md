@@ -77,7 +77,7 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Case PDF** | `GET /cases/:id/pdf` | Opinion PDF + processing/analysis appendix |
 | **Usage ledger** | `GET /usage` | Volume by operation + your rate limits |
 
-**Testing / benchmarks:** public combined 5,300-cite suite (inputs + answer key), scored in five categories (overruled 100%, fabricated 99.7%, clean 99%, mangled 90%, unresolved unscored) -- see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
+**Testing / benchmarks:** public combined 5,300-cite suite (inputs + answer key), scored in six categories (overruled 100%, fabricated 99.7%, clean 99%, Bluebook mangling 95%, hard mangling 80%, unresolved unscored) -- see [Testing the API](./docs/testing-the-api.md) and the [benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark).
 
 Full field-level reference: [docs/endpoints.md](./docs/endpoints.md) · Canonical source: [lawdiver.com/docs/api](https://lawdiver.com/docs/api).
 
@@ -278,7 +278,7 @@ Examples in this repository are community-oriented integration samples. They are
 - [LawDiver home](https://lawdiver.com)
 - [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
-- [Testing the API](./docs/testing-the-api.md) -- five-category 5,300-cite benchmark (100% / 99.7% / 99% / 90% / unscored) + answer key
+- [Testing the API](./docs/testing-the-api.md) -- six-category 5,300-cite benchmark (100% / 99.7% / 99% / 95% / 80% / unscored) + answer key
 - [Cite-check benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 - [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)
 - [CaseDiver](https://lawdiver.com/casediver)
