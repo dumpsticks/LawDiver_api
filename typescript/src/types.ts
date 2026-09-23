@@ -311,6 +311,38 @@ export interface RetrieveNotFound {
 
 export type RetrieveResponse = RetrieveOk | RetrieveDidYouMean | RetrieveNotFound;
 
+export interface StatuteSection {
+  authorityKey: string;
+  authorityId?: string | null;
+  authorityNum?: number | null;
+  kind: "statute" | "rule" | "constitution" | "regulation" | string;
+  bluebook: string;
+  heading?: string | null;
+  body?: string | null;
+  bodyChars?: number | null;
+  edition?: string | null;
+  editionYear?: number | null;
+  officialUrl?: string | null;
+  repealed?: boolean;
+  jurisdiction?: string | null;
+  section?: string | null;
+  subsections?: string | null;
+  verifiedBy?: string | null;
+}
+
+export interface StatuteRetrieveResponse {
+  status: "ok" | "not_found" | "unavailable" | "not_a_statute" | string;
+  message?: string;
+  query?: string;
+  citationAsWritten?: string | null;
+  verdict?: string | null;
+  note?: string | null;
+  statute?: StatuteSection | null;
+  usage: UsageBlock;
+  requestId: string;
+  replayed?: boolean;
+}
+
 export interface ResolveCitationResponse {
   verdict?: CiteVerdict | string;
   correctedCitation?: string | null;

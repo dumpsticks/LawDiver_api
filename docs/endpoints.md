@@ -148,6 +148,45 @@ Supports `Idempotency-Key`.
 
 ---
 
+## Statute retrieval
+
+### `POST /statutes/retrieve`
+
+Pull full section text for a statute, regulation, or court rule when you supply a **proper Bluebook citation with a section number**, or an `authorityKey` from cite-check.
+
+Body (supply at least one of `query` / `authorityKey`):
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `query` | one of | e.g. `42 U.S.C. § 1983`, `Fla. Stat. § 768.81`, `Cal. Civ. Code § 1714` |
+| `authorityKey` | one of | From cite-check `authorityCoverage.authorityKey` (e.g. `st:federal:usc-42:1983`) |
+| `year` | no | Preferred code edition year (1900–2100) |
+
+**Statuses (all HTTP 200):**
+
+| Status | Meaning | Billed? |
+| --- | --- | --- |
+| `ok` | `statute.body` holds the section text | Yes (1 unit; same reserved rate as case retrieval) |
+| `not_found` | No such section in a held corpus / official source | No |
+| `unavailable` | Confirmed or attempted, but body not pullable | No |
+| `not_a_statute` | Not a parseable statute/rule cite (or is a specialty form) | No |
+
+Cite-check verifies existence; this endpoint **delivers the body**. Specialty administrative forms (Rev. Rul., SEC, NLRB) stay on `POST /citecheck/cite`.
+
+Supports `Idempotency-Key`.
+
+```bash
+curl -X POST https://lawdiver.com/api/v1/statutes/retrieve \
+  -H "Authorization: Bearer $LAWDIVER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"42 U.S.C. § 1983"}'
+```
+
+TypeScript: `client.retrieveStatute({ query: "42 U.S.C. § 1983" })`  
+Python: `client.retrieve_statute(query="42 U.S.C. § 1983")`
+
+---
+
 ## Case metadata
 
 ### `GET /cases/:id`

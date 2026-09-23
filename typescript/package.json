@@ -15,7 +15,8 @@
     "example:agent": "tsx examples/05-agent-search.ts",
     "example:usage": "tsx examples/06-usage.ts",
     "example:good-law": "tsx examples/07-good-law-cited-by.ts",
-    "examples": "npm run example:search && npm run example:cite-check && npm run example:retrieve && npm run example:usage"
+    "example:statute": "tsx examples/08-statute-retrieve.ts",
+    "examples": "npm run example:search && npm run example:cite-check && npm run example:retrieve && npm run example:statute && npm run example:usage"
   },
   "files": [
     "dist",

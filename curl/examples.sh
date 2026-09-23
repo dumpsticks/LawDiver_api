@@ -9,6 +9,7 @@
 #   bash curl/examples.sh search
 #   bash curl/examples.sh cite
 #   bash curl/examples.sh retrieve
+#   bash curl/examples.sh statute
 #   bash curl/examples.sh usage
 #   bash curl/examples.sh pdf
 #   bash curl/examples.sh jurisdictions
@@ -100,6 +101,17 @@ cmd_retrieve() {
   echo
 }
 
+cmd_statute() {
+  need_key
+  echo "== POST /statutes/retrieve =="
+  curl -sS -X POST "${BASE}/statutes/retrieve" \
+    "${auth[@]}" \
+    -H "Content-Type: application/json" \
+    -H "Idempotency-Key: curl-statute-$(date +%s)" \
+    -d '{"query":"42 U.S.C. § 1983"}'
+  echo
+}
+
 cmd_resolve() {
   need_key
   echo "== POST /citations/resolve =="
@@ -156,6 +168,7 @@ cmd_all() {
   cmd_search
   cmd_cite
   cmd_retrieve
+  cmd_statute
 }
 
 case "${1:-all}" in
@@ -166,6 +179,7 @@ case "${1:-all}" in
   agent) cmd_agent_search ;;
   cite) cmd_cite ;;
   retrieve) cmd_retrieve ;;
+  statute) cmd_statute ;;
   resolve) cmd_resolve ;;
   good-law) cmd_good_law "${2:-}" ;;
   cited-by) cmd_cited_by "${2:-}" ;;
@@ -174,7 +188,7 @@ case "${1:-all}" in
   all) cmd_all ;;
   *)
     echo "Unknown command: $1" >&2
-    echo "Commands: all discovery usage jurisdictions search agent cite retrieve resolve good-law cited-by pdf document" >&2
+    echo "Commands: all discovery usage jurisdictions search agent cite retrieve statute resolve good-law cited-by pdf document" >&2
     exit 1
     ;;
 esac

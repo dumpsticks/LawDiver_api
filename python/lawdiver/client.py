@@ -136,6 +136,26 @@ class LawDiverClient:
             body["caseId"] = case_id
         return self._request("POST", "/cases/retrieve", json=body, idempotency_key=idempotency_key)
 
+    def retrieve_statute(
+        self,
+        *,
+        query: Optional[str] = None,
+        authority_key: Optional[str] = None,
+        year: Optional[int] = None,
+        idempotency_key: Optional[str] = None,
+    ) -> dict[str, Any]:
+        """Pull statute / regulation / court-rule text by Bluebook section cite or authorityKey."""
+        if query is None and authority_key is None:
+            raise ValueError("Provide query= and/or authority_key=")
+        body: dict[str, Any] = {}
+        if query is not None:
+            body["query"] = query
+        if authority_key is not None:
+            body["authorityKey"] = authority_key
+        if year is not None:
+            body["year"] = year
+        return self._request("POST", "/statutes/retrieve", json=body, idempotency_key=idempotency_key)
+
     def case_metadata(self, case_id: str) -> Any:
         return self._request("GET", f"/cases/{case_id}")
 

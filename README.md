@@ -70,6 +70,7 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Cite check (document)** | `POST /citecheck/document` + jobs | Upload brief -> async report PDF |
 | **Citation resolve** | `POST /citations/resolve` | Map cite/name -> up to 5 candidates (no PDF) |
 | **Case retrieve** | `POST /cases/retrieve` | Resolve -> deliver one case or did-you-mean round trip |
+| **Statute retrieve** | `POST /statutes/retrieve` | Pull statute / regulation / rule text by Bluebook section cite |
 | **Case metadata** | `GET /cases/:id` | Metadata for opinion or cluster id |
 | **Case batch** | `POST /cases/batch` | Up to 50 ids in one call |
 | **Good-law detail** | `GET /cases/:id/good-law` | Status + negative treatment citations |
@@ -228,7 +229,7 @@ LawDiver_api/
 3. **Search requires jurisdiction** -- unscoped national search is almost never what you want.
 4. **Cite check never silently "fixes" a cite** -- `likely_valid` returns candidates; you (or a human) pick.
 5. **Retrieve ambiguity is `200` + `did_you_mean`**, not an error -- present candidates, call again with `caseId`.
-6. **Idempotency-Key** is honored on `POST /search`, `POST /citecheck/cite`, and `POST /cases/retrieve` for safe retries after timeouts.
+6. **Idempotency-Key** is honored on `POST /search`, `POST /citecheck/cite`, `POST /cases/retrieve`, and `POST /statutes/retrieve` for safe retries after timeouts.
 7. **Document cite check is async** -- upload -> poll job -> download report PDF.
 8. **PDFs are re-rendered** (good-law changes) -- cache bytes yourself when you need safe retry; they do not use idempotency keys.
 9. **Rate limits** arrive as `X-RateLimit-*` and `RateLimit-*`; on `429`, honor `Retry-After`.
@@ -243,6 +244,7 @@ LawDiver_api/
 | Case search | [`typescript/examples/01-search.ts`](./typescript/examples/01-search.ts) | [`python/examples/01_search.py`](./python/examples/01_search.py) |
 | Cite check citations | [`02-cite-check.ts`](./typescript/examples/02-cite-check.ts) | [`02_cite_check.py`](./python/examples/02_cite_check.py) |
 | Case retrieve + did-you-mean | [`03-retrieve.ts`](./typescript/examples/03-retrieve.ts) | [`03_retrieve.py`](./python/examples/03_retrieve.py) |
+| Statute retrieve by section | [`08-statute-retrieve.ts`](./typescript/examples/08-statute-retrieve.ts) | [`08_statute_retrieve.py`](./python/examples/08_statute_retrieve.py) |
 | Document cite check | [`04-document-cite-check.ts`](./typescript/examples/04-document-cite-check.ts) | [`04_document_cite_check.py`](./python/examples/04_document_cite_check.py) |
 | Agent-oriented search | [`05-agent-search.ts`](./typescript/examples/05-agent-search.ts) | [`05_agent_search.py`](./python/examples/05_agent_search.py) |
 | Usage + discovery | [`06-usage.ts`](./typescript/examples/06-usage.ts) | [`06_usage.py`](./python/examples/06_usage.py) |

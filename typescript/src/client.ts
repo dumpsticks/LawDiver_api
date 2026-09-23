@@ -15,6 +15,7 @@ import type {
   RetrieveResponse,
   SearchRequest,
   SearchResponse,
+  StatuteRetrieveResponse,
   UsageResponse,
 } from "./types.js";
 
@@ -150,6 +151,17 @@ export class LawDiverClient {
     idempotencyKey?: string,
   ): Promise<RetrieveResponse> {
     return this.request<RetrieveResponse>("POST", "/cases/retrieve", body, idempotencyKey);
+  }
+
+  /**
+   * Pull a statute / regulation / court-rule section by Bluebook citation
+   * (section number required) or by authorityKey from cite-check.
+   */
+  async retrieveStatute(
+    body: { query?: string; authorityKey?: string; year?: number },
+    idempotencyKey?: string,
+  ): Promise<StatuteRetrieveResponse> {
+    return this.request<StatuteRetrieveResponse>("POST", "/statutes/retrieve", body, idempotencyKey);
   }
 
   async caseMetadata(caseId: string): Promise<CaseMetadataResponse> {
