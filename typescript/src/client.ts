@@ -9,6 +9,7 @@ import type {
   DiscoveryResponse,
   DocumentJobStart,
   DocumentJobStatus,
+  DocumentCiteCheckStartOptions,
   GoodLawResponse,
   JurisdictionsResponse,
   ResolveCitationResponse,
@@ -203,9 +204,17 @@ export class LawDiverClient {
     return res.arrayBuffer();
   }
 
-  async startDocumentCiteCheck(file: Blob, fileName: string): Promise<DocumentJobStart> {
+  async startDocumentCiteCheck(
+    file: Blob,
+    fileName: string,
+    opts: DocumentCiteCheckStartOptions = {},
+  ): Promise<DocumentJobStart> {
     const form = new FormData();
     form.append("file", file, fileName);
+    if (opts.delivery) form.append("delivery", opts.delivery);
+    for (const addr of opts.emails ?? []) {
+      form.append("emails", addr);
+    }
     const res = await this.fetchImpl(`${this.baseUrl}/citecheck/document`, {
       method: "POST",
       headers: this.authHeaders(),
@@ -243,9 +252,18 @@ export class LawDiverClient {
   async citeCheckDocument(
     file: Blob,
     fileName: string,
-    opts: { pollMs?: number; maxPolls?: number; downloadReport?: boolean } = {},
-  ): Promise<{ job: DocumentJobStatus; report?: ArrayBuffer }> {
-    const started = await this.startDocumentCiteCheck(file, fileName);
+    opts: {
+      pollMs?: number;
+      maxPolls?: number;
+      downloadReport?: boolean;
+      emails?: string[];
+      delivery?: "poll" | "email_link";
+    } = {},
+  ): Promise<{ job: DocumentJobStatus; report?: ArrayBuffer; started: DocumentJobStart }> {
+    const started = await this.startDocumentCiteCheck(file, fileName, {
+      emails: opts.emails,
+      delivery: opts.delivery,
+    });
     const pollMs = opts.pollMs ?? (started.pollAfterSeconds ?? 5) * 1000;
     const maxPolls = opts.maxPolls ?? 120;
 
@@ -258,9 +276,9 @@ export class LawDiverClient {
       throw new Error(`Cite check ${job.status}: ${job.error ?? "timed out"}`);
     }
     if (opts.downloadReport) {
-      return { job, report: await this.documentReport(started.jobId) };
+      return { job, report: await this.documentReport(started.jobId), started };
     }
-    return { job };
+    return { job, started };
   }
 
   async usage(days = 30): Promise<UsageResponse> {

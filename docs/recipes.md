@@ -75,6 +75,25 @@ There is no cite verdict `not_found` (that is HTTP 404 or retrieve `status` only
 
 See: `04-document-cite-check` examples.
 
+### Recipe D2 -- Email the results page
+
+Same upload, plus recipients who should open the interactive results webpage (no poll required for those humans; poll/PDF still work for your integration):
+
+1. `POST /citecheck/document` with `file`, `delivery=email_link`, and one or more `emails` (repeat field or comma-separate; max 10)
+2. Response includes `resultsUrl` (opaque, 7-day expiry) — the same link emailed to every recipient when the job completes
+3. Optionally still poll `GET /citecheck/jobs/:id` / download the report PDF
+
+```bash
+curl -X POST https://lawdiver.com/api/v1/citecheck/document \
+  -H "Authorization: Bearer $LAWDIVER_API_KEY" \
+  -F "file=@brief.pdf" \
+  -F "delivery=email_link" \
+  -F "emails=partner@firm.com" \
+  -F "emails=associate@firm.com"
+```
+
+See: `04-document-cite-check` examples (TypeScript / Python accept `emails` / `delivery`).
+
 ---
 
 ## Recipe E -- Retrieve with did-you-mean round trip

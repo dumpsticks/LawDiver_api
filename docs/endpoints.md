@@ -113,9 +113,29 @@ Supports `Idempotency-Key`.
 
 Returns immediately with `jobId`, `status`, `statusUrl`, `reportUrl`, `pollAfterSeconds`.
 
+**Optional email-link delivery** — email recipients a secure link to the interactive results webpage when the check finishes (poll + PDF still work):
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `file` | yes | PDF or Word |
+| `delivery` | no | `poll` (default) or `email_link`. Supplying any `emails` / `email` also selects `email_link`. |
+| `emails` | for email delivery | Repeat the field and/or comma/semicolon-separated. Max 10 unique addresses. |
+| `email` | alias | Single address; merged into the same list. |
+
+```bash
+curl -X POST https://lawdiver.com/api/v1/citecheck/document \
+  -H "Authorization: Bearer $LAWDIVER_API_KEY" \
+  -F "file=@brief.pdf" \
+  -F "delivery=email_link" \
+  -F "emails=partner@firm.com" \
+  -F "emails=associate@firm.com"
+```
+
+Response includes `delivery`, masked `emails`, and `resultsUrl` (opaque URL, 7-day expiry). Each recipient is emailed that link when the job completes.
+
 ### `GET /citecheck/jobs/:id`
 
-Poll every 2-5 seconds until `completed` or `failed`. Completed payloads include per-citation findings (`citations`) and `counts`.
+Poll every 2-5 seconds until `completed` or `failed`. Completed payloads include per-citation findings (`citations`) and `counts`. When email delivery was requested: masked `emails`, `resultsUrl`, `emailSentAt`.
 
 ### `GET /citecheck/jobs/:id/report`
 

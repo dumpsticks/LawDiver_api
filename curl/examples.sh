@@ -162,6 +162,31 @@ cmd_document() {
   echo "Poll GET /citecheck/jobs/:id then GET .../report"
 }
 
+cmd_document_email() {
+  need_key
+  local file="${1:-}"
+  if [[ -z "${file}" || ! -f "${file}" ]]; then
+    echo "Usage: EMAILS=a@x.com,b@y.com $0 document-email path/to/brief.pdf" >&2
+    exit 1
+  fi
+  if [[ -z "${EMAILS:-}" ]]; then
+    echo "Set EMAILS=addr1,addr2 (recipients for the results-page link)" >&2
+    exit 1
+  fi
+  echo "== POST /citecheck/document (email_link) =="
+  local args=(-F "file=@${file}" -F "delivery=email_link")
+  IFS=',' read -ra addrs <<< "${EMAILS}"
+  for addr in "${addrs[@]}"; do
+    addr="$(echo "$addr" | xargs)"
+    [[ -n "$addr" ]] && args+=(-F "emails=${addr}")
+  done
+  curl -sS -X POST "${BASE}/citecheck/document" \
+    "${auth[@]}" \
+    "${args[@]}"
+  echo
+  echo "Recipients will be emailed resultsUrl when the job completes."
+}
+
 cmd_all() {
   cmd_discovery
   cmd_usage
@@ -185,10 +210,11 @@ case "${1:-all}" in
   cited-by) cmd_cited_by "${2:-}" ;;
   pdf) cmd_pdf "${2:-}" "${3:-}" ;;
   document) cmd_document "${2:-}" ;;
+  document-email) cmd_document_email "${2:-}" ;;
   all) cmd_all ;;
   *)
     echo "Unknown command: $1" >&2
-    echo "Commands: all discovery usage jurisdictions search agent cite retrieve statute resolve good-law cited-by pdf document" >&2
+    echo "Commands: all discovery usage jurisdictions search agent cite retrieve statute resolve good-law cited-by pdf document document-email" >&2
     exit 1
     ;;
 esac

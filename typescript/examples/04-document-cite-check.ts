@@ -2,7 +2,9 @@
  * Example 04 -- Document cite check (upload -> poll -> report PDF)
  * Language: TypeScript (Node.js)
  *
- * Usage: npx tsx examples/04-document-cite-check.ts path/to/brief.pdf
+ * Usage:
+ *   npx tsx examples/04-document-cite-check.ts path/to/brief.pdf
+ *   EMAILS=a@firm.com,b@firm.com npx tsx examples/04-document-cite-check.ts path/to/brief.pdf
  */
 import { readFile } from "node:fs/promises";
 import { basename } from "node:path";
@@ -15,6 +17,11 @@ if (!filePath) {
   process.exit(1);
 }
 
+const emails = (process.env.EMAILS || "")
+  .split(/[,;]+/)
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 const client = new LawDiverClient();
 const bytes = await readFile(filePath);
 const fileName = basename(filePath);
@@ -25,13 +32,24 @@ const mime = fileName.endsWith(".docx")
     : "application/pdf";
 
 console.log(`Uploading ${fileName} (${bytes.byteLength} bytes)...`);
+if (emails.length) {
+  console.log(`Email-link delivery → ${emails.join(", ")}`);
+}
 
-const { job, report } = await client.citeCheckDocument(
+const { job, report, started } = await client.citeCheckDocument(
   new Blob([new Uint8Array(bytes)], { type: mime }),
   fileName,
-  { downloadReport: true },
+  {
+    downloadReport: true,
+    ...(emails.length
+      ? { delivery: "email_link" as const, emails }
+      : {}),
+  },
 );
 
+if (started.resultsUrl) {
+  console.log(`resultsUrl: ${started.resultsUrl}`);
+}
 console.log(`status: ${job.status}`);
 console.log(`pages: ${job.pageCount} · citations: ${job.citationCount}`);
 console.log(`counts:`, job.counts);

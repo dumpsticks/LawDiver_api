@@ -61,10 +61,21 @@ Invoke-WebRequest -Uri "$Base/cases/2812209/pdf" -Headers $Headers -OutFile "win
 ## Document cite check upload
 
 ```powershell
-# Multipart upload
+# Multipart upload (poll for status / report yourself)
 $file = "C:\path\to\brief.pdf"
 Invoke-RestMethod -Method Post -Uri "$Base/citecheck/document" -Headers $Headers `
   -Form @{ file = Get-Item $file } | ConvertTo-Json -Depth 6
+```
+
+```powershell
+# Email a secure results-page link when the check finishes (poll/PDF still work)
+$file = "C:\path\to\brief.pdf"
+Invoke-RestMethod -Method Post -Uri "$Base/citecheck/document" -Headers $Headers `
+  -Form @{
+    file = Get-Item $file
+    delivery = "email_link"
+    emails = "partner@firm.com", "associate@firm.com"
+  } | ConvertTo-Json -Depth 6
 ```
 
 Prefer the TypeScript or Python example projects for polling loops and typed clients.

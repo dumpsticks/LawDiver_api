@@ -254,6 +254,12 @@ export interface DocumentJobStart {
   message?: string;
   statusUrl?: string;
   reportUrl?: string;
+  /** Present when email-link delivery was requested. */
+  delivery?: "poll" | "email_link" | string;
+  /** Masked recipient addresses when email delivery was requested. */
+  emails?: string[] | null;
+  /** Opaque public results-page URL (same link emailed to recipients). */
+  resultsUrl?: string | null;
   pollAfterSeconds?: number;
   requestId: string;
 }
@@ -268,11 +274,21 @@ export interface DocumentJobStatus {
   otherAuthoritiesFound?: number | null;
   citations?: CiteCheckItem[] | null;
   reportUrl?: string | null;
+  resultsUrl?: string | null;
+  emails?: string[] | null;
+  emailSentAt?: string | null;
   error?: string | null;
   createdAt?: string;
   startedAt?: string | null;
   completedAt?: string | null;
   requestId?: string;
+}
+
+export interface DocumentCiteCheckStartOptions {
+  /** Recipient addresses for email-link delivery (max 10). */
+  emails?: string[];
+  /** `email_link` emails resultsUrl when done; default poll-only. */
+  delivery?: "poll" | "email_link";
 }
 
 export interface RetrieveCandidate {

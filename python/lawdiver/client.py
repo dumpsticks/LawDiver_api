@@ -177,11 +177,24 @@ class LawDiverClient:
                 raise RuntimeError(f"PDF download failed: HTTP {r.status_code}") from exc
         return r.content
 
-    def start_document_cite_check(self, file_path: str | Path) -> dict[str, Any]:
+    def start_document_cite_check(
+        self,
+        file_path: str | Path,
+        *,
+        emails: list[str] | None = None,
+        delivery: str | None = None,
+    ) -> dict[str, Any]:
         path = Path(file_path)
+        # Repeated `emails` fields: httpx accepts a list of (name, value) tuples in data.
+        data: list[tuple[str, str]] = []
+        if delivery:
+            data.append(("delivery", delivery))
+        for addr in emails or []:
+            data.append(("emails", addr))
         with path.open("rb") as f:
             r = self._client.post(
                 "/citecheck/document",
+                data=data or None,
                 files={"file": (path.name, f)},
             )
         return self._parse(r)
@@ -205,8 +218,10 @@ class LawDiverClient:
         poll_seconds: Optional[float] = None,
         max_polls: int = 120,
         download_report: bool = False,
+        emails: list[str] | None = None,
+        delivery: str | None = None,
     ) -> dict[str, Any]:
-        started = self.start_document_cite_check(file_path)
+        started = self.start_document_cite_check(file_path, emails=emails, delivery=delivery)
         job_id = started["jobId"]
         delay = poll_seconds if poll_seconds is not None else float(started.get("pollAfterSeconds") or 5)
         job: dict[str, Any] = started
@@ -217,7 +232,7 @@ class LawDiverClient:
             job = self.document_job(job_id)
         if job.get("status") != "completed":
             raise RuntimeError(f"Cite check {job.get('status')}: {job.get('error') or 'timed out'}")
-        out: dict[str, Any] = {"job": job}
+        out: dict[str, Any] = {"job": job, "started": started}
         if download_report:
             out["report"] = self.document_report(job_id)
         return out

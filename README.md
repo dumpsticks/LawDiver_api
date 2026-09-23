@@ -67,7 +67,7 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Case search** | `POST /search` | Issue research scoped to jurisdiction; optional AI case card + opinion text + good-law |
 | **Jurisdictions reference** | `GET /jurisdictions` | Authoritative state/circuit codes and example payloads |
 | **Cite check (citations)** | `POST /citecheck/cite` | Validate 1-50 cites; Bluebook form; good-law; hallucination-shaped `name_mismatch` |
-| **Cite check (document)** | `POST /citecheck/document` + jobs | Upload brief -> async report PDF |
+| **Cite check (document)** | `POST /citecheck/document` + jobs | Upload brief -> async report PDF; optional `delivery=email_link` + `emails` emails a results-page link |
 | **Citation resolve** | `POST /citations/resolve` | Map cite/name -> up to 5 candidates (no PDF) |
 | **Case retrieve** | `POST /cases/retrieve` | Resolve -> deliver one case or did-you-mean round trip |
 | **Statute retrieve** | `POST /statutes/retrieve` | Pull statute / regulation / rule text by Bluebook section cite |
