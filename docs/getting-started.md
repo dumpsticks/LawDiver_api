@@ -98,6 +98,7 @@ python examples/01_search.py
 
 ## Next steps
 
+- Prefer a clickable local UI before coding? Open the companion **[LawDiver API Tester](https://github.com/dumpsticks/LawDiver_API_Tester)** (`http://127.0.0.1:8765/` after `python run.py`).
 - [Authentication](./authentication.md)
 - [Endpoint catalog](./endpoints.md)
 - [Error handling & retries](./error-handling.md)

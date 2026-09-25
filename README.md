@@ -11,6 +11,7 @@ This repository is the official **examples pack** for the [LawDiver API](https:/
 | **Product** | [lawdiver.com/products/api](https://lawdiver.com/products/api) |
 | **API docs** | [lawdiver.com/docs/api](https://lawdiver.com/docs/api) |
 | **Why it exists** | [Caselaw API for legal AI builders](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders) |
+| **Interactive tester** | [LawDiver_API_Tester](https://github.com/dumpsticks/LawDiver_API_Tester) — local UI for every endpoint |
 | **Base URL** | `https://lawdiver.com/api/v1` |
 | **Auth** | Bearer API key (`ld_live_...`) |
 | **Status** | Free during rollout · Plain REST · JSON (PDF where noted) |
@@ -41,6 +42,34 @@ Clone it, set a key, run an example, then copy the pattern into your product. Pr
 | **Python 3** | Also included | [`python/`](./python/) |
 | **cURL / shell** | Language-agnostic | [`curl/`](./curl/) |
 | **PowerShell** | Windows-native HTTP recipes | [`curl/powershell.md`](./curl/powershell.md) |
+
+---
+
+## Try it in a browser (local API tester)
+
+Want to poke every endpoint without wiring Postman or reading raw JSON first? Use the companion app:
+
+**[dumpsticks/LawDiver_API_Tester](https://github.com/dumpsticks/LawDiver_API_Tester)**
+
+It is a small **local FastAPI console** (Python) you run on your machine. Pick a function from a menu, fill only the inputs that jurisdiction/type actually require, then see:
+
+- a **human view** — case cards, cite-check verdicts, statute text, PDF downloads  
+- a **machine view** — exact request (method, URL, redacted auth, body) and the JSON that came back  
+
+Same Bearer key as this examples pack (`LAWDIVER_API_KEY`). Same public base URL `https://lawdiver.com/api/v1`. History stays in a local SQLite file — it does **not** touch LawDiver production databases.
+
+```bash
+git clone https://github.com/dumpsticks/LawDiver_API_Tester.git
+cd LawDiver_API_Tester
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env   # put your ld_live_… key in .env
+python run.py          # then open http://127.0.0.1:8765/
+```
+
+Get a key at [lawdiver.com/account/api-keys](https://lawdiver.com/account/api-keys) if you do not have one yet. Full walkthrough: the tester [README](https://github.com/dumpsticks/LawDiver_API_Tester#readme).
+
+When you are ready to embed LawDiver in your own product, come back here and copy the TypeScript or Python client patterns.
 
 ---
 
@@ -280,6 +309,7 @@ Examples in this repository are community-oriented integration samples. They are
 - [LawDiver home](https://lawdiver.com)
 - [API product](https://lawdiver.com/products/api)
 - [API documentation](https://lawdiver.com/docs/api)
+- [LawDiver API Tester](https://github.com/dumpsticks/LawDiver_API_Tester) -- local interactive console (human + machine views) for every v1 endpoint
 - [Testing the API](./docs/testing-the-api.md) -- six-category 5,300-cite benchmark (100% / 99.7% / 99% / 95% / 80% / unscored) + answer key
 - [Cite-check benchmark blog post](https://lawdiver.com/blog/citediver-5300-citation-benchmark)
 - [Builder blog post](https://lawdiver.com/blog/caselaw-api-for-legal-ai-builders)

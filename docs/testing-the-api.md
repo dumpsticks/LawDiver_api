@@ -37,4 +37,4 @@ curl -s https://lawdiver.com/api/v1/citecheck/cite \
   -d '{"citations":["Poole v. State, 846 So. 2d 370 (Ala. Crim. App. 2002)"]}'
 ```
 
-[Getting started](./getting-started.md) · [Endpoints](./endpoints.md)
+[Getting started](./getting-started.md) · [Endpoints](./endpoints.md) · [Interactive API Tester](https://github.com/dumpsticks/LawDiver_API_Tester) (local UI for cite-check and the rest of v1)
