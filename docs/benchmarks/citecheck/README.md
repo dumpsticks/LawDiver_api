@@ -1,6 +1,6 @@
-# Cite-check benchmark (combined 5,300)
+# Cite-check benchmark (combined 5,350)
 
-Public **test inputs** and **answer key** for one cite-check suite.
+Public **test inputs** and **answer key** for one cite-check suite. The combined file is the prior 5,300 plus 50 CLR-gap cites (`CLR-001` through `CLR-050`) appended on 2026-09-29. Those 50 are real cites absent from the August 2026 CourtListener bulk download. Score them as category 3 (clean real cites). A product that only loaded the bulk file fails them.
 
 Scored in **six accuracy categories**:
 
@@ -19,7 +19,9 @@ See **[Testing the API](../testing-the-api.md)** and:
 
 | File | Role |
 | --- | --- |
-| `5000citechecktest.md` / `.json` | **5,300** cites only |
+| `5000citechecktest.md` / `.json` | **5,350** cites only |
 | `5000citechecktest-ANSWER-KEY.md` / `.json` | Graded answers (including overruled treatment requirements) |
+| `clr-gap-50-citechecktest.md` / `.json` | The 50 CLR-gap cites alone |
+| `clr-gap-50-citechecktest-ANSWER-KEY.md` / `.json` | Answer key for those 50 |
 
 Report analyzed and correct counts per category. Keep Categories 4 and 5 separate. Mistake-level run artifacts are not published here.

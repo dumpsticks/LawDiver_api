@@ -1,0 +1,260 @@
+{
+  "id": "clr-gap-50-citechecktest",
+  "title": "CiteCheck CLR-gap 50",
+  "generatedAt": "2026-09-29T21:47:58.566Z",
+  "count": 50,
+  "answerKey": "clr-gap-50-citechecktest-ANSWER-KEY.json",
+  "note": "Cites absent from the August 2026 CourtListener bulk download and present in the LawDiver corpus as of 2026-09-29. Pass: the lookup opens this case. A product that only loaded the bulk file fails.",
+  "cases": [
+    {
+      "n": 1,
+      "id": "CLR-001",
+      "cite": "Glendale Shooting Club, Inc. v. Landolt, No. SC101187 (Mo. banc July 21, 2026)"
+    },
+    {
+      "n": 2,
+      "id": "CLR-002",
+      "cite": "Young v. State, No. SC101253 (Mo. banc July 7, 2026)"
+    },
+    {
+      "n": 3,
+      "id": "CLR-003",
+      "cite": "State v. Otis, No. SC101190 (Mo. banc June 23, 2026)"
+    },
+    {
+      "n": 4,
+      "id": "CLR-004",
+      "cite": "State v. Harris, No. SC101233 (Mo. banc June 23, 2026)"
+    },
+    {
+      "n": 5,
+      "id": "CLR-005",
+      "cite": "State v. Grissom, No. SD38986 (Mo. Ct. App. Aug. 20, 2026)"
+    },
+    {
+      "n": 6,
+      "id": "CLR-006",
+      "cite": "Hayes v. St. Louis County Police Department, No. ED113903 (Mo. Ct. App. Aug. 18, 2026)"
+    },
+    {
+      "n": 7,
+      "id": "CLR-007",
+      "cite": "In re H.H., 2026 N.H. 29 (N.H. 2026)"
+    },
+    {
+      "n": 8,
+      "id": "CLR-008",
+      "cite": "Royce v. State Farm Fire & Casualty Co., 2026 N.H. 28 (N.H. 2026)"
+    },
+    {
+      "n": 9,
+      "id": "CLR-009",
+      "cite": "Manutsom v. Town of Hollis, 2026 N.H. 27 (N.H. 2026)"
+    },
+    {
+      "n": 10,
+      "id": "CLR-010",
+      "cite": "State v. Montgomery, 2026 N.H. 24 (N.H. 2026)"
+    },
+    {
+      "n": 11,
+      "id": "CLR-011",
+      "cite": "State v. Freese, 2026 N.H. 18 (N.H. 2026)"
+    },
+    {
+      "n": 12,
+      "id": "CLR-012",
+      "cite": "Martell v. Gold Bess Shooting Club, LLC, 2026 N.H. 1 (N.H. 2026)"
+    },
+    {
+      "n": 13,
+      "id": "CLR-013",
+      "cite": "Dorsey v. Hearns, 433 So. 3d 481 (Fla. 1st DCA 2026)"
+    },
+    {
+      "n": 14,
+      "id": "CLR-014",
+      "cite": "Bright v. State, 432 So. 3d 485 (Fla. 2026)"
+    },
+    {
+      "n": 15,
+      "id": "CLR-015",
+      "cite": "Ruffenach v. Deutsche Bank National Trust Co., 431 So. 3d 1055 (Fla. 6th DCA 2026)"
+    },
+    {
+      "n": 16,
+      "id": "CLR-016",
+      "cite": "Hessert v. Hessert, 431 So. 3d 610 (Fla. 1st DCA 2026)"
+    },
+    {
+      "n": 17,
+      "id": "CLR-017",
+      "cite": "Lemos v. State, 431 So. 3d 599 (Fla. 1st DCA 2026)"
+    },
+    {
+      "n": 18,
+      "id": "CLR-018",
+      "cite": "Pantoja v. Francis, 431 So. 3d 593 (Fla. 3d DCA 2026)"
+    },
+    {
+      "n": 19,
+      "id": "CLR-019",
+      "cite": "Sheik Island Farm, Inc. v. Covington Farm, Inc., 429 So. 3d 1095 (Fla. 1st DCA 2026)"
+    },
+    {
+      "n": 20,
+      "id": "CLR-020",
+      "cite": "Loumpos v. Bank One, 423 So. 3d 856 (Fla. 2025)"
+    },
+    {
+      "n": 21,
+      "id": "CLR-021",
+      "cite": "People v. March, 886 N.W.2d 396 (Mich. 2016)"
+    },
+    {
+      "n": 22,
+      "id": "CLR-022",
+      "cite": "People v. Little, 885 N.W.2d 832 (Mich. 2016)"
+    },
+    {
+      "n": 23,
+      "id": "CLR-023",
+      "cite": "Bank of America, N.A. v. Fidelity National Title Insurance Co., 892 N.W.2d 467 (Mich. Ct. App. 2016)"
+    },
+    {
+      "n": 24,
+      "id": "CLR-024",
+      "cite": "In re Interest of Jessalina M., 997 N.W.2d 778 (Neb. 2023)"
+    },
+    {
+      "n": 25,
+      "id": "CLR-025",
+      "cite": "State v. Earnest, 997 N.W.2d 589 (Neb. 2023)"
+    },
+    {
+      "n": 26,
+      "id": "CLR-026",
+      "cite": "State v. Esch, 997 N.W.2d 569 (Neb. 2023)"
+    },
+    {
+      "n": 27,
+      "id": "CLR-027",
+      "cite": "Npimnee v. Shiffermiller, 36 N.W.3d 503 (Neb. 2026)"
+    },
+    {
+      "n": 28,
+      "id": "CLR-028",
+      "cite": "State v. Reeves, 35 N.W.3d 46 (Neb. 2026)"
+    },
+    {
+      "n": 29,
+      "id": "CLR-029",
+      "cite": "State v. White, 32 N.W.3d 256 (Neb. 2026)"
+    },
+    {
+      "n": 30,
+      "id": "CLR-030",
+      "cite": "Pinpoint Communications v. Gage County, 37 N.W.3d 178 (Neb. 2026)"
+    },
+    {
+      "n": 31,
+      "id": "CLR-031",
+      "cite": "Levine v. Levine, 355 A.3d 1144 (Conn. App. Ct. 2026)"
+    },
+    {
+      "n": 32,
+      "id": "CLR-032",
+      "cite": "State v. Anthony V., 350 A.3d 1128 (Conn. 2026)"
+    },
+    {
+      "n": 33,
+      "id": "CLR-033",
+      "cite": "Walton v. Walton, 352 A.3d 202 (Conn. 2026)"
+    },
+    {
+      "n": 34,
+      "id": "CLR-034",
+      "cite": "Moon v. Commissioner of Correction, 350 A.3d 496 (Conn. 2026)"
+    },
+    {
+      "n": 35,
+      "id": "CLR-035",
+      "cite": "Aleo v. SLB Toys USA, Inc., 995 N.E.2d 740 (Mass. 2013)"
+    },
+    {
+      "n": 36,
+      "id": "CLR-036",
+      "cite": "Commonwealth v. Santana, 82 N.E.3d 986 (Mass. 2017)"
+    },
+    {
+      "n": 37,
+      "id": "CLR-037",
+      "cite": "Depianti v. Jan-Pro Franchising International, Inc., 990 N.E.2d 1054 (Mass. 2013)"
+    },
+    {
+      "n": 38,
+      "id": "CLR-038",
+      "cite": "Commissioners of the Bristol County Mosquito Control District v. State Reclamation & Mosquito Control Board, 997 N.E.2d 1188 (Mass. 2013)"
+    },
+    {
+      "n": 39,
+      "id": "CLR-039",
+      "cite": "Hill v. State, 913 S.E.2d 547 (Ga. 2025)"
+    },
+    {
+      "n": 40,
+      "id": "CLR-040",
+      "cite": "Bowdery v. State, 917 S.E.2d 718 (Ga. 2025)"
+    },
+    {
+      "n": 41,
+      "id": "CLR-041",
+      "cite": "Arnsdorff v. State, 917 S.E.2d 599 (Ga. 2025)"
+    },
+    {
+      "n": 42,
+      "id": "CLR-042",
+      "cite": "State v. Brienza, 350 Ga. App. 672 (Ga. Ct. App. 2019)"
+    },
+    {
+      "n": 43,
+      "id": "CLR-043",
+      "cite": "State v. Duncan, 351 Ga. App. 332 (Ga. Ct. App. 2019)"
+    },
+    {
+      "n": 44,
+      "id": "CLR-044",
+      "cite": "State v. Hutchings, 588 P.3d 241 (Or. 2026)"
+    },
+    {
+      "n": 45,
+      "id": "CLR-045",
+      "cite": "Sheppard v. Progressive Classic Insurance Co., 590 P.3d 958 (Or. 2026)"
+    },
+    {
+      "n": 46,
+      "id": "CLR-046",
+      "cite": "Dean v. Multnomah County, 590 P.3d 546 (Or. Ct. App. 2026)"
+    },
+    {
+      "n": 47,
+      "id": "CLR-047",
+      "cite": "In re Marriage of Fial, 591 P.3d 253 (Or. Ct. App. 2026)"
+    },
+    {
+      "n": 48,
+      "id": "CLR-048",
+      "cite": "State v. Cheever, 375 P.3d 979 (Kan. 2016)"
+    },
+    {
+      "n": 49,
+      "id": "CLR-049",
+      "cite": "In re Parentage of E.A., 319 Kan. 748 (Kan. 2024)"
+    },
+    {
+      "n": 50,
+      "id": "CLR-050",
+      "cite": "People v. Solomon, 208 N.E.3d 78 (N.Y. 2023)"
+    }
+  ]
+}
