@@ -11,6 +11,7 @@ import type {
   DocumentJobStatus,
   DocumentCiteCheckStartOptions,
   GoodLawResponse,
+  GoodlawCheckResponse,
   JurisdictionsResponse,
   ResolveCitationResponse,
   RetrieveResponse,
@@ -175,6 +176,24 @@ export class LawDiverClient {
 
   async goodLaw(caseId: string): Promise<GoodLawResponse> {
     return this.request<GoodLawResponse>("GET", `/cases/${encodeURIComponent(caseId)}/good-law`);
+  }
+
+  /**
+   * Citing cases with treatment status. A reversal is first when one exists,
+   * then the newest cite. `limit` defaults to 10 on the server when omitted.
+   */
+  async goodlawCheck(
+    caseId: string,
+    opts: { limit?: "10" | "50" | "100" | "unlimited"; order?: "recent" | "negative" } = {},
+  ): Promise<GoodlawCheckResponse> {
+    const q = new URLSearchParams();
+    if (opts.limit != null) q.set("limit", opts.limit);
+    if (opts.order != null) q.set("order", opts.order);
+    const qs = q.toString();
+    return this.request<GoodlawCheckResponse>(
+      "GET",
+      `/cases/${encodeURIComponent(caseId)}/goodlaw-check${qs ? `?${qs}` : ""}`,
+    );
   }
 
   async citedBy(

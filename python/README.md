@@ -48,6 +48,7 @@ python examples/04_document_cite_check.py path/to/brief.pdf
 python examples/05_agent_search.py
 python examples/06_usage.py
 python examples/07_good_law_cited_by.py
+python examples/09_goodlaw_check.py
 ```
 
 ## Tests

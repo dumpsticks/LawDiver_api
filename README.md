@@ -103,6 +103,7 @@ Full narrative: [docs/about-lawdiver.md](./docs/about-lawdiver.md).
 | **Case metadata** | `GET /cases/:id` | Metadata for opinion or cluster id |
 | **Case batch** | `POST /cases/batch` | Up to 50 ids in one call |
 | **Good-law detail** | `GET /cases/:id/good-law` | Status + negative treatment citations |
+| **Goodlaw check** | `GET /cases/:id/goodlaw-check` | Citing cases with status. Reversal first, then the newest cite. `limit` 10/50/100/unlimited, `order` recent or negative |
 | **Cited by** | `GET /cases/:id/cited-by` | Paginated citing cases |
 | **Case PDF** | `GET /cases/:id/pdf` | Opinion PDF + processing/analysis appendix |
 | **Usage ledger** | `GET /usage` | Volume by operation + your rate limits |
@@ -278,12 +279,13 @@ LawDiver_api/
 | Agent-oriented search | [`05-agent-search.ts`](./typescript/examples/05-agent-search.ts) | [`05_agent_search.py`](./python/examples/05_agent_search.py) |
 | Usage + discovery | [`06-usage.ts`](./typescript/examples/06-usage.ts) | [`06_usage.py`](./python/examples/06_usage.py) |
 | Good-law + cited-by | [`07-good-law-cited-by.ts`](./typescript/examples/07-good-law-cited-by.ts) | [`07_good_law_cited_by.py`](./python/examples/07_good_law_cited_by.py) |
+| Goodlaw check | [`09-goodlaw-check.ts`](./typescript/examples/09-goodlaw-check.ts) | [`09_goodlaw_check.py`](./python/examples/09_goodlaw_check.py) |
 
 ---
 
 ## Pricing, limits, and support
 
-- **Free during the current rollout.** Usage rows still appear (`costCents` may be `0`).
+- **Free during the current rollout.** Usage rows still appear. A completed Goodlaw check records one unit at **3¢** on the reserved schedule (`goodlaw_check`). A missing case is not charged.
 - Default-ish ceiling: on the order of **60 requests/minute** per account (confirm via `GET /usage` -> `yourPricing.rateLimitPerMinute`).
 - Need a higher ceiling or another key? Ask -- those are per-account settings, not plan tiers.
 - Support: include the response **`requestId`** so LawDiver can jump to the exact ledger/log row.

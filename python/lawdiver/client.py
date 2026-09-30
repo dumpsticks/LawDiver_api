@@ -165,6 +165,14 @@ class LawDiverClient:
     def good_law(self, case_id: str) -> Any:
         return self._request("GET", f"/cases/{case_id}/good-law")
 
+    def goodlaw_check(self, case_id: str, *, limit: str = "10", order: str = "recent") -> Any:
+        """Citing cases with treatment status. limit: 10, 50, 100, or unlimited. order: recent or negative."""
+        return self._request(
+            "GET",
+            f"/cases/{case_id}/goodlaw-check",
+            params={"limit": limit, "order": order},
+        )
+
     def cited_by(self, case_id: str, *, limit: int = 25, offset: int = 0) -> Any:
         return self._request("GET", f"/cases/{case_id}/cited-by", params={"limit": limit, "offset": offset})
 

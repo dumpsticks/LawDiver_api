@@ -27,6 +27,7 @@ npm run example:document   # needs path to a PDF/DOCX as argv
 npm run example:agent
 npm run example:usage
 npm run example:good-law
+npm run example:goodlaw-check
 ```
 
 ## Tests

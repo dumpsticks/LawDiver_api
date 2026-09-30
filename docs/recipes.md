@@ -151,7 +151,8 @@ See: `06-usage` examples.
 ## Recipe I -- Treatment graph lite
 
 1. Search or retrieve to obtain `caseId`
-2. `GET /cases/:id/good-law` for negative citations
-3. `GET /cases/:id/cited-by?limit=25&offset=0` for forward citations
+2. `GET /cases/:id/goodlaw-check?limit=10&order=recent` for citing cases with status (reversal first, then the newest cite)
+3. `GET /cases/:id/good-law` for the stored good-law summary
+4. `GET /cases/:id/cited-by?limit=25&offset=0` for a plain recency page
 
-See: `07-good-law-cited-by` examples.
+See: `09-goodlaw-check` and `07-good-law-cited-by` examples.

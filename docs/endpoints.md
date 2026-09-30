@@ -231,6 +231,31 @@ Status plus `negativeCitations`.
 
 ---
 
+## Goodlaw check
+
+### `GET /cases/:id/goodlaw-check?limit=10&order=recent`
+
+Citing cases with a `status` on each row (`overruled`, `questioned`, `followed`, `cited`, and the rest of the treatment vocabulary). When no treatment was recorded, `status` is `not adverse`. An explicit `cited` stays `cited`.
+
+`:id` may be an opinion id or a cluster id. Resolve a reporter cite first (`POST /citations/resolve` or `POST /cases/retrieve`), then pass `caseId`.
+
+| Query | Values | Default |
+| --- | --- | --- |
+| `limit` | `10`, `50`, `100`, `unlimited` | `10` |
+| `order` | `recent`, `negative` | `recent` |
+
+`limit` is the total number of names returned. Other values are `invalid_request`.
+
+`citingCases` is ordered like this, with no duplicate case:
+
+1. The newest reversal, when one exists (`pin` `reversal`). A reversal is a citing case whose treatment is in the overruling family (`overruled`, `reversed`, `vacated`, `abrogated`, `superseded`, including `overruled_in_part`). `status` is still that verb.
+2. The newest citing case, any treatment (`pin` `mostRecent`). If there is no reversal, this is the first row. If the newest cite is the reversal, it stays first only. On `order=negative` this row stays even when its status is `not adverse`.
+3. The rest. `recent` is newest citing cases first. `negative` is negative treatments only (`overruled`, `reversed`, `vacated`, `abrogated`, `superseded`, `questioned`, `criticized`, `limited`, `distinguished`), newest first.
+
+`total` is the stored citing-case count for `recent`, and the count of citing cases with a negative treatment for `negative`. `citingCaseId` is the public opinion id of the citing case. A completed check is one unit (`operation` `goodlaw_check`) at **3¢** on the reserved schedule. The citing-case count does not change the charge. A missing case is not charged. While the API is free, the ledger still records that unit. `unlimited` can return `service_unavailable` on the same soft deadline as cited-by; retry with `limit=100`. That timeout is not charged.
+
+---
+
 ## Cited by
 
 ### `GET /cases/:id/cited-by?limit=25&offset=0`

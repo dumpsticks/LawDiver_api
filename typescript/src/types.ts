@@ -401,6 +401,26 @@ export interface GoodLawResponse extends GoodLawSummary {
   requestId: string;
 }
 
+export interface GoodlawCheckItem {
+  citingCaseId: string;
+  caseName: string;
+  citation?: string | null;
+  dateFiled?: string | null;
+  /** Treatment verb, or "not adverse" when no status was recorded. */
+  status: string;
+  pin?: "reversal" | "mostRecent" | null;
+}
+
+export interface GoodlawCheckResponse {
+  caseId: string;
+  order: "recent" | "negative";
+  limit: "10" | "50" | "100" | "unlimited";
+  total: number;
+  citingCases: GoodlawCheckItem[];
+  usage?: UsageBlock;
+  requestId: string;
+}
+
 export interface CitedByItem {
   caseId: string;
   caseName?: string;

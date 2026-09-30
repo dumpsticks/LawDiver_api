@@ -131,6 +131,15 @@ describe("LawDiverClient", () => {
           usage: { operation: "case_batch", quantity: 1 },
           requestId: "req_x",
         };
+      } else if (url.includes("/goodlaw-check")) {
+        body = {
+          caseId: "1",
+          order: "recent",
+          limit: "10",
+          total: 1,
+          citingCases: [{ citingCaseId: "2", caseName: "Dobbs", status: "overruled", pin: "reversal" }],
+          requestId: "req_x",
+        };
       } else if (url.includes("/good-law")) {
         body = {
           status: "good_law",
@@ -159,5 +168,9 @@ describe("LawDiverClient", () => {
 
     const gl = await client.goodLaw("1");
     assert.equal(gl.negative, false);
+
+    const check = await client.goodlawCheck("1", { limit: "10", order: "recent" });
+    assert.equal(check.citingCases[0]?.status, "overruled");
+    assert.equal(check.citingCases[0]?.pin, "reversal");
   });
 });

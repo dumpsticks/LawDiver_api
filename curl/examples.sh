@@ -138,6 +138,14 @@ cmd_cited_by() {
   echo
 }
 
+cmd_goodlaw_check() {
+  need_key
+  local id="${1:-2812209}"
+  echo "== GET /cases/${id}/goodlaw-check =="
+  curl -sS "${auth[@]}" "${BASE}/cases/${id}/goodlaw-check?limit=10&order=recent"
+  echo
+}
+
 cmd_pdf() {
   need_key
   local id="${1:-2812209}"
@@ -207,6 +215,7 @@ case "${1:-all}" in
   statute) cmd_statute ;;
   resolve) cmd_resolve ;;
   good-law) cmd_good_law "${2:-}" ;;
+  goodlaw-check) cmd_goodlaw_check "${2:-}" ;;
   cited-by) cmd_cited_by "${2:-}" ;;
   pdf) cmd_pdf "${2:-}" "${3:-}" ;;
   document) cmd_document "${2:-}" ;;
@@ -214,7 +223,7 @@ case "${1:-all}" in
   all) cmd_all ;;
   *)
     echo "Unknown command: $1" >&2
-    echo "Commands: all discovery usage jurisdictions search agent cite retrieve statute resolve good-law cited-by pdf document document-email" >&2
+    echo "Commands: all discovery usage jurisdictions search agent cite retrieve statute resolve good-law goodlaw-check cited-by pdf document document-email" >&2
     exit 1
     ;;
 esac
